@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Hungarian
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "OK";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "Kész";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "Hiba történt, Kérjük, próbálja újra.";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "Ezt a kártyamárkát/ típust ";
+"Error_Card_Type_Not_Supported_2" = " ennél a tranzakciónál jelenleg nem támogatjuk. Kérjük, próbálkozzon újra egy másik kártyával";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "Hiba történt, Kérjük, próbálja újra.";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "Hiba történt, Kérjük, próbálja újra.";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "Hiba történt, Kérjük, próbálja újra.";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "Hibás kártyaszám";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "Hibás CVV";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "Hibás hónap";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "Múltbeli dátum";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "Hibás dátum";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "Kérjük, adja meg a teljes nevét";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "Hibás e-mail";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "Hibás utca";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "Hibás város";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "Hibás ország";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "Hibás állam";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "Hibás irányítószám";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "Hibás irányítószám";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "Számlázási irányítószám";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "Szállítási irányítószám";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "Irányítószám";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "Fizetés típusa";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "VAGY";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "Vissza";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "PayPal hiba";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "Ezt a pénznemet nem támogatja a PayPal.";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "Nem sikerült kapcsolódni a PayPal-hez";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "Nem elérhető ezen az eszközön";
+"Error_No_cards_set" = "Nincs kártya beállítva";
+"Error_Setup_error" = "Nem lehet kapcsolódni az Apple Pay-hez. Kérlek, válasszon ki másik fizetési módot.";
+"Error_General_ApplePay_error" = "Nem lehet kapcsolódni az Apple Pay-hez";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "Oopsz";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "Hiba történt, kérjük, próbálja újra";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "Fizetés";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "Név";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "E-mail";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "Cím";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "Város";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "Állam";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "Összes:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "Adó:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "A szállítási cím megegyezik a számlázásival";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "A kártyámat biztonságosan tárolja";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "Fizetés %@ %.2f";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "Szállítás >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "Iratkozz fel";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "Iratkozz fel %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "Pénznem";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "Mégse";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "Szállítás";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "Telefon";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "Pénznem kiválasztása";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "Ország kiválasztása";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "Állam kiválasztása";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "Számlázás";
+
+/* Shipping title */
+"Label_Shipping" = "Szállítás";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";

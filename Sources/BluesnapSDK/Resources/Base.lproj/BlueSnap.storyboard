@@ -1,0 +1,1224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Country-->
+        <scene sceneID="xEC-pU-5Oa">
+            <objects>
+                <viewController storyboardIdentifier="BSCountriesStoryboardId" title="Select Country" id="Cnt-Wb-Tw2" customClass="BSCountryViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QuX-Rp-J6V"/>
+                        <viewControllerLayoutGuide type="bottom" id="t7U-xS-hlt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="85X-D6-3iM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="3Ep-JQ-pQu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vDQ-J8-b8o"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Cnt-Wb-Tw2" id="F90-Pn-JC2"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-Mf-mQv">
+                                <rect key="frame" x="20" y="88" width="335" height="579"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryTableViewCell" rowHeight="40" id="jmW-2z-Xb6" customClass="BSCountryTableViewCell" customModule="BluesnapSDK">
+                                        <rect key="frame" x="0.0" y="55.5" width="335" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jmW-2z-Xb6" id="geS-dI-qMo">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0G-ax-3BT">
+                                                    <rect key="frame" x="0.0" y="12" width="28" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="ItemUILabel" text="Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBQ-PP-rh2">
+                                                    <rect key="frame" x="29" y="6" width="278" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue_check_mark" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-Oi-nQ3" userLabel="checkMark">
+                                                    <rect key="frame" x="306" y="15" width="15" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                    </accessibility>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="CountryViewCell"/>
+                                        <connections>
+                                            <outlet property="checkMarkImageView" destination="Eic-Oi-nQ3" id="aX7-r0-FFB"/>
+                                            <outlet property="flagImageView" destination="g0G-ax-3BT" id="lpo-9N-Vv7"/>
+                                            <outlet property="itemNameUILabel" destination="wBQ-PP-rh2" id="goG-0Z-xmG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cnt-Wb-Tw2" id="zUC-dO-4pf"/>
+                                    <outlet property="delegate" destination="Cnt-Wb-Tw2" id="YNg-p4-REK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="SelectCountryView"/>
+                        <constraints>
+                            <constraint firstItem="3Ep-JQ-pQu" firstAttribute="leading" secondItem="85X-D6-3iM" secondAttribute="leadingMargin" constant="-16" id="Czq-TI-LKr"/>
+                            <constraint firstAttribute="trailing" secondItem="Js1-Mf-mQv" secondAttribute="trailing" constant="20" symbolic="YES" id="IbR-ss-2O3"/>
+                            <constraint firstItem="3Ep-JQ-pQu" firstAttribute="centerX" secondItem="85X-D6-3iM" secondAttribute="centerX" id="Jp9-CZ-taw"/>
+                            <constraint firstItem="3Ep-JQ-pQu" firstAttribute="top" secondItem="QuX-Rp-J6V" secondAttribute="bottom" id="MxS-XR-RCp"/>
+                            <constraint firstItem="Js1-Mf-mQv" firstAttribute="top" secondItem="3Ep-JQ-pQu" secondAttribute="bottom" id="iXw-he-hSG"/>
+                            <constraint firstItem="Js1-Mf-mQv" firstAttribute="leading" secondItem="85X-D6-3iM" secondAttribute="leading" constant="20" symbolic="YES" id="ons-M0-pOn"/>
+                            <constraint firstItem="t7U-xS-hlt" firstAttribute="top" secondItem="Js1-Mf-mQv" secondAttribute="bottom" id="zqU-YK-vQX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Country" id="C39-tG-WiX"/>
+                    <connections>
+                        <outlet property="searchBar" destination="3Ep-JQ-pQu" id="feb-Th-Gl6"/>
+                        <outlet property="tableView" destination="Js1-Mf-mQv" id="A3S-Re-ecX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2d-uf-6vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3425" y="1091"/>
+        </scene>
+        <!--Shipping-->
+        <scene sceneID="rbP-bj-wQc">
+            <objects>
+                <viewController storyboardIdentifier="BSShippingDetailsScreen" title="Shipping" id="PPS-Pq-6Wu" userLabel="Shipping" customClass="BSShippingViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGu-wC-psG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wqo-FT-qWo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KnJ-zC-fwY" userLabel="Shipping">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiT-2P-8ND">
+                                <rect key="frame" x="0.0" y="44" width="375" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjb-2n-SG7" userLabel="Fields View">
+                                        <rect key="frame" x="0.0" y="0.0" width="371" height="400"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tf-NL-jP3" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="20" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingName"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="IL"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="labelBkdColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="PPS-Pq-6Wu" eventType="editingDidBegin" id="yyh-Xt-HOQ"/>
+                                                    <action selector="flagTouchUpInside:" destination="PPS-Pq-6Wu" eventType="touchUpInside" id="G9f-Yn-TyQ"/>
+                                                    <action selector="nameEditingChanged:" destination="PPS-Pq-6Wu" eventType="editingChanged" id="PJr-fd-Lon"/>
+                                                    <action selector="nameEditingDidEnd:" destination="PPS-Pq-6Wu" eventType="editingDidEnd" id="y0Q-RU-Oq9"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GX-8o-fbs" userLabel="Zip Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="64" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingZip"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="PPS-Pq-6Wu" eventType="editingDidBegin" id="yza-e3-oxC"/>
+                                                    <action selector="zipEditingChanged:" destination="PPS-Pq-6Wu" eventType="editingChanged" id="9CM-dg-qYG"/>
+                                                    <action selector="zipEditingDidEnd:" destination="PPS-Pq-6Wu" eventType="editingDidEnd" id="g6C-zH-XDa"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMo-vo-Aht" userLabel="Address Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="108" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingAddress"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressEditingChanged:" destination="PPS-Pq-6Wu" eventType="editingChanged" id="tRO-pj-qne"/>
+                                                    <action selector="addressEditingDidBegin:" destination="PPS-Pq-6Wu" eventType="editingDidBegin" id="L5p-mb-EKn"/>
+                                                    <action selector="addressEditingDidEnd:" destination="PPS-Pq-6Wu" eventType="editingDidEnd" id="iDh-Ub-8b9"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8Q-CA-XJP" userLabel="City Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="152" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingCity"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cityEditingChanged:" destination="PPS-Pq-6Wu" eventType="editingChanged" id="vNS-gh-mJI"/>
+                                                    <action selector="cityEditingDidEnd:" destination="PPS-Pq-6Wu" eventType="editingDidEnd" id="wQh-cu-NlD"/>
+                                                    <action selector="editingDidBegin:" destination="PPS-Pq-6Wu" eventType="editingDidBegin" id="lTA-Or-Nb5"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-kG-IzH" userLabel="State Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="196" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingState"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="PPS-Pq-6Wu" eventType="editingDidBegin" id="xuB-Xr-C5G"/>
+                                                    <action selector="stateTouchUpInside:" destination="PPS-Pq-6Wu" eventType="touchUpInside" id="gft-FF-jWL"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="jMo-vo-Aht" firstAttribute="leading" secondItem="Xjb-2n-SG7" secondAttribute="leading" constant="20" symbolic="YES" id="1kt-GN-hUH"/>
+                                            <constraint firstItem="Qye-kG-IzH" firstAttribute="top" secondItem="M8Q-CA-XJP" secondAttribute="bottom" constant="1" id="4KO-NQ-Nne"/>
+                                            <constraint firstAttribute="trailing" secondItem="M8Q-CA-XJP" secondAttribute="trailing" constant="16" id="4PM-5i-3aO"/>
+                                            <constraint firstItem="M8Q-CA-XJP" firstAttribute="leading" secondItem="Xjb-2n-SG7" secondAttribute="leading" constant="20" symbolic="YES" id="73Y-B8-Ryk"/>
+                                            <constraint firstItem="7GX-8o-fbs" firstAttribute="leading" secondItem="Xjb-2n-SG7" secondAttribute="leading" constant="20" symbolic="YES" id="860-Ng-qFM"/>
+                                            <constraint firstItem="5Tf-NL-jP3" firstAttribute="leading" secondItem="Xjb-2n-SG7" secondAttribute="leading" constant="20" symbolic="YES" id="Ibg-bc-FdR"/>
+                                            <constraint firstItem="Qye-kG-IzH" firstAttribute="leading" secondItem="Xjb-2n-SG7" secondAttribute="leading" constant="20" symbolic="YES" id="LWW-In-Bsf"/>
+                                            <constraint firstAttribute="trailing" secondItem="jMo-vo-Aht" secondAttribute="trailing" constant="16" id="NN1-g5-NZB"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qye-kG-IzH" secondAttribute="trailing" constant="16" id="QTa-CE-eWB"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Tf-NL-jP3" secondAttribute="trailing" constant="16" id="VjE-Q7-7nw"/>
+                                            <constraint firstItem="7GX-8o-fbs" firstAttribute="top" secondItem="5Tf-NL-jP3" secondAttribute="bottom" constant="1" id="bm4-kJ-i1c"/>
+                                            <constraint firstItem="Qye-kG-IzH" firstAttribute="top" secondItem="M8Q-CA-XJP" secondAttribute="bottom" constant="1" id="hZc-6q-NlO"/>
+                                            <constraint firstItem="5Tf-NL-jP3" firstAttribute="top" secondItem="Xjb-2n-SG7" secondAttribute="top" constant="20" symbolic="YES" id="j2I-GE-Xvx"/>
+                                            <constraint firstItem="jMo-vo-Aht" firstAttribute="top" secondItem="7GX-8o-fbs" secondAttribute="bottom" constant="1" id="vnx-Xb-LVM"/>
+                                            <constraint firstAttribute="trailing" secondItem="7GX-8o-fbs" secondAttribute="trailing" constant="16" id="w4a-SO-IrB"/>
+                                            <constraint firstItem="M8Q-CA-XJP" firstAttribute="top" secondItem="jMo-vo-Aht" secondAttribute="bottom" constant="1" id="zbf-pL-a2k"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xjb-2n-SG7" firstAttribute="centerY" secondItem="BiT-2P-8ND" secondAttribute="centerY" id="3YT-NZ-N1u"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xjb-2n-SG7" secondAttribute="trailing" constant="4" id="7kC-P6-hQp"/>
+                                    <constraint firstItem="Xjb-2n-SG7" firstAttribute="centerX" secondItem="BiT-2P-8ND" secondAttribute="centerX" constant="-2" id="8c7-z1-a3S"/>
+                                    <constraint firstItem="Xjb-2n-SG7" firstAttribute="top" secondItem="BiT-2P-8ND" secondAttribute="top" id="W6m-lm-H7w"/>
+                                    <constraint firstItem="Xjb-2n-SG7" firstAttribute="leading" secondItem="BiT-2P-8ND" secondAttribute="leading" id="cd8-L5-WHE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xjb-2n-SG7" secondAttribute="bottom" constant="-64" id="rzp-GY-bAz"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-64" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAV-S1-BNT" customClass="BSSubtotalUIView" customModule="BluesnapSDK">
+                                <rect key="frame" x="119" y="559" width="240" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ShippingSubtotalAndTaxView"/>
+                            </view>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFE-br-NNC">
+                                <rect key="frame" x="0.0" y="602" width="375" height="65"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ShippingPayButton"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="xIM-JF-Nt4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Pay $100">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SubmitClick:" destination="PPS-Pq-6Wu" eventType="touchUpInside" id="Hu1-9g-tJS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jMo-vo-Aht" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="43/667" id="1cb-ng-Cpb"/>
+                            <constraint firstItem="lFE-br-NNC" firstAttribute="top" secondItem="zAV-S1-BNT" secondAttribute="bottom" constant="3" id="5Kh-DF-bHQ"/>
+                            <constraint firstItem="7GX-8o-fbs" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="43/667" id="9qJ-I3-WbU"/>
+                            <constraint firstItem="BiT-2P-8ND" firstAttribute="leading" secondItem="KnJ-zC-fwY" secondAttribute="leadingMargin" constant="-16" id="Anb-um-E8p"/>
+                            <constraint firstItem="zAV-S1-BNT" firstAttribute="width" secondItem="KnJ-zC-fwY" secondAttribute="width" multiplier="240/375" id="Bjg-nb-YCF"/>
+                            <constraint firstItem="Qye-kG-IzH" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="43/667" id="HCE-FK-CPW"/>
+                            <constraint firstAttribute="trailing" secondItem="lFE-br-NNC" secondAttribute="trailing" id="KL5-f6-mhF"/>
+                            <constraint firstItem="5Tf-NL-jP3" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="43/667" id="W24-M0-bea"/>
+                            <constraint firstItem="lFE-br-NNC" firstAttribute="leading" secondItem="KnJ-zC-fwY" secondAttribute="leading" id="ZZd-aT-3Ye"/>
+                            <constraint firstItem="BiT-2P-8ND" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="400/667" id="cBP-7k-Rni"/>
+                            <constraint firstItem="zAV-S1-BNT" firstAttribute="trailing" secondItem="KnJ-zC-fwY" secondAttribute="trailingMargin" id="hhB-Px-tjh"/>
+                            <constraint firstItem="lFE-br-NNC" firstAttribute="bottom" secondItem="Wqo-FT-qWo" secondAttribute="top" id="jH2-cV-lEZ"/>
+                            <constraint firstItem="BiT-2P-8ND" firstAttribute="top" secondItem="gGu-wC-psG" secondAttribute="bottom" id="jrQ-EU-SOH"/>
+                            <constraint firstItem="BiT-2P-8ND" firstAttribute="centerX" secondItem="lFE-br-NNC" secondAttribute="centerX" id="oyY-iX-GK9"/>
+                            <constraint firstItem="M8Q-CA-XJP" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="43/667" id="vN0-E7-HVq"/>
+                            <constraint firstItem="zAV-S1-BNT" firstAttribute="height" secondItem="KnJ-zC-fwY" secondAttribute="height" multiplier="40/667" id="vQE-tt-Nly"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Shipping" id="fu9-sO-bVo"/>
+                    <connections>
+                        <outlet property="addressInputLine" destination="jMo-vo-Aht" id="3XO-UG-1RJ"/>
+                        <outlet property="cityInputLine" destination="M8Q-CA-XJP" id="gDI-cN-8tC"/>
+                        <outlet property="fieldsView" destination="Xjb-2n-SG7" id="Bd2-zq-zjH"/>
+                        <outlet property="nameInputLine" destination="5Tf-NL-jP3" id="smj-ra-V3T"/>
+                        <outlet property="payUIButton" destination="lFE-br-NNC" id="X1a-Qu-bCK"/>
+                        <outlet property="scrollView" destination="BiT-2P-8ND" id="anU-3o-hb0"/>
+                        <outlet property="stateInputLine" destination="Qye-kG-IzH" id="UsF-BN-FWV"/>
+                        <outlet property="subtotalAndTaxDetailsView" destination="zAV-S1-BNT" id="EQv-w1-e5B"/>
+                        <outlet property="zipInputLine" destination="7GX-8o-fbs" id="iHa-fe-ugP"/>
+                        <outlet property="zipTopConstraint" destination="bm4-kJ-i1c" id="02q-T3-aK9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfL-eJ-YBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421.25" y="339.08450704225351"/>
+        </scene>
+        <!--Payment Type-->
+        <scene sceneID="urS-zv-Kno">
+            <objects>
+                <viewController storyboardIdentifier="BSStartScreenStoryboardId" id="f14-WO-daN" customClass="BSStartViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gFH-Ws-TOv"/>
+                        <viewControllerLayoutGuide type="bottom" id="eHe-8q-iEE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zLN-4V-elS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkL-LM-R7b" userLabel="Centered View">
+                                <rect key="frame" x="0.0" y="72" width="375" height="523"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tF0-LC-ldx" userLabel="NewCard" customClass="BSPaymentTypeView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="28" y="130" width="320" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="CcButton">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Card_button"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <real key="value" value="110"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconHeight">
+                                                <real key="value" value="36"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ccDetailsClick:" destination="f14-WO-daN" eventType="touchUpInside" id="k0R-Pl-r2V"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdE-7E-j3h" userLabel="PayPal" customClass="BSPaymentTypeView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="28" y="201" width="320" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PayPalButton">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="paypal_button"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <real key="value" value="46"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconHeight">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="payPalClicked:" destination="f14-WO-daN" eventType="touchUpInside" id="JrI-yK-9Su"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGx-VW-DNT" userLabel="ApplePay" customClass="BSApplePayPaymentTypeView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="28" y="58" width="320" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ApplePayButton">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <integer key="value" value="320"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconHeight">
+                                                <integer key="value" value="41"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="applePayClick:" destination="f14-WO-daN" eventType="touchUpInside" id="QGv-1a-KiA"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="523" id="GgR-si-gsF"/>
+                                    <constraint firstAttribute="width" constant="375" id="yH5-Vt-wSa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FkL-LM-R7b" firstAttribute="centerY" secondItem="zLN-4V-elS" secondAttribute="centerY" id="vKO-Rl-vVH"/>
+                            <constraint firstItem="FkL-LM-R7b" firstAttribute="centerX" secondItem="zLN-4V-elS" secondAttribute="centerX" id="w1X-n8-IYq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Payment Type" id="Py8-S0-Quf"/>
+                    <connections>
+                        <outlet property="applePayButton" destination="uGx-VW-DNT" id="TeJ-dk-BhU"/>
+                        <outlet property="ccnButton" destination="tF0-LC-ldx" id="gA0-9d-nh8"/>
+                        <outlet property="centeredView" destination="FkL-LM-R7b" id="Wre-WY-Jla"/>
+                        <outlet property="payPalButton" destination="zdE-7E-j3h" id="pAw-hl-jad"/>
+                        <segue destination="GdF-z9-L8H" kind="show" identifier="placeholder identifier" id="1KG-Ig-ECE"/>
+                        <segue destination="W0G-M6-3dM" kind="show" identifier="placeholder identifier" id="rfc-7Z-z7N"/>
+                        <segue destination="lhw-wu-tEn" kind="show" identifier="placeholder identifier" id="7e7-yj-5Ow"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7q-E5-0yv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2679.1999999999998" y="-380.95952023988008"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Jh7-rO-NOj">
+            <objects>
+                <viewController storyboardIdentifier="BSWebViewController" id="GdF-z9-L8H" customClass="BSWebViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBE-RF-26P"/>
+                        <viewControllerLayoutGuide type="bottom" id="cwg-QC-gXn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KOa-3i-rgh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVX-U6-30z">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="WebViewView"/>
+                        <constraints>
+                            <constraint firstItem="cwg-QC-gXn" firstAttribute="top" secondItem="LVX-U6-30z" secondAttribute="bottom" id="BbK-qJ-17n"/>
+                            <constraint firstAttribute="trailing" secondItem="LVX-U6-30z" secondAttribute="trailing" id="Kow-84-vtI"/>
+                            <constraint firstItem="LVX-U6-30z" firstAttribute="leading" secondItem="KOa-3i-rgh" secondAttribute="leading" id="neW-FR-wng"/>
+                            <constraint firstItem="LVX-U6-30z" firstAttribute="top" secondItem="eBE-RF-26P" secondAttribute="bottom" id="qv8-YX-hUe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9dS-vY-bCk"/>
+                    <connections>
+                        <outlet property="webView" destination="LVX-U6-30z" id="vhi-Ia-h0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUW-xz-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3425" y="-380"/>
+        </scene>
+        <!--Existing CC View Controller-->
+        <scene sceneID="oVK-WV-slD">
+            <objects>
+                <viewController storyboardIdentifier="BSExistingCcScreenStoryboardId" id="Uqu-XD-vmH" userLabel="Existing CC View Controller" customClass="BSExistingCCViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GlA-ZY-fRS"/>
+                        <viewControllerLayoutGuide type="bottom" id="vhD-Gk-hjn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gqs-zK-L6E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfH-nY-PCP">
+                                <rect key="frame" x="0.0" y="44" width="375" height="620"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZP-iU-d4A" customClass="BSExistingCcUIView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="20" y="23" width="335" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ExistingCCN"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="vRW-rZ-E8E"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-xL-d7a">
+                                        <rect key="frame" x="20" y="93" width="335" height="24"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="BillingLabel" label="BillingTitle"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhF-2J-DbG" userLabel="Billing Box" customClass="BSBaseBoxWithShadowView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="20" y="120" width="335" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5N-Ju-9SR">
+                                                <rect key="frame" x="8" y="8" width="279.5" height="27"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="BillingName"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" text="Billing Address" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8S9-6F-08H">
+                                                <rect key="frame" x="8" y="35.5" width="319" height="37.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="BillingAddress"/>
+                                                <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDM-5V-Dy9">
+                                                <rect key="frame" x="288.5" y="8" width="38.5" height="27"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="EditBillingButton"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" red="0.23921568627450979" green="0.23137254901960785" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editBilling:" destination="Uqu-XD-vmH" eventType="touchUpInside" id="sej-Cx-RQs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="BillingShadowBox"/>
+                                        <constraints>
+                                            <constraint firstItem="TDM-5V-Dy9" firstAttribute="width" secondItem="VhF-2J-DbG" secondAttribute="width" multiplier="32/280" id="4xR-iS-TxJ"/>
+                                            <constraint firstItem="S5N-Ju-9SR" firstAttribute="leading" secondItem="VhF-2J-DbG" secondAttribute="leading" constant="8" id="ADQ-Qe-ci3"/>
+                                            <constraint firstItem="8S9-6F-08H" firstAttribute="leading" secondItem="VhF-2J-DbG" secondAttribute="leading" constant="8" id="APQ-Tw-Oft"/>
+                                            <constraint firstItem="S5N-Ju-9SR" firstAttribute="top" secondItem="VhF-2J-DbG" secondAttribute="top" constant="8" id="DKe-xP-7WH"/>
+                                            <constraint firstAttribute="trailing" secondItem="8S9-6F-08H" secondAttribute="trailing" constant="8" id="SIo-eN-UrJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="TDM-5V-Dy9" secondAttribute="trailing" constant="8" id="bM0-OM-eTK"/>
+                                            <constraint firstItem="TDM-5V-Dy9" firstAttribute="top" secondItem="VhF-2J-DbG" secondAttribute="top" constant="8" id="eFH-je-XYK"/>
+                                            <constraint firstItem="TDM-5V-Dy9" firstAttribute="height" secondItem="S5N-Ju-9SR" secondAttribute="height" id="h4H-r3-aSx"/>
+                                            <constraint firstItem="8S9-6F-08H" firstAttribute="top" secondItem="S5N-Ju-9SR" secondAttribute="bottom" constant="0.5" id="mCi-eI-vh1"/>
+                                            <constraint firstAttribute="bottom" secondItem="8S9-6F-08H" secondAttribute="bottom" constant="2" id="xik-G9-ZNC"/>
+                                            <constraint firstItem="TDM-5V-Dy9" firstAttribute="leading" secondItem="S5N-Ju-9SR" secondAttribute="trailing" constant="1" id="yXh-dN-Fig"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqz-QH-oYM">
+                                        <rect key="frame" x="20" y="222.5" width="335" height="24"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ShippingLabel" label="ShippingTitle"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDS-ih-c9e" userLabel="shipping Box" customClass="BSBaseBoxWithShadowView" customModule="BluesnapSDK">
+                                        <rect key="frame" x="20" y="249.5" width="335" height="66"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XH-dZ-MHd">
+                                                <rect key="frame" x="8" y="8" width="279.5" height="17.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingName"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" text="Shipping Address" translatesAutoresizingMaskIntoConstraints="NO" id="cGO-u1-6SF">
+                                                <rect key="frame" x="8" y="26" width="319" height="32"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ShippingAddress"/>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvc-VT-WZV">
+                                                <rect key="frame" x="288.5" y="8" width="38.5" height="17.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="EditShippingButton"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editShipping:" destination="Uqu-XD-vmH" eventType="touchUpInside" id="V1a-2E-X4L"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="ShippingShadowBox"/>
+                                        <constraints>
+                                            <constraint firstItem="cGO-u1-6SF" firstAttribute="leading" secondItem="UDS-ih-c9e" secondAttribute="leading" constant="8" id="0Fg-hw-6uB"/>
+                                            <constraint firstAttribute="trailing" secondItem="cGO-u1-6SF" secondAttribute="trailing" constant="8" id="1cB-p8-3w1"/>
+                                            <constraint firstItem="Cvc-VT-WZV" firstAttribute="top" secondItem="UDS-ih-c9e" secondAttribute="top" constant="8" id="CMD-sp-92N"/>
+                                            <constraint firstItem="Cvc-VT-WZV" firstAttribute="width" secondItem="UDS-ih-c9e" secondAttribute="width" multiplier="32/280" id="EKs-Js-nIk"/>
+                                            <constraint firstItem="8XH-dZ-MHd" firstAttribute="top" secondItem="UDS-ih-c9e" secondAttribute="top" constant="8" id="JA8-4k-GDY"/>
+                                            <constraint firstItem="Cvc-VT-WZV" firstAttribute="height" secondItem="8XH-dZ-MHd" secondAttribute="height" id="QJ2-rG-03u"/>
+                                            <constraint firstItem="Cvc-VT-WZV" firstAttribute="leading" secondItem="8XH-dZ-MHd" secondAttribute="trailing" constant="1" id="ctA-EN-eHF"/>
+                                            <constraint firstItem="cGO-u1-6SF" firstAttribute="top" secondItem="8XH-dZ-MHd" secondAttribute="bottom" constant="0.5" id="i8m-ko-YiU"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cvc-VT-WZV" secondAttribute="trailing" constant="8" id="m2P-2D-vPm"/>
+                                            <constraint firstAttribute="bottom" secondItem="cGO-u1-6SF" secondAttribute="bottom" constant="8" id="ofK-NK-MaI"/>
+                                            <constraint firstItem="8XH-dZ-MHd" firstAttribute="leading" secondItem="UDS-ih-c9e" secondAttribute="leading" constant="8" id="qQI-9w-TSK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowDarkColor">
+                                                <color key="value" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UDS-ih-c9e" secondAttribute="trailing" constant="20" symbolic="YES" id="6EQ-tf-Zq1"/>
+                                    <constraint firstItem="Vqz-QH-oYM" firstAttribute="leading" secondItem="OfH-nY-PCP" secondAttribute="leading" constant="20" symbolic="YES" id="6uV-CF-Izd"/>
+                                    <constraint firstItem="Vqz-QH-oYM" firstAttribute="top" secondItem="VhF-2J-DbG" secondAttribute="bottom" constant="27.5" id="CtP-a6-xIM"/>
+                                    <constraint firstItem="VhF-2J-DbG" firstAttribute="leading" secondItem="OfH-nY-PCP" secondAttribute="leading" constant="20" symbolic="YES" id="Kay-Xb-nCY"/>
+                                    <constraint firstItem="jEz-xL-d7a" firstAttribute="leading" secondItem="OfH-nY-PCP" secondAttribute="leading" constant="20" symbolic="YES" id="Mjq-OE-FAy"/>
+                                    <constraint firstAttribute="trailing" secondItem="NZP-iU-d4A" secondAttribute="trailing" constant="20" symbolic="YES" id="Rh8-2G-y7f"/>
+                                    <constraint firstItem="NZP-iU-d4A" firstAttribute="leading" secondItem="OfH-nY-PCP" secondAttribute="leading" constant="20" symbolic="YES" id="S9k-EI-3EW"/>
+                                    <constraint firstItem="UDS-ih-c9e" firstAttribute="top" secondItem="Vqz-QH-oYM" secondAttribute="bottom" constant="3" id="Tys-1c-CuS"/>
+                                    <constraint firstAttribute="trailing" secondItem="VhF-2J-DbG" secondAttribute="trailing" constant="20" symbolic="YES" id="aCd-iz-yT7"/>
+                                    <constraint firstItem="VhF-2J-DbG" firstAttribute="top" secondItem="jEz-xL-d7a" secondAttribute="bottom" constant="3" id="cKi-9Y-UaI"/>
+                                    <constraint firstItem="UDS-ih-c9e" firstAttribute="leading" secondItem="OfH-nY-PCP" secondAttribute="leading" constant="20" symbolic="YES" id="gP1-T9-odZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jEz-xL-d7a" secondAttribute="trailing" constant="20" symbolic="YES" id="nlh-zN-gUY"/>
+                                    <constraint firstItem="NZP-iU-d4A" firstAttribute="top" secondItem="OfH-nY-PCP" secondAttribute="top" constant="23" id="nnX-JE-NX3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vqz-QH-oYM" secondAttribute="trailing" constant="20" symbolic="YES" id="rcX-oK-RlN"/>
+                                    <constraint firstItem="jEz-xL-d7a" firstAttribute="top" secondItem="NZP-iU-d4A" secondAttribute="bottom" constant="30" id="wEQ-Op-21F"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZz-jo-p8Z" customClass="BSSubtotalUIView" customModule="BluesnapSDK">
+                                <rect key="frame" x="119" y="510" width="240" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SubtotalAndTaxView"/>
+                            </view>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAf-rt-eow">
+                                <rect key="frame" x="0.0" y="553" width="375" height="65"/>
+                                <color key="backgroundColor" red="0.23998337984085083" green="0.23292297124862671" blue="0.93167179822921753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PayButton"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="WCW-ds-CTv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Pay $100">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickPay:" destination="Uqu-XD-vmH" eventType="touchUpInside" id="R1b-FC-M5r"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OfH-nY-PCP" secondAttribute="trailing" id="1Ym-3X-026"/>
+                            <constraint firstItem="UDS-ih-c9e" firstAttribute="height" secondItem="gqs-zK-L6E" secondAttribute="height" multiplier="56/568" id="FUJ-35-fI7"/>
+                            <constraint firstItem="vhD-Gk-hjn" firstAttribute="top" secondItem="EAf-rt-eow" secondAttribute="bottom" id="NeC-w2-W5W"/>
+                            <constraint firstItem="ZZz-jo-p8Z" firstAttribute="height" secondItem="gqs-zK-L6E" secondAttribute="height" multiplier="40/667" id="Phb-De-o9f"/>
+                            <constraint firstItem="OfH-nY-PCP" firstAttribute="leading" secondItem="gqs-zK-L6E" secondAttribute="leading" id="Xmw-PB-XVl"/>
+                            <constraint firstItem="EAf-rt-eow" firstAttribute="top" secondItem="ZZz-jo-p8Z" secondAttribute="bottom" constant="3" id="a3b-Mb-mAp"/>
+                            <constraint firstItem="OfH-nY-PCP" firstAttribute="top" secondItem="GlA-ZY-fRS" secondAttribute="bottom" id="cFZ-yB-WCY"/>
+                            <constraint firstItem="EAf-rt-eow" firstAttribute="leading" secondItem="gqs-zK-L6E" secondAttribute="leading" id="dGP-Ic-Ti5"/>
+                            <constraint firstItem="VhF-2J-DbG" firstAttribute="height" secondItem="gqs-zK-L6E" secondAttribute="height" multiplier="64/568" id="gf1-48-DqJ"/>
+                            <constraint firstItem="OfH-nY-PCP" firstAttribute="width" secondItem="gqs-zK-L6E" secondAttribute="width" id="hYa-1q-9mP"/>
+                            <constraint firstAttribute="bottom" secondItem="OfH-nY-PCP" secondAttribute="bottom" constant="3" id="lFo-pt-Qx7"/>
+                            <constraint firstItem="ZZz-jo-p8Z" firstAttribute="trailing" secondItem="gqs-zK-L6E" secondAttribute="trailingMargin" id="oJE-GW-f4V"/>
+                            <constraint firstAttribute="trailing" secondItem="EAf-rt-eow" secondAttribute="trailing" id="xDq-bA-SRn"/>
+                            <constraint firstItem="ZZz-jo-p8Z" firstAttribute="width" secondItem="gqs-zK-L6E" secondAttribute="width" multiplier="240/375" id="ycj-cw-jhG"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Payment" id="0Nc-ks-k9m" userLabel="Navigation">
+                        <barButtonItem key="rightBarButtonItem" image="menu_button" style="done" id="Kw6-9N-uyj">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="MenuButton"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="MenuClick:" destination="Uqu-XD-vmH" id="gXz-sa-fer"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="billingAddressTextView" destination="8S9-6F-08H" id="gFR-AD-RTt"/>
+                        <outlet property="billingLabel" destination="jEz-xL-d7a" id="F2I-Ne-YRK"/>
+                        <outlet property="billingNameLabel" destination="S5N-Ju-9SR" id="sKh-gU-C7F"/>
+                        <outlet property="editBillingButton" destination="TDM-5V-Dy9" id="Zq3-XC-7cS"/>
+                        <outlet property="editShippingButton" destination="Cvc-VT-WZV" id="PH3-cW-qwQ"/>
+                        <outlet property="existingCcView" destination="NZP-iU-d4A" id="bzs-cM-yAS"/>
+                        <outlet property="payButton" destination="EAf-rt-eow" id="REK-hd-STR"/>
+                        <outlet property="shippingAddressTextView" destination="cGO-u1-6SF" id="U5X-pc-G8m"/>
+                        <outlet property="shippingBoxView" destination="UDS-ih-c9e" id="Jbg-Jh-MSD"/>
+                        <outlet property="shippingLabel" destination="Vqz-QH-oYM" id="PvR-ND-kqB"/>
+                        <outlet property="shippingNameLabel" destination="8XH-dZ-MHd" id="eS0-HZ-9gV"/>
+                        <outlet property="subtotalAndTaxDetailsView" destination="ZZz-jo-p8Z" id="1zA-u6-XRL"/>
+                        <outlet property="topMenuButton" destination="Kw6-9N-uyj" id="z4I-LR-vB6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5h-9c-lkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2960.625" y="341.19718309859155"/>
+        </scene>
+        <!--Payment-->
+        <scene sceneID="7hI-Z7-7qB">
+            <objects>
+                <viewController storyboardIdentifier="BSPaymentScreenStoryboardId" id="W0G-M6-3dM" customClass="BSPaymentViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2e0-yd-kqU"/>
+                        <viewControllerLayoutGuide type="bottom" id="AtJ-BS-FcB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bcK-ji-r2M" userLabel="Payment">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evC-6K-ko8">
+                                <rect key="frame" x="0.0" y="52" width="375" height="390"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbD-vW-amX" userLabel="Fields View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
+                                        <subviews>
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okv-vf-cV8" customClass="BSCcInputLine" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="16" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="CCN"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="1234 5678 9012 3456"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="cc_default"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                        <real key="value" value="35"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                        <real key="value" value="21"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="HBK-wC-AJ2"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLS-UU-Svw" customClass="BSExistingCcUIView" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="16" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ExistingCCN"/>
+                                            </view>
+                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcs-xh-zfv" userLabel="Name Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="75" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="IL"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="labelBkdColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowDarkColor">
+                                                        <color key="value" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="countryFlagClick:" destination="W0G-M6-3dM" eventType="touchUpInside" id="jiX-jP-adA"/>
+                                                    <action selector="editingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="bZy-8L-YxX"/>
+                                                    <action selector="nameEditingChanged:" destination="W0G-M6-3dM" eventType="editingChanged" id="8VK-3z-fnc"/>
+                                                    <action selector="nameEditingDidEnd:" destination="W0G-M6-3dM" eventType="editingDidEnd" id="QJz-yK-d7l"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAV-CU-OEK" userLabel="Email Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="119" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="fJw-47-23H"/>
+                                                    <action selector="emailEditingChanged:" destination="W0G-M6-3dM" eventType="editingChanged" id="A4y-os-NRv"/>
+                                                    <action selector="emailEditingDidEnd:" destination="W0G-M6-3dM" eventType="editingDidEnd" id="aRR-MW-CVj"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRx-IZ-fub" userLabel="Zip Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="163" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Zip"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="AHR-lP-oYN"/>
+                                                    <action selector="zipEditingChanged:" destination="W0G-M6-3dM" eventType="editingChanged" id="4PL-N2-ZEl"/>
+                                                    <action selector="zipEditingDidEnd:" destination="W0G-M6-3dM" eventType="editingDidEnd" id="3XR-p0-fvD"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-vx-UOS" userLabel="Address Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="207" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressEditingChanged:" destination="W0G-M6-3dM" eventType="editingChanged" id="weg-y9-p4W"/>
+                                                    <action selector="addressEditingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="5sT-Yg-mcE"/>
+                                                    <action selector="addressEditingDidEnd:" destination="W0G-M6-3dM" eventType="editingDidEnd" id="Zye-Lj-A9b"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sW-jJ-zDD" userLabel="City Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="251" width="335" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="City"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cityEditingChanged:" destination="W0G-M6-3dM" eventType="editingChanged" id="Jnn-5Y-xfU"/>
+                                                    <action selector="cityEditingDidEnd:" destination="W0G-M6-3dM" eventType="editingDidEnd" id="4HK-eB-GUR"/>
+                                                    <action selector="editingDidBegin:" destination="W0G-M6-3dM" eventType="editingDidBegin" id="WIS-YD-en9"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKc-lR-XxG" userLabel="State Input Line" customClass="BSBaseTextInput" customModule="BluesnapSDK">
+                                                <rect key="frame" x="20" y="295" width="335" height="43"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="State"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="stateClick:" destination="W0G-M6-3dM" eventType="touchUpInside" id="vOq-lV-QCq"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="8Vk-vx-UOS" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="1vw-L3-VA2"/>
+                                            <constraint firstItem="gcs-xh-zfv" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="2BD-XM-XSy"/>
+                                            <constraint firstItem="yRx-IZ-fub" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="52E-kg-EYP"/>
+                                            <constraint firstItem="3sW-jJ-zDD" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="6hE-UN-Ed0"/>
+                                            <constraint firstItem="zAV-CU-OEK" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="83r-IH-GnO"/>
+                                            <constraint firstItem="EKc-lR-XxG" firstAttribute="top" secondItem="3sW-jJ-zDD" secondAttribute="bottom" constant="1" id="Ct2-S7-Mpe"/>
+                                            <constraint firstItem="bLS-UU-Svw" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="Ere-lc-OLN"/>
+                                            <constraint firstItem="yRx-IZ-fub" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="IgX-gD-TEE"/>
+                                            <constraint firstItem="8Vk-vx-UOS" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="J6D-2M-mqh"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Vk-vx-UOS" secondAttribute="trailing" constant="20" symbolic="YES" id="NWv-go-LuA"/>
+                                            <constraint firstAttribute="trailing" secondItem="EKc-lR-XxG" secondAttribute="trailing" constant="20" symbolic="YES" id="RCO-Yr-zQK"/>
+                                            <constraint firstItem="gcs-xh-zfv" firstAttribute="top" secondItem="okv-vf-cV8" secondAttribute="bottom" constant="16" id="S4j-Qh-6EP"/>
+                                            <constraint firstItem="okv-vf-cV8" firstAttribute="top" secondItem="TbD-vW-amX" secondAttribute="top" constant="16" id="SWW-fG-dpA"/>
+                                            <constraint firstItem="bLS-UU-Svw" firstAttribute="top" secondItem="TbD-vW-amX" secondAttribute="top" constant="16" id="UNx-UW-Lev"/>
+                                            <constraint firstAttribute="trailing" secondItem="gcs-xh-zfv" secondAttribute="trailing" constant="20" symbolic="YES" id="USf-d9-a7K"/>
+                                            <constraint firstAttribute="trailing" secondItem="3sW-jJ-zDD" secondAttribute="trailing" constant="20" symbolic="YES" id="Vn7-5s-WUu"/>
+                                            <constraint firstItem="3sW-jJ-zDD" firstAttribute="top" secondItem="8Vk-vx-UOS" secondAttribute="bottom" constant="1" id="Whh-t8-7ii"/>
+                                            <constraint firstAttribute="trailing" secondItem="zAV-CU-OEK" secondAttribute="trailing" constant="20" symbolic="YES" id="Wpr-w5-OQM"/>
+                                            <constraint firstItem="okv-vf-cV8" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="Z6c-bF-mxX"/>
+                                            <constraint firstItem="yRx-IZ-fub" firstAttribute="top" secondItem="zAV-CU-OEK" secondAttribute="bottom" constant="1" id="Zch-dH-6RJ"/>
+                                            <constraint firstItem="gcs-xh-zfv" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="aXH-s5-E7I"/>
+                                            <constraint firstItem="8Vk-vx-UOS" firstAttribute="top" secondItem="yRx-IZ-fub" secondAttribute="bottom" constant="1" id="amR-Xt-kac"/>
+                                            <constraint firstItem="zAV-CU-OEK" firstAttribute="top" secondItem="gcs-xh-zfv" secondAttribute="bottom" constant="1" id="c1s-mR-pCC"/>
+                                            <constraint firstItem="bLS-UU-Svw" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="egT-ra-pQy"/>
+                                            <constraint firstAttribute="trailing" secondItem="yRx-IZ-fub" secondAttribute="trailing" constant="20" symbolic="YES" id="lfv-rV-inw"/>
+                                            <constraint firstItem="EKc-lR-XxG" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="lvZ-cV-lb1"/>
+                                            <constraint firstItem="zAV-CU-OEK" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="mqt-D2-hc3"/>
+                                            <constraint firstAttribute="trailing" secondItem="bLS-UU-Svw" secondAttribute="trailing" constant="20" symbolic="YES" id="sol-Sw-ETm"/>
+                                            <constraint firstItem="okv-vf-cV8" firstAttribute="height" secondItem="TbD-vW-amX" secondAttribute="height" multiplier="43/390" id="tnp-lm-P2C"/>
+                                            <constraint firstItem="EKc-lR-XxG" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="wpd-Dm-1tJ"/>
+                                            <constraint firstItem="3sW-jJ-zDD" firstAttribute="leading" secondItem="TbD-vW-amX" secondAttribute="leading" constant="20" symbolic="YES" id="xfI-U0-Lsl"/>
+                                            <constraint firstAttribute="trailing" secondItem="okv-vf-cV8" secondAttribute="trailing" constant="20" symbolic="YES" id="yOo-HG-S0u"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TbD-vW-amX" secondAttribute="bottom" id="4gJ-6D-3J8"/>
+                                    <constraint firstAttribute="trailing" secondItem="TbD-vW-amX" secondAttribute="trailing" id="9cl-Dk-49b"/>
+                                    <constraint firstItem="TbD-vW-amX" firstAttribute="centerX" secondItem="evC-6K-ko8" secondAttribute="centerX" id="O6Q-nF-bNr"/>
+                                    <constraint firstItem="TbD-vW-amX" firstAttribute="top" secondItem="evC-6K-ko8" secondAttribute="top" id="aVh-Uh-Hee"/>
+                                    <constraint firstItem="TbD-vW-amX" firstAttribute="leading" secondItem="evC-6K-ko8" secondAttribute="leading" id="g4X-9o-uoq"/>
+                                    <constraint firstItem="TbD-vW-amX" firstAttribute="centerY" secondItem="evC-6K-ko8" secondAttribute="centerY" id="jmo-zr-1GU"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-64" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCg-Wt-HfE" userLabel="Same as billing View">
+                                <rect key="frame" x="16" y="424" width="307" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.54000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping same as billing" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0EE-XI-ScQ">
+                                        <rect key="frame" x="20" y="7" width="205" height="22"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ShippingAsBillingLabel"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-8L-gmv">
+                                        <rect key="frame" x="258" y="0.0" width="51" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ShippingAsBillingSwitch">
+                                            <accessibilityTraits key="traits" allowsDirectInteraction="YES" header="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <action selector="shippingSameAsBillingValueChanged:" destination="W0G-M6-3dM" eventType="valueChanged" id="TrO-Bd-u8l"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ShippingAsBillingView"/>
+                                <constraints>
+                                    <constraint firstItem="XWl-8L-gmv" firstAttribute="leading" secondItem="0EE-XI-ScQ" secondAttribute="trailing" constant="13" id="1mj-ly-gcF"/>
+                                    <constraint firstItem="0EE-XI-ScQ" firstAttribute="centerX" secondItem="yCg-Wt-HfE" secondAttribute="centerX" constant="-31" id="CeQ-f3-bUZ"/>
+                                    <constraint firstItem="XWl-8L-gmv" firstAttribute="width" secondItem="yCg-Wt-HfE" secondAttribute="height" multiplier="49:36" id="Hlm-fd-iRa"/>
+                                    <constraint firstItem="XWl-8L-gmv" firstAttribute="centerY" secondItem="yCg-Wt-HfE" secondAttribute="centerY" id="a4J-l5-kpj"/>
+                                    <constraint firstItem="0EE-XI-ScQ" firstAttribute="top" secondItem="yCg-Wt-HfE" secondAttribute="top" constant="7" id="bQC-Ra-v85"/>
+                                    <constraint firstItem="0EE-XI-ScQ" firstAttribute="centerY" secondItem="yCg-Wt-HfE" secondAttribute="centerY" id="d1m-8v-uS2"/>
+                                    <constraint firstItem="0EE-XI-ScQ" firstAttribute="width" secondItem="yCg-Wt-HfE" secondAttribute="height" multiplier="205:36" id="eat-Bu-5mQ"/>
+                                    <constraint firstItem="XWl-8L-gmv" firstAttribute="top" secondItem="yCg-Wt-HfE" secondAttribute="top" id="uKX-UW-F7j"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFX-qm-9XX" customClass="BSSubtotalUIView" customModule="BluesnapSDK">
+                                <rect key="frame" x="119" y="529" width="240" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SubtotalAndTaxView"/>
+                            </view>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-Ww-2zE">
+                                <rect key="frame" x="0.0" y="572" width="375" height="95"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PayButton"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Pay $100">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickPay:" destination="W0G-M6-3dM" eventType="touchUpInside" id="jhn-KN-RNq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USP-6z-lgl" userLabel="Store Card View">
+                                <rect key="frame" x="16" y="468" width="307" height="36"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vwF-7y-FIh" userLabel="Store Card Switch">
+                                        <rect key="frame" x="260" y="0.0" width="51" height="36"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="StoreCardSwitch">
+                                            <accessibilityTraits key="traits" allowsDirectInteraction="YES" header="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <action selector="storeCardValueChanged:" destination="W0G-M6-3dM" eventType="valueChanged" id="UbT-uo-830"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.54000002145767212" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Securely store my card for future purchases" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9jx-od-DTQ" userLabel="Store Card Label">
+                                        <rect key="frame" x="46" y="0.0" width="201" height="36"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="StoreCardLabel" label="Store Card Label"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StoreCardView"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9jx-od-DTQ" secondAttribute="bottom" id="25d-RM-n8X"/>
+                                    <constraint firstItem="9jx-od-DTQ" firstAttribute="top" secondItem="USP-6z-lgl" secondAttribute="top" id="Dod-TF-R3L"/>
+                                    <constraint firstItem="vwF-7y-FIh" firstAttribute="top" secondItem="USP-6z-lgl" secondAttribute="top" id="eUk-dg-TKa"/>
+                                    <constraint firstItem="9jx-od-DTQ" firstAttribute="leading" secondItem="USP-6z-lgl" secondAttribute="leading" constant="46" id="kFq-4S-IFV"/>
+                                    <constraint firstItem="vwF-7y-FIh" firstAttribute="leading" secondItem="9jx-od-DTQ" secondAttribute="trailing" constant="13" id="rrp-q6-azJ"/>
+                                    <constraint firstItem="vwF-7y-FIh" firstAttribute="centerY" secondItem="USP-6z-lgl" secondAttribute="centerY" id="yTs-0P-12r"/>
+                                    <constraint firstItem="9jx-od-DTQ" firstAttribute="centerX" secondItem="USP-6z-lgl" secondAttribute="centerX" constant="-7" id="zC0-39-Cvs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vTt-Ww-2zE" firstAttribute="top" secondItem="yFX-qm-9XX" secondAttribute="bottom" constant="3" id="0lV-ql-1iO"/>
+                            <constraint firstItem="USP-6z-lgl" firstAttribute="height" secondItem="yCg-Wt-HfE" secondAttribute="height" id="1TD-nF-auN"/>
+                            <constraint firstItem="AtJ-BS-FcB" firstAttribute="top" secondItem="vTt-Ww-2zE" secondAttribute="bottom" id="2gQ-Zg-AXA"/>
+                            <constraint firstItem="vTt-Ww-2zE" firstAttribute="leading" secondItem="bcK-ji-r2M" secondAttribute="leading" id="3P1-th-25q"/>
+                            <constraint firstItem="yCg-Wt-HfE" firstAttribute="top" secondItem="evC-6K-ko8" secondAttribute="bottom" constant="-18" id="7nN-I8-uOY"/>
+                            <constraint firstAttribute="trailing" secondItem="vTt-Ww-2zE" secondAttribute="trailing" id="9aO-8b-bpl"/>
+                            <constraint firstItem="evC-6K-ko8" firstAttribute="leading" secondItem="bcK-ji-r2M" secondAttribute="leading" id="AhA-eg-xYH"/>
+                            <constraint firstItem="evC-6K-ko8" firstAttribute="top" secondItem="2e0-yd-kqU" secondAttribute="bottom" constant="8" id="J5E-D5-Yg5"/>
+                            <constraint firstItem="USP-6z-lgl" firstAttribute="centerX" secondItem="yCg-Wt-HfE" secondAttribute="centerX" id="LkC-dj-fZx"/>
+                            <constraint firstItem="yFX-qm-9XX" firstAttribute="height" secondItem="bcK-ji-r2M" secondAttribute="height" multiplier="40/667" id="M2W-pv-PQ4"/>
+                            <constraint firstItem="yFX-qm-9XX" firstAttribute="trailing" secondItem="bcK-ji-r2M" secondAttribute="trailingMargin" id="Mwg-RL-xZX"/>
+                            <constraint firstItem="evC-6K-ko8" firstAttribute="height" secondItem="bcK-ji-r2M" secondAttribute="height" multiplier="390/667" id="PhF-CF-BmU"/>
+                            <constraint firstItem="yCg-Wt-HfE" firstAttribute="width" secondItem="bcK-ji-r2M" secondAttribute="width" multiplier="307/375" id="PpQ-qH-vZZ"/>
+                            <constraint firstItem="USP-6z-lgl" firstAttribute="width" secondItem="yCg-Wt-HfE" secondAttribute="width" id="Zfr-eD-1Qs"/>
+                            <constraint firstItem="yCg-Wt-HfE" firstAttribute="centerX" secondItem="bcK-ji-r2M" secondAttribute="centerX" constant="-18" id="enB-Kf-QNW"/>
+                            <constraint firstItem="vTt-Ww-2zE" firstAttribute="top" secondItem="USP-6z-lgl" secondAttribute="bottom" constant="68" id="goD-HA-vo0"/>
+                            <constraint firstItem="TbD-vW-amX" firstAttribute="height" secondItem="bcK-ji-r2M" secondAttribute="height" multiplier="390/667" id="j5G-Vv-NaE"/>
+                            <constraint firstItem="yFX-qm-9XX" firstAttribute="width" secondItem="bcK-ji-r2M" secondAttribute="width" multiplier="240/375" id="pru-Nx-gxM"/>
+                            <constraint firstItem="yCg-Wt-HfE" firstAttribute="height" secondItem="bcK-ji-r2M" secondAttribute="height" multiplier="36/667" id="sY0-Ae-bpt"/>
+                            <constraint firstItem="evC-6K-ko8" firstAttribute="width" secondItem="bcK-ji-r2M" secondAttribute="width" id="uKf-uz-gSg"/>
+                            <constraint firstItem="USP-6z-lgl" firstAttribute="top" secondItem="yCg-Wt-HfE" secondAttribute="bottom" constant="8" id="yN4-lE-IwW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Payment" id="SMO-Vb-QOG" userLabel="Navigation">
+                        <barButtonItem key="rightBarButtonItem" image="menu_button" style="done" id="ODe-4v-aVb">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="MenuButton"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="MenuClick:" destination="W0G-M6-3dM" id="7S4-w1-Lfd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressInputLine" destination="8Vk-vx-UOS" id="1hu-iI-rby"/>
+                        <outlet property="ccInputLine" destination="okv-vf-cV8" id="tzJ-xG-p0J"/>
+                        <outlet property="cityInputLine" destination="3sW-jJ-zDD" id="QDd-Hd-Ghv"/>
+                        <outlet property="emailInputLine" destination="zAV-CU-OEK" id="WNj-qi-hal"/>
+                        <outlet property="existingCcView" destination="bLS-UU-Svw" id="ybq-I7-ugJ"/>
+                        <outlet property="fieldsView" destination="TbD-vW-amX" id="U1w-eW-6K9"/>
+                        <outlet property="nameInputLine" destination="gcs-xh-zfv" id="29n-uG-jyO"/>
+                        <outlet property="payButton" destination="vTt-Ww-2zE" id="eH4-gr-psr"/>
+                        <outlet property="scrollView" destination="evC-6K-ko8" id="Mxf-pm-31b"/>
+                        <outlet property="shippingSameAsBillingLabel" destination="0EE-XI-ScQ" id="Glx-PB-7r5"/>
+                        <outlet property="shippingSameAsBillingSwitch" destination="XWl-8L-gmv" id="XV9-nJ-CaA"/>
+                        <outlet property="shippingSameAsBillingView" destination="yCg-Wt-HfE" id="CdY-hJ-sZj"/>
+                        <outlet property="stateInputLine" destination="EKc-lR-XxG" id="Yje-Ab-5bX"/>
+                        <outlet property="storeCardLabel" destination="9jx-od-DTQ" id="v1W-ir-ha8"/>
+                        <outlet property="storeCardSwitch" destination="vwF-7y-FIh" id="7DG-A5-qcE"/>
+                        <outlet property="storeCardView" destination="USP-6z-lgl" id="aSD-3X-VUW"/>
+                        <outlet property="subtotalAndTaxDetailsView" destination="yFX-qm-9XX" id="hMe-w6-Soy"/>
+                        <outlet property="topMenuButton" destination="ODe-4v-aVb" id="iIr-n7-oqo"/>
+                        <outlet property="zipInputLine" destination="yRx-IZ-fub" id="n5X-b7-TOL"/>
+                        <outlet property="zipTopConstraint" destination="Zch-dH-6RJ" id="A8W-lo-FnM"/>
+                        <segue destination="PPS-Pq-6Wu" kind="show" identifier="placeholder identifier" id="sh5-3f-7TO"/>
+                        <segue destination="CMN-vn-Foo" kind="show" identifier="placeholder identifier" id="icf-mO-ubI"/>
+                        <segue destination="Cnt-Wb-Tw2" kind="show" identifier="placeholder identifier" id="cUQ-Cn-kJl"/>
+                        <segue destination="2Ni-9L-E0D" kind="show" identifier="placeholder identifier" id="6FB-PZ-3S1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A8J-iy-m7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3725.5999999999999" y="339.58020989505252"/>
+        </scene>
+        <!--Select Currency-->
+        <scene sceneID="T9n-5J-QN1">
+            <objects>
+                <viewController storyboardIdentifier="BSCurrenciesStoryboardId" title="Select Currency" id="CMN-vn-Foo" customClass="BSCurrenciesViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T2c-iX-ssj"/>
+                        <viewControllerLayoutGuide type="bottom" id="AeU-Nz-6go"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mBG-P4-R6g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="7kx-hO-24w">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WBK-Zc-Ktm"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CMN-vn-Foo" id="dhR-eb-iON"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="DXK-pe-9ap">
+                                <rect key="frame" x="16" y="88" width="343" height="579"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyTableViewCell" rowHeight="40" id="NWv-PN-eoP" userLabel="I" customClass="BSCurrencyTableViewCell" customModule="BluesnapSDK">
+                                        <rect key="frame" x="0.0" y="55.5" width="343" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NWv-PN-eoP" id="vce-NJ-ojv">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CurrencyUILabel" text="Currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvq-lv-yB8">
+                                                    <rect key="frame" x="0.0" y="11" width="325" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_check_mark" translatesAutoresizingMaskIntoConstraints="NO" id="SPl-dB-Ocj" userLabel="checkMark">
+                                                    <rect key="frame" x="327" y="13.5" width="16" height="13"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="FEr-94-zCu"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lvq-lv-yB8" firstAttribute="leading" secondItem="vce-NJ-ojv" secondAttribute="leading" id="5hm-aA-e86"/>
+                                                <constraint firstItem="Lvq-lv-yB8" firstAttribute="centerY" secondItem="SPl-dB-Ocj" secondAttribute="centerY" id="BL7-Sj-KTS"/>
+                                                <constraint firstAttribute="trailing" secondItem="SPl-dB-Ocj" secondAttribute="trailing" id="aS5-Xq-OiE"/>
+                                                <constraint firstItem="Lvq-lv-yB8" firstAttribute="centerY" secondItem="vce-NJ-ojv" secondAttribute="centerY" id="wIG-40-mQL"/>
+                                                <constraint firstItem="Lvq-lv-yB8" firstAttribute="bottom" secondItem="vce-NJ-ojv" secondAttribute="bottomMargin" id="weW-IK-zeP"/>
+                                                <constraint firstItem="SPl-dB-Ocj" firstAttribute="leading" secondItem="Lvq-lv-yB8" secondAttribute="trailing" constant="2" id="zVE-Ay-3At"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="CurrencyViewCell"/>
+                                        <connections>
+                                            <outlet property="CurrencyUILabel" destination="Lvq-lv-yB8" id="1vb-69-usI"/>
+                                            <outlet property="checkMarkImage" destination="SPl-dB-Ocj" id="SVQ-Gm-zPu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CMN-vn-Foo" id="IwR-al-uW2"/>
+                                    <outlet property="delegate" destination="CMN-vn-Foo" id="CQ8-xg-lUd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="SelectCurrencyView"/>
+                        <constraints>
+                            <constraint firstItem="7kx-hO-24w" firstAttribute="centerX" secondItem="mBG-P4-R6g" secondAttribute="centerX" id="4bk-fF-6hj"/>
+                            <constraint firstItem="DXK-pe-9ap" firstAttribute="top" secondItem="7kx-hO-24w" secondAttribute="bottom" id="DNf-qV-FYM"/>
+                            <constraint firstItem="7kx-hO-24w" firstAttribute="leading" secondItem="mBG-P4-R6g" secondAttribute="leadingMargin" constant="-16" id="IPU-DH-7fq"/>
+                            <constraint firstItem="AeU-Nz-6go" firstAttribute="top" secondItem="DXK-pe-9ap" secondAttribute="bottom" id="MmJ-Ei-Ktg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DXK-pe-9ap" secondAttribute="trailing" id="UnJ-7g-6Oe"/>
+                            <constraint firstItem="7kx-hO-24w" firstAttribute="top" secondItem="T2c-iX-ssj" secondAttribute="bottom" id="aQX-sg-P2A"/>
+                            <constraint firstItem="DXK-pe-9ap" firstAttribute="leading" secondItem="mBG-P4-R6g" secondAttribute="leadingMargin" id="teb-wn-Cxf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Currency" id="vbq-Vt-6wb"/>
+                    <connections>
+                        <outlet property="searchBar" destination="7kx-hO-24w" id="lJt-X6-6vD"/>
+                        <outlet property="tableView" destination="DXK-pe-9ap" id="hD7-dA-XoW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5g-w4-tzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2729" y="1091"/>
+        </scene>
+        <!--Select State-->
+        <scene sceneID="ZWS-TW-Oq9">
+            <objects>
+                <viewController storyboardIdentifier="BSStatesStoryboardId" title="Select State" id="2Ni-9L-E0D" customClass="BSStatesViewController" customModule="BluesnapSDK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QYq-7U-9kH"/>
+                        <viewControllerLayoutGuide type="bottom" id="VZz-ls-6bv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Y8-Co-ANG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="N0X-tR-l6A">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zEV-ut-ig7"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2Ni-9L-E0D" id="giZ-oE-33e"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zqq-Eb-cFM">
+                                <rect key="frame" x="20" y="88" width="335" height="579"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StateTableViewCell" rowHeight="40" id="k9o-eM-cDg" customClass="BSStateTableViewCell" customModule="BluesnapSDK">
+                                        <rect key="frame" x="0.0" y="55.5" width="335" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k9o-eM-cDg" id="CMm-xm-mVN">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ItemUILabel" text="Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U25-dp-1Tb">
+                                                    <rect key="frame" x="15" y="11" width="94" height="24"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_check_mark" translatesAutoresizingMaskIntoConstraints="NO" id="MdR-u1-48S" userLabel="checkMark">
+                                                    <rect key="frame" x="304" y="16" width="16" height="14"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="GyU-rd-Qsr"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U25-dp-1Tb" firstAttribute="leading" secondItem="CMm-xm-mVN" secondAttribute="leadingMargin" id="5B1-D1-nD6"/>
+                                                <constraint firstItem="U25-dp-1Tb" firstAttribute="centerY" secondItem="MdR-u1-48S" secondAttribute="centerY" id="a5Q-Rz-SNy"/>
+                                                <constraint firstItem="MdR-u1-48S" firstAttribute="top" secondItem="CMm-xm-mVN" secondAttribute="topMargin" constant="5" id="amc-ij-08W"/>
+                                                <constraint firstItem="U25-dp-1Tb" firstAttribute="top" secondItem="CMm-xm-mVN" secondAttribute="topMargin" id="gKj-NE-yN2"/>
+                                                <constraint firstItem="MdR-u1-48S" firstAttribute="trailing" secondItem="CMm-xm-mVN" secondAttribute="trailingMargin" id="wh7-1V-ogw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="StateViewCell"/>
+                                        <connections>
+                                            <outlet property="checkMarkImage" destination="MdR-u1-48S" id="dq8-KN-g4B"/>
+                                            <outlet property="itemNameUILabel" destination="U25-dp-1Tb" id="TyJ-2M-gZz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Ni-9L-E0D" id="FYl-fe-5Kb"/>
+                                    <outlet property="delegate" destination="2Ni-9L-E0D" id="nKP-Sp-N0r"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="SelectStateView"/>
+                        <constraints>
+                            <constraint firstItem="VZz-ls-6bv" firstAttribute="top" secondItem="Zqq-Eb-cFM" secondAttribute="bottom" id="0sX-Rf-ufE"/>
+                            <constraint firstItem="N0X-tR-l6A" firstAttribute="leading" secondItem="8Y8-Co-ANG" secondAttribute="leading" id="Kuj-aW-CWx"/>
+                            <constraint firstAttribute="trailing" secondItem="N0X-tR-l6A" secondAttribute="trailing" id="Pde-tW-5Eu"/>
+                            <constraint firstItem="N0X-tR-l6A" firstAttribute="top" secondItem="QYq-7U-9kH" secondAttribute="bottom" id="ZYu-i1-xfB"/>
+                            <constraint firstAttribute="trailing" secondItem="Zqq-Eb-cFM" secondAttribute="trailing" constant="20" symbolic="YES" id="p72-yz-sBL"/>
+                            <constraint firstItem="Zqq-Eb-cFM" firstAttribute="top" secondItem="N0X-tR-l6A" secondAttribute="bottom" id="u03-iz-5MR"/>
+                            <constraint firstItem="Zqq-Eb-cFM" firstAttribute="leading" secondItem="8Y8-Co-ANG" secondAttribute="leading" constant="20" symbolic="YES" id="zAg-g6-z12"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vA5-vw-cRh"/>
+                    <connections>
+                        <outlet property="searchBar" destination="N0X-tR-l6A" id="mlp-m2-7Me"/>
+                        <outlet property="tableView" destination="Zqq-Eb-cFM" id="L1e-B8-Lfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nud-ba-zIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4132" y="1091"/>
+        </scene>
+        <!--Navigation Controller to Start Scene-->
+        <scene sceneID="5Dn-3y-Min">
+            <objects>
+                <navigationController storyboardIdentifier="BSNavToStart" automaticallyAdjustsScrollViewInsets="NO" id="laJ-Gr-piP" userLabel="Navigation Controller to Start Scene" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2fe-kR-029">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f14-WO-daN" kind="relationship" relationship="rootViewController" id="uW3-iK-DId"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxW-DM-hAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1950" y="-380"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T67-Tp-3Ik">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lhw-wu-tEn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QeD-2B-60y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Uqu-XD-vmH" kind="relationship" relationship="rootViewController" id="0zj-iJ-PK8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFN-9h-VK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1963.125" y="341.19718309859155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Card_button" width="110" height="36"/>
+        <image name="IL" width="28" height="20"/>
+        <image name="blue_check_mark" width="16" height="13"/>
+        <image name="cc_default" width="35" height="21"/>
+        <image name="menu_button" width="20" height="16"/>
+        <image name="paypal_button" width="46" height="13"/>
+    </resources>
+</document>

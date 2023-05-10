@@ -1,0 +1,178 @@
+/*
+ Localizable.strings - Chinese
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "好的";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "完成";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "發生錯誤。請再次嘗試。";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "此交易目前不支持此卡片品牌/類型 ";
+"Error_Card_Type_Not_Supported_2" = " 。請使用其他卡片重試。";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "發生錯誤。請再次嘗試。";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "發生錯誤。請再次嘗試。";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "發生錯誤。請再次嘗試。";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "無效的卡號";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "無效的CVV";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "無效的月份";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "如期已過去";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "無效的日期";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "輸入姓名";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "無效的電郵地址";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "無效的街道";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "無效的城市";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "無效的國家";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "無效的州屬";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "無效的郵政編碼";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "無效的郵政編碼";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "帳單郵政編碼";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "送貨郵政編碼";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "郵政編碼";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "付款方式";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "或";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "返回前頁";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "PayPal錯誤";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "PayPal不支持此貨幣";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "無法連接到PayPal";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "此設備上不可用";
+"Error_No_cards_set" = "No cards set";
+"Error_Setup_error" = "無法連接到Apple Pay。請選擇不同的付款方式。";
+"Error_General_ApplePay_error" = "無法連接到Apple Pay";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "哎呀";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "發生錯誤。請再次嘗試。";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "付款";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "名字";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "電郵地址";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "地址";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "城市";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "州屬";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "小計：";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "稅額：";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "送貨和帳單一樣";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "安全儲存我的卡資料";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "支付%@ %.2f";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "送貨 >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "订阅";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "订阅 %@ %.2f";
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "貨幣";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "取消";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "送貨";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "電話";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "選擇貨幣";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "選擇國家";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "選擇州屬";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "付款方式";
+
+/* Shipping title */
+"Label_Shipping" = "送貨";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";

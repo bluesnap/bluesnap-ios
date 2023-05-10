@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Japan
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "OK";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "完了";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "エラーが発生しました。再試行してください。";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "このカードブランド/タイプ ";
+"Error_Card_Type_Not_Supported_2" = " はこの取引に対応していません。別のカードで再度お試しください。";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "エラーが発生しました。再試行してください。";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "エラーが発生しました。再試行してください。";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "エラーが発生しました。再試行してください。";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "無効なカード番号";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "無効なCVV";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "無効な月";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "日付が過去のものです";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "無効な日付";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "氏名を入力してください";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "無効なメールアドレス";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "正しい住所を入力してください";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "正しい都道府県・市区町村を入力してください";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "無効な国";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "無効な州";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "正しい郵便番号を入力してください";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "正しい郵便番号を入力してください";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "郵便番号";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "郵便番号";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "郵便番号";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "支払いタイプ";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "OR";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "戻る";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "PayPal エラー";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "これは現在PayPal にサポートされていません";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "PayPal に接続できません";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "このデバイスでは利用できません";
+"Error_No_cards_set" = "カードが設定されていません";
+"Error_Setup_error" = "Apple Pay に接続できません。別の支払い方法を選択してください。";
+"Error_General_ApplePay_error" = " Apple Pay に接続できません";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "おっと";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "エラーが発生しました; 再試行してください";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "支払い";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "姓名";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "メールアドレス";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "以降の住所";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "都道府県 / 市区町村";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "州";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "小計:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "税:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "送付先は請求先と同じ";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "カードを安全に保管する";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = " %@ %.2f 支払う";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "送料 >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "申し込む";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "申し込む %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "通貨";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "キャンセル";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "送料";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "電話番号";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "通貨を選択してください。";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "国を選択してください";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "州を選択してください";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "請求書";
+
+/* Shipping title */
+"Label_Shipping" = "送料";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";
