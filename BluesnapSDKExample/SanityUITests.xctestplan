@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "2D136A31-4CB1-482B-8F7D-C496AC37C8D6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+      "identifier" : "599E18F62A08F57A004AAE57",
+      "name" : "BluesnapSDKExample"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+        "identifier" : "599E19322A091BE3004AAE57",
+        "name" : "BluesnapSDKExampleUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
