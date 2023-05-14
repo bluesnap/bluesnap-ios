@@ -90,7 +90,6 @@
 
 /* Begin PBXFileReference section */
 		5956C89A2A0BAEF60077B5F3 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../Sources/BluesnapSDK/Resources/credentials.plist; sourceTree = "<group>"; };
-		5956C89C2A0BB1BD0077B5F3 /* SanityUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SanityUITests.xctestplan; sourceTree = "<group>"; };
 		599E18F72A08F57A004AAE57 /* BluesnapSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluesnapSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		599E18FA2A08F57A004AAE57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		599E18FC2A08F57A004AAE57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +206,6 @@
 		599E19342A091BE3004AAE57 /* BluesnapSDKExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5956C89C2A0BB1BD0077B5F3 /* SanityUITests.xctestplan */,
 				599E19552A091C92004AAE57 /* BSCreditCardScreenUITestHelperBase.swift */,
 				599E194D2A091C92004AAE57 /* BSExistingCcScreenUITestHelper.swift */,
 				599E194E2A091C92004AAE57 /* BSPaymentScreenUITestHelper.swift */,
