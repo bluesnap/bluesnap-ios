@@ -18,8 +18,6 @@ class BSUITestUtils {
             // Parse the result JSOn object
             if let jsonData = try JSONSerialization.jsonObject(with: responseBody, options: .allowFragments) as? [String: AnyObject] {
                 if sdkRequest.shopperConfiguration.withEmail && !isSubscription { // second part is temporary till server bug is fixed
-                    print(sdkRequest.shopperConfiguration.billingDetails?.email)
-                    print(jsonData["email"] as? String)
                     
                     checkFieldContent(expectedValue: (sdkRequest.shopperConfiguration.billingDetails?.email!)!, actualValue: jsonData["email"] as! String, fieldName: "email")
                 }

@@ -10,4 +10,7 @@
    <FileRef
       location = "group:BluesnapSDKExample/SanityUITests.xctestplan">
    </FileRef>
+   <FileRef
+      location = "group:BluesnapSDKExample/NewShopperUITests.xctestplan">
+   </FileRef>
 </Workspace>

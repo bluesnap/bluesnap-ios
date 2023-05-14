@@ -13,9 +13,18 @@ import PassKit
 import BluesnapSDK
 
 class DemoAPIHelper {
+    
     //temporary
     static var bsAPIUser: String {
         //return (Bundle(for: DemoAPIHelper.self).object(forInfoDictionaryKey: "BsAPIUser") as? String) ?? "USER_UNDEFINED"
+        
+        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
+            let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
+            
+            let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
+            
+            return dict["BsAPIUser"]!
+        }
         
         guard let credentialsURL = Bundle(for: self).url(forResource: "credentials", withExtension: "plist"),
               let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as? Dictionary<String, String>
@@ -27,6 +36,14 @@ class DemoAPIHelper {
     }
     
     static var bsAPIPassword: String {
+        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
+            let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
+            
+            let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
+            
+            return dict["BsAPIPassword"]!
+        }
+        
         guard let credentialsURL = Bundle(for: self).url(forResource: "credentials", withExtension: "plist"),
               let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as? Dictionary<String, String>
         else {
