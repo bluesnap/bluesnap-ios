@@ -14,10 +14,20 @@ import BluesnapSDK
 
 class DemoAPIHelper {
     
-    //temporary
+    /* **EXPLANATION**
+     
+     With the move to SPM, the way resources are bundled with the product changes radically.
+     Resources are now hosted in their own separate bundle package with its own identifier.
+     
+     Xcode has a peculiar quirk where if you have a UI test runner and your test calls functions
+     from the application itself directly without triggering any UI actions - the call to Bundle
+     will change to favor the test runner's bundle and not the app's bundle, losing access to the resource bundle entirely.
+     
+     These multiple way to access the bundle take care of that.
+     The biggest downside of this solution is that it's extremely fragile - don't change the library's
+     target name from "BluesnapSDK" to something else or else this code will fail almost 100% of the time.
+     */
     static var bsAPIUser: String {
-        //return (Bundle(for: DemoAPIHelper.self).object(forInfoDictionaryKey: "BsAPIUser") as? String) ?? "USER_UNDEFINED"
-        
         guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
             let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
             
