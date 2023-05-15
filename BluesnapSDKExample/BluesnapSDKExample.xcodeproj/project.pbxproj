@@ -129,6 +129,7 @@
 		599E19562A091C92004AAE57 /* CheckoutReturningShopperBaseTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutReturningShopperBaseTester.swift; sourceTree = "<group>"; };
 		599E19572A091C92004AAE57 /* CheckoutBaseTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutBaseTester.swift; sourceTree = "<group>"; };
 		599E197D2A092517004AAE57 /* BluesnapSDK_BluesnapSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BluesnapSDK_BluesnapSDK.bundle; path = "../../../../Library/Developer/Xcode/DerivedData/BluesnapIOS-afhwtqgxuiyxyyegboupnlkyyrwy/Build/Products/Debug-iphonesimulator/BluesnapSDK_BluesnapSDK.bundle"; sourceTree = "<group>"; };
+		59AFFC0E2A1221A40079162E /* ReturningShopperUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ReturningShopperUITests.xctestplan; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +213,7 @@
 				599E19542A091C92004AAE57 /* BSPaymentTypeScreenUITestHelper.swift */,
 				599E19492A091C92004AAE57 /* BSShippingScreenUITestHelper.swift */,
 				599E194F2A091C92004AAE57 /* BSUITestsUtils.swift */,
+				59AFFC0E2A1221A40079162E /* ReturningShopperUITests.xctestplan */,
 				599E19572A091C92004AAE57 /* CheckoutBaseTester.swift */,
 				599E194C2A091C92004AAE57 /* CheckoutNewShopperUITests.swift */,
 				599E19562A091C92004AAE57 /* CheckoutReturningShopperBaseTester.swift */,

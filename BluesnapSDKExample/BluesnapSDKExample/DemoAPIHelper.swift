@@ -26,6 +26,13 @@ class DemoAPIHelper {
             return dict["BsAPIUser"]!
         }
         
+        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle")) == nil else {
+            let credentialsURL = Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))!.url(forResource: "credentials", withExtension: "plist")!
+            let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
+            
+            return dict["BsAPIUser"]!
+        }
+        
         guard let credentialsURL = Bundle(for: self).url(forResource: "credentials", withExtension: "plist"),
               let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as? Dictionary<String, String>
         else {
@@ -39,6 +46,13 @@ class DemoAPIHelper {
         guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
             let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
             
+            let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
+            
+            return dict["BsAPIPassword"]!
+        }
+        
+        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle")) == nil else {
+            let credentialsURL = Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))!.url(forResource: "credentials", withExtension: "plist")!
             let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
             
             return dict["BsAPIPassword"]!
