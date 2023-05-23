@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5956C89B2A0BAEF60077B5F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5956C89A2A0BAEF60077B5F3 /* credentials.plist */; };
+		59925CB52A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */; };
+		59925CB62A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */; };
 		599E18FB2A08F57A004AAE57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E18FA2A08F57A004AAE57 /* AppDelegate.swift */; };
 		599E18FD2A08F57A004AAE57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E18FC2A08F57A004AAE57 /* SceneDelegate.swift */; };
 		599E18FF2A08F57A004AAE57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E18FE2A08F57A004AAE57 /* ViewController.swift */; };
@@ -90,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		5956C89A2A0BAEF60077B5F3 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../Sources/BluesnapSDK/Resources/credentials.plist; sourceTree = "<group>"; };
+		59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KountDataCollector.xcframework; path = ../Frameworks/XCFrameworks/KountDataCollector.xcframework; sourceTree = "<group>"; };
 		599E18F72A08F57A004AAE57 /* BluesnapSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluesnapSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		599E18FA2A08F57A004AAE57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		599E18FC2A08F57A004AAE57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +132,7 @@
 		599E19562A091C92004AAE57 /* CheckoutReturningShopperBaseTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutReturningShopperBaseTester.swift; sourceTree = "<group>"; };
 		599E19572A091C92004AAE57 /* CheckoutBaseTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutBaseTester.swift; sourceTree = "<group>"; };
 		599E197D2A092517004AAE57 /* BluesnapSDK_BluesnapSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BluesnapSDK_BluesnapSDK.bundle; path = "../../../../Library/Developer/Xcode/DerivedData/BluesnapIOS-afhwtqgxuiyxyyegboupnlkyyrwy/Build/Products/Debug-iphonesimulator/BluesnapSDK_BluesnapSDK.bundle"; sourceTree = "<group>"; };
-		59AFFC0E2A1221A40079162E /* ReturningShopperUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ReturningShopperUITests.xctestplan; sourceTree = SOURCE_ROOT; };
+		59AFFC0E2A1221A40079162E /* ReturningShopperUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReturningShopperUITests.xctestplan; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 				599E19772A092087004AAE57 /* KountWrapper in Frameworks */,
 				599E19102A08F77E004AAE57 /* BluesnapSDK in Frameworks */,
 				599E192C2A090038004AAE57 /* CardinalMobile.xcframework in Frameworks */,
+				59925CB52A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +154,7 @@
 				599E19782A0922BF004AAE57 /* CardinalMobile.xcframework in Frameworks */,
 				599E196F2A091F2E004AAE57 /* KountWrapper in Frameworks */,
 				599E19742A091FEA004AAE57 /* BluesnapSDK in Frameworks */,
+				59925CB62A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +204,7 @@
 		599E190E2A08F77E004AAE57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */,
 				599E19132A08F790004AAE57 /* CardinalMobile.xcframework */,
 			);
 			name = Frameworks;

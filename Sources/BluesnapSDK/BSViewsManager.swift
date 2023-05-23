@@ -37,7 +37,11 @@ class BSViewsManager {
         } else {
             //return Bundle(identifier: BSViewsManager.bundleIdentifier)!;
             //return Bundle(for: self)
+            #if canImport(KountWrapper)
             return Bundle.module
+            #else
+            return Bundle(identifier: BSViewsManager.bundleIdentifier)!;
+            #endif
         }
     }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Kount-Bridging-Header.h"
+
 //! Project version number for BluesnapSDK.
 FOUNDATION_EXPORT double BluesnapSDKVersionNumber;
 

@@ -6,7 +6,10 @@
 
 import Foundation
 import PassKit
-import KountWrapper
+
+#if canImport(KountWrapper)
+  import KountWrapper
+#endif
 
 open class BlueSnapSDK: NSObject {
 
