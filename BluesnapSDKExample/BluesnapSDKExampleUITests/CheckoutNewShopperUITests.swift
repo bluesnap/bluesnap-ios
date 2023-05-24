@@ -10,7 +10,10 @@ import XCTest
 import Foundation
 import PassKit
 import BluesnapSDK
+
+#if canImport(KountWrapper)
 import KountWrapper
+#endif
 //@testable import BluesnapSDKIntegrationTests //TODO: make it work
 
 class CheckoutNewShopperUITests: CheckoutBaseTester {
