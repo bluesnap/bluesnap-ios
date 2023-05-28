@@ -13,4 +13,7 @@
    <FileRef
       location = "group:BluesnapSDKExample/NewShopperUITests.xctestplan">
    </FileRef>
+   <FileRef
+      location = "group:Tests/BluesnapSDKIntegration.xctestplan">
+   </FileRef>
 </Workspace>
