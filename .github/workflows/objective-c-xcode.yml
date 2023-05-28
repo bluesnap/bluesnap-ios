@@ -19,7 +19,6 @@ jobs:
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default="BluesnapSDKExample"
           echo $default | cat >default
-          xcrun xctrace list devices
           echo Using default scheme: $default
       - name: Build
         env:
