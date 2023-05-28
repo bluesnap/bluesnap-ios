@@ -19,7 +19,6 @@ jobs:
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default="BluesnapSDKExample"
           echo $default | cat >default
-          sudo xcode-select -s "/Applications/Xcode_14.3.app"
           echo Using default scheme: $default
       - name: Build
         env:
