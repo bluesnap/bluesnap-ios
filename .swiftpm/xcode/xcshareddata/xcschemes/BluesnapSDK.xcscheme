@@ -29,11 +29,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../BluesnapSDK.xctestplan"
-            default = "YES">
+            reference = "container:Tests/BluesnapSDKIntegration.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/BluesnapSDKIntegration.xctestplan">
+            reference = "container:Tests/BluesnapSDK.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
