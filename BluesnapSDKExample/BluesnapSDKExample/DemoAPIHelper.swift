@@ -12,6 +12,10 @@ import Foundation
 import PassKit
 import BluesnapSDK
 
+#if canImport(KountWrapper)\
+import KountWrapper
+#endif
+
 class DemoAPIHelper {
     
     /* **EXPLANATION**
@@ -28,7 +32,7 @@ class DemoAPIHelper {
      target name from "BluesnapSDK" to something else or else this code will fail almost 100% of the time.
      */
     static var bsAPIUser: String {
-        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
+        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")?.url(forResource: "credentials", withExtension: "plist") == nil else {
             let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
             
             let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
@@ -36,7 +40,7 @@ class DemoAPIHelper {
             return dict["BsAPIUser"]!
         }
         
-        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle")) == nil else {
+        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))?.url(forResource: "credentials", withExtension: "plist") == nil else {
             let credentialsURL = Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))!.url(forResource: "credentials", withExtension: "plist")!
             let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
             
@@ -53,7 +57,7 @@ class DemoAPIHelper {
     }
     
     static var bsAPIPassword: String {
-        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources") == nil else {
+        guard Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")?.url(forResource: "credentials", withExtension: "plist") == nil else {
             let credentialsURL = Bundle(identifier: "BluesnapSDK-BluesnapSDK-resources")!.url(forResource: "credentials", withExtension: "plist")!
             
             let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
@@ -61,7 +65,7 @@ class DemoAPIHelper {
             return dict["BsAPIPassword"]!
         }
         
-        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle")) == nil else {
+        guard Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))?.url(forResource: "credentials", withExtension: "plist") == nil else {
             let credentialsURL = Bundle(url: Bundle(for: self).bundleURL.appending(component: "BluesnapSDK_BluesnapSDK.bundle"))!.url(forResource: "credentials", withExtension: "plist")!
             let dict = NSDictionary(contentsOfFile: credentialsURL.relativePath) as! Dictionary<String, String>
             
