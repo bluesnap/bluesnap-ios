@@ -12,7 +12,7 @@ import Foundation
 import PassKit
 import BluesnapSDK
 
-#if canImport(KountWrapper)\
+#if canImport(KountWrapper)
 import KountWrapper
 #endif
 
