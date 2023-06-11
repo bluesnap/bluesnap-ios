@@ -88,7 +88,7 @@ $ pod install
 
 ## SPM (Optional)
 
-To integrate BluesnapSDK into your Xcode project using SPM, Open your project in Xcode and add the package by opening the SPM dialog via File -> Add Package Dependencies. **Important:** When Xcode prompts you to select the packages you want to import, you **MUST** select the `KountWrapper` package as well, regardless of whether or not you are using Kount in your project. Due to SPM limitations, `KountWrapper` is a direct dependency of `BluesnapSDK` in this instance, and both must come together.
+To integrate BluesnapSDK into your Xcode project using SPM, open your project in Xcode and add the package by opening the SPM dialog via File -> Add Package Dependencies. After the SPM dialog window opens up, enter the repo's URL in the search bar and then click Add Package. **Important:** When Xcode prompts you to select the packages you want to import, you **MUST** select the `KountWrapper` package as well, regardless of whether or not you are using Kount in your project. Due to SPM limitations, `KountWrapper` is a direct dependency of `BluesnapSDK` in this instance, and both must come together.
 
 ## Disable landscape mode
 Landscape mode is not supported in our UI, so in order to make sure the screen does not rotate with the device, you need to add this code to your application's AppDelegate.swift file:
@@ -97,9 +97,6 @@ Landscape mode is not supported in our UI, so in order to make sure the screen d
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
     }
-
-## Objective C Applications
-This SDK is written in Swift. If your application is written in Objective-C, you might need to embed a Swift runtime library. Please follow [Apple's documentation](https://developer.apple.com/library/content/qa/qa1881/_index.html) to set up your project accordingly.
 
 ## Apple Pay (optional)
 In the Standard Checkout Flow, Apple Pay is available for you to offer in your app. You will need to create a new Apple Pay Certificate, Apple Merchant ID, and configure Apple Pay in Xcode. Detailed instructions are available in our [Apple Pay Guide](https://developers.bluesnap.com/docs/apple-pay#section-implementing-apple-pay-in-your-website-or-ios-app). 
