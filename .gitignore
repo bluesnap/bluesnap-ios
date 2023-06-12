@@ -50,5 +50,6 @@ credentials.plist
 BluesnapSDKExample/.DS_Store
 *.xcbkptlist
 .DS_Store
-BluesnapIOS.xcworkspace/xcuserdata
-BluesnapSDKExample/BluesnapSDKExample.xcodeproj/xcuserdata
+*.DS_Store
+*/xcuserdata
+
