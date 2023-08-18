@@ -10,7 +10,7 @@
 
 import Foundation
 
-  class BSApiManager: NSObject {
+  public class BSApiManager: NSObject {
 
     // MARK: Constants
     internal static let BS_PRODUCTION_DOMAIN_PART1 = "https://ws"
