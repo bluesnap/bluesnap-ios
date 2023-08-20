@@ -21,7 +21,7 @@ open class BlueSnapSDK: NSObject {
         .visa
     ]
     private(set) public static var fraudSessionId: String?
-    private(set) public static var sdkRequestBase: BSSdkRequestProtocol?
+    public static var sdkRequestBase: BSSdkRequestProtocol?
 
     
 
