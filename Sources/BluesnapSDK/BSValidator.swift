@@ -15,19 +15,19 @@ public class BSValidator: NSObject {
     
     // MARK: Constants
     
-    static let ccnInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_CCN)
-    static let cvvInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_CVV)
-    static let expMonthInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ExpMonth)
-    static let expPastInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ExpIsInThePast)
-    static let expInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_EXP)
-    static let nameInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Name)
-    static let emailInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Email)
-    static let addressInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Address)
-    static let cityInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_City)
-    static let countryInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Country)
-    static let stateInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_State)
-    static let zipCodeInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ZipCode)
-    static let postalCodeInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_PostalCode)
+    public static let ccnInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_CCN)
+    public static let cvvInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_CVV)
+    public static let expMonthInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ExpMonth)
+    public static let expPastInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ExpIsInThePast)
+    public static let expInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_EXP)
+    public static let nameInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Name)
+    public static let emailInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Email)
+    public static let addressInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Address)
+    public static let cityInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_City)
+    public static let countryInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_Country)
+    public static let stateInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_State)
+    public static let zipCodeInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_ZipCode)
+    public static let postalCodeInvalidMessage = BSLocalizedStrings.getString(BSLocalizedString.Error_Invalid_PostalCode)
 
     static let defaultFieldColor = BSColorCompat.label
 
