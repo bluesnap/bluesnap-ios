@@ -2,7 +2,7 @@ import Foundation
 import CardinalMobile
 
 
-class BSCardinalManager: NSObject {
+public class BSCardinalManager: NSObject {
 
     internal static let SUPPORTED_CARD_VERSION = "2"
     private var session : CardinalSession!
