@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BSLocalizedStrings {
+public class BSLocalizedStrings {
 
     open class func getString(_ str: BSLocalizedString) -> String {
         
