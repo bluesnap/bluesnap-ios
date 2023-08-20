@@ -129,7 +129,7 @@ import Foundation
      - purchaseDetails: BSExistingCcSdkResult
      - completion: callback with either result details if OK, or error details if not OK
      */
-    static func submitPurchaseDetails(purchaseDetails: BSExistingCcSdkResult, completion: @escaping (BSCreditCard, BSErrors?) -> Void) {
+    public static func submitPurchaseDetails(purchaseDetails: BSExistingCcSdkResult, completion: @escaping (BSCreditCard, BSErrors?) -> Void) {
         
         let cc = purchaseDetails.creditCard
         BSApiManager.submitPurchaseDetails(ccNumber: nil, expDate: cc.getExpirationForSubmit(), cvv: nil, last4Digits: cc.last4Digits, cardType: cc.ccType, billingDetails: purchaseDetails.billingDetails, shippingDetails: purchaseDetails.shippingDetails, storeCard: true, fraudSessionId: BlueSnapSDK.fraudSessionId, completion: completion)
@@ -145,7 +145,7 @@ import Foundation
      - cardType: Credit card type (in case of existing CC)
      - completion: callback with either result details if OK, or error details if not OK
      */
-    static func submitPurchaseDetails(ccNumber: String?, expDate: String?, cvv: String?, last4Digits: String?, cardType: String?, billingDetails: BSBillingAddressDetails?, shippingDetails: BSShippingAddressDetails?, storeCard: Bool?, fraudSessionId: String?, completion: @escaping (BSCreditCard, BSErrors?) -> Void) {
+    public static func submitPurchaseDetails(ccNumber: String?, expDate: String?, cvv: String?, last4Digits: String?, cardType: String?, billingDetails: BSBillingAddressDetails?, shippingDetails: BSShippingAddressDetails?, storeCard: Bool?, fraudSessionId: String?, completion: @escaping (BSCreditCard, BSErrors?) -> Void) {
         
         let tokenizeRequest = BSTokenizeRequest()
         if let ccNumber = ccNumber {

@@ -20,8 +20,8 @@ open class BlueSnapSDK: NSObject {
         .masterCard,
         .visa
     ]
-    static internal var fraudSessionId: String?
-    static internal var sdkRequestBase: BSSdkRequestProtocol?
+    private(set) public static var fraudSessionId: String?
+    private(set) public static var sdkRequestBase: BSSdkRequestProtocol?
 
     
 

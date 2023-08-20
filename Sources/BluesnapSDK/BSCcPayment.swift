@@ -102,7 +102,7 @@ class BSCreditCardInfo: BSPaymentInfo, NSCopying {
  New CC details for the purchase
  */
 public class BSCcSdkResult: BSBaseSdkResult {
-    override var storeCard: Bool! {
+    internal(set) public override var storeCard: Bool! {
         get { // why? isn't it already handeled in validation?
             return super.isShopperRequirements() ? true : super.storeCard
         }
@@ -148,7 +148,7 @@ public class BSCcSdkResult: BSBaseSdkResult {
  Existing CC details for the purchase
  */
 public class BSExistingCcSdkResult: BSCcSdkResult, NSCopying {
-    override var storeCard: Bool! {
+    public override var storeCard: Bool! {
         get {
             return true
         }
