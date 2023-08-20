@@ -1,0 +1,171 @@
+
+/* Class = "UILabel"; text = "Name error"; ObjectID = "0xo-d0-rrQ"; */
+"0xo-d0-rrQ.text" = "Name error";
+
+/* Class = "UILabel"; text = "City error"; ObjectID = "1H7-Yz-bYM"; */
+"1H7-Yz-bYM.text" = "City error";
+
+/* Class = "UIButton"; normalTitle = "Pay $100"; ObjectID = "1Ja-wj-sCf"; */
+"1Ja-wj-sCf.normalTitle" = "Pay $100";
+
+/* Class = "UIButton"; normalTitle = "Terms & Conditions"; ObjectID = "2Vw-3R-Epo"; */
+"2Vw-3R-Epo.normalTitle" = "Terms & Conditions";
+
+/* Class = "UITextField"; placeholder = "John Doe"; ObjectID = "3WQ-te-Dk5"; */
+"3WQ-te-Dk5.placeholder" = "John Doe";
+
+/* Class = "UILabel"; text = "Country error"; ObjectID = "6GB-o5-pgA"; */
+"6GB-o5-pgA.text" = "Country error";
+
+/* Class = "UITextField"; placeholder = "MM"; ObjectID = "6qK-6f-cHE"; */
+"6qK-6f-cHE.placeholder" = "MM";
+
+/* Class = "UIButton"; normalTitle = "Pay $100"; ObjectID = "6y7-Zn-vhp"; */
+"6y7-Zn-vhp.normalTitle" = "Pay $100";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "7Ui-Dw-wU0"; */
+"7Ui-Dw-wU0.text" = "Item Name";
+
+/* Class = "UILabel"; text = "EXP Error Message"; ObjectID = "8NT-xL-Sen"; */
+"8NT-xL-Sen.text" = "EXP Error Message";
+
+/* Class = "UITextField"; placeholder = "Shipping email"; ObjectID = "8Wt-P6-wBZ"; */
+"8Wt-P6-wBZ.placeholder" = "Shipping email";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "8ZR-ul-J7u"; */
+"8ZR-ul-J7u.text" = "Item Name";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "A8X-Bt-hJX"; */
+"A8X-Bt-hJX.text" = "Email";
+
+/* Class = "UINavigationItem"; title = "Select Country"; ObjectID = "Bk5-It-mjD"; */
+"Bk5-It-mjD.title" = "Select Country";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "DA0-IR-1gh"; */
+"DA0-IR-1gh.placeholder" = "City";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "F8C-KC-KYf"; */
+"F8C-KC-KYf.text" = "Country";
+
+/* Class = "UILabel"; text = "Email error"; ObjectID = "GeY-Hi-1Va"; */
+"GeY-Hi-1Va.text" = "Email error";
+
+/* Class = "UILabel"; text = "Card"; ObjectID = "HWj-nc-e1y"; */
+"HWj-nc-e1y.text" = "Card";
+
+/* Class = "UILabel"; text = "$11.00"; ObjectID = "HrD-ST-P3N"; */
+"HrD-ST-P3N.text" = "$11.00";
+
+/* Class = "UIViewController"; title = "Shipping Details"; ObjectID = "JMI-6r-Lwf"; */
+"JMI-6r-Lwf.title" = "Shipping Details";
+
+/* Class = "UILabel"; text = "Subtotal:"; ObjectID = "JSl-Ka-DSQ"; */
+"JSl-Ka-DSQ.text" = "Subtotal:";
+
+/* Class = "UITextField"; placeholder = "State"; ObjectID = "KGr-fc-Xo2"; */
+"KGr-fc-Xo2.placeholder" = "State";
+
+/* Class = "UILabel"; text = "Address error"; ObjectID = "LQx-RH-KpF"; */
+"LQx-RH-KpF.text" = "Address error";
+
+/* Class = "UILabel"; text = "Credit/Debit Card Details"; ObjectID = "O4L-Hk-Dl0"; */
+"O4L-Hk-Dl0.text" = "Credit/Debit Card Details";
+
+/* Class = "UITextField"; placeholder = "1234567891234"; ObjectID = "O75-Cx-Nfz"; */
+"O75-Cx-Nfz.placeholder" = "1234567891234";
+
+/* Class = "UIButton"; normalTitle = "Currency - USD"; ObjectID = "OWd-2D-Y5F"; */
+"OWd-2D-Y5F.normalTitle" = "Currency - USD";
+
+/* Class = "UILabel"; text = "CVV"; ObjectID = "Q7c-mg-GMk"; */
+"Q7c-mg-GMk.text" = "CVV";
+
+/* Class = "UITextField"; placeholder = "123"; ObjectID = "QdQ-H8-ref"; */
+"QdQ-H8-ref.placeholder" = "123";
+
+/* Class = "UILabel"; text = "CCN Error Message"; ObjectID = "Qxa-dL-l7E"; */
+"Qxa-dL-l7E.text" = "CCN Error Message";
+
+/* Class = "UINavigationItem"; title = "Select State"; ObjectID = "SHT-tp-E3j"; */
+"SHT-tp-E3j.title" = "Select State";
+
+/* Class = "UILabel"; text = "V"; ObjectID = "Ti5-j2-JDX"; */
+"Ti5-j2-JDX.text" = "V";
+
+/* Class = "UILabel"; text = "State"; ObjectID = "ULM-Xc-IRq"; */
+"ULM-Xc-IRq.text" = "State";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "Uvc-NH-13n"; */
+"Uvc-NH-13n.text" = "Address";
+
+/* Class = "UILabel"; text = "Zip code"; ObjectID = "Wuw-HA-yFi"; */
+"Wuw-HA-yFi.text" = "Zip code";
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "YIf-GN-A0f"; */
+"YIf-GN-A0f.placeholder" = "Country";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "apT-gc-LkX"; */
+"apT-gc-LkX.normalTitle" = "Privacy Policy";
+
+/* Class = "UITextField"; placeholder = "Shipping name"; ObjectID = "bwC-vA-Bd6"; */
+"bwC-vA-Bd6.placeholder" = "Shipping name";
+
+/* Class = "UITextField"; placeholder = "Zip code"; ObjectID = "csV-V6-c8k"; */
+"csV-V6-c8k.placeholder" = "Zip code";
+
+/* Class = "UILabel"; text = "V"; ObjectID = "dhQ-kd-ojt"; */
+"dhQ-kd-ojt.text" = "V";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "exr-Hd-zHP"; */
+"exr-Hd-zHP.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "Shipping address"; ObjectID = "fSv-ea-jHy"; */
+"fSv-ea-jHy.placeholder" = "Shipping address";
+
+/* Class = "UILabel"; text = "CVV Error Message"; ObjectID = "flE-kk-lUd"; */
+"flE-kk-lUd.text" = "CVV Error Message";
+
+/* Class = "UILabel"; text = "Tax:"; ObjectID = "g85-Po-lL5"; */
+"g85-Po-lL5.text" = "Tax:";
+
+/* Class = "UILabel"; text = "Exp"; ObjectID = "gIQ-mj-Z7s"; */
+"gIQ-mj-Z7s.text" = "Exp";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "gqH-6s-0wS"; */
+"gqH-6s-0wS.text" = "Name";
+
+/* Class = "UILabel"; text = "V"; ObjectID = "mH8-4R-uIS"; */
+"mH8-4R-uIS.text" = "V";
+
+/* Class = "UILabel"; text = "/"; ObjectID = "mNM-Q4-TGk"; */
+"mNM-Q4-TGk.text" = "/";
+
+/* Class = "UINavigationItem"; title = "Select Currency"; ObjectID = "oxS-jD-IWE"; */
+"oxS-jD-IWE.title" = "Select Currency";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "pEm-Qt-uFp"; */
+"pEm-Qt-uFp.text" = "Currency";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "poT-Uf-M7R"; */
+"poT-Uf-M7R.text" = "City";
+
+/* Class = "UILabel"; text = "$0.11"; ObjectID = "s0I-aU-qtt"; */
+"s0I-aU-qtt.text" = "$0.11";
+
+/* Class = "UIViewController"; title = "Checkout"; ObjectID = "sH3-ph-K7G"; */
+"sH3-ph-K7G.title" = "Checkout";
+
+/* Class = "UITextField"; placeholder = "YY"; ObjectID = "sgm-Vg-xti"; */
+"sgm-Vg-xti.placeholder" = "YY";
+
+/* Class = "UILabel"; text = "State error"; ObjectID = "v9M-ez-mAp"; */
+"v9M-ez-mAp.text" = "State error";
+
+/* Class = "UIButton"; normalTitle = "Refund Policy"; ObjectID = "vrf-T2-S7c"; */
+"vrf-T2-S7c.normalTitle" = "Refund Policy";
+
+/* Class = "UILabel"; text = "Name Error Message"; ObjectID = "ylX-6i-g8z"; */
+"ylX-6i-g8z.text" = "Name Error Message";
+
+/* Class = "UILabel"; text = "Zip error"; ObjectID = "zAk-ii-YUH"; */
+"zAk-ii-YUH.text" = "Zip error";
