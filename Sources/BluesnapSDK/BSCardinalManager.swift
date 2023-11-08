@@ -41,9 +41,9 @@ public class BSCardinalManager: NSObject {
                 
                 config.deploymentEnvironment = .staging
             }
-            config.uiType = .native
+            config.uiType = .both
             
-            let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeOOB, CardinalSessionRenderTypeSingleSelect, CardinalSessionRenderTypeMultiSelect]
+        let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeOOB, CardinalSessionRenderTypeSingleSelect, CardinalSessionRenderTypeMultiSelect]
             config.renderType = renderType
             config.enableDFSync = true
             config.collectLogs = !isProduction // don't collect logs on production

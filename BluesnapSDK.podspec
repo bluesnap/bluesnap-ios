@@ -1,6 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name         = "BluesnapSDK"
-    spec.version      = "2.0.1"
+    spec.version      = "2.0.2"
+    # spec.source should match 
     spec.summary      = "An iOS SDK for Bluesnap "
     spec.description  = <<-DESC
     Integrate payment methods into your iOS native apps quickly and easily.
