@@ -1,0 +1,51 @@
+{
+  "configurations" : [
+    {
+      "id" : "F09503CA-5DF9-4BD1-9C30-1EEE06F27D57",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "environmentVariableEntries" : [
+      {
+        "key" : "PACKAGE_RESOURCE_BUNDLE_URL",
+        "value" : "$(BUILT_PRODUCTS_DIR)"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+      "identifier" : "599E18F62A08F57A004AAE57",
+      "name" : "BluesnapSDKExample"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CheckoutBaseTester",
+        "CheckoutNewShopperUITests\/testViewsFullBillingNoShippingWithEmail()",
+        "CheckoutReturningShopperBaseTester",
+        "ReturningShopperFullBillingTests",
+        "ReturningShopperFullBillingWithEmailTests",
+        "ReturningShopperFullBillingWithEmailWithShippingTests",
+        "ReturningShopperFullBillingWithShippingTests",
+        "ReturningShopperMinimalBillingTests",
+        "ReturningShopperMinimalBillingWithEmailTests",
+        "ReturningShopperMinimalBillingWithEmailWithShippingTests",
+        "ReturningShopperMinimalBillingWithShippingTests",
+        "ShopperConfigurationUITests",
+        "SubscriptionChargeReturningShopperUITests",
+        "UIBaseTester"
+      ],
+      "target" : {
+        "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+        "identifier" : "599E19322A091BE3004AAE57",
+        "name" : "BluesnapSDKExampleUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
