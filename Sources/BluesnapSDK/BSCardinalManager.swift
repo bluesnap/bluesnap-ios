@@ -108,7 +108,13 @@ public class BSCardinalManager: NSObject {
                     self.setThreeDSAuthResult(threeDSAuthResult: enrollmentStatus)
                     completion(self.threeDSAuthResult, nil)
                 }
+            } else if let response = response, let enrollmentStatus = response.enrollmentStatus {
+                self.setThreeDSAuthResult(threeDSAuthResult: enrollmentStatus);
+                
+                NSLog("Error in getting response from 3DS Auth API call")
+                completion(self.threeDSAuthResult, nil)
             } else {
+           
                 self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
                 NSLog("Error in getting response from 3DS Auth API call")
                 completion(self.threeDSAuthResult, nil)
