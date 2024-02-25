@@ -75,11 +75,11 @@ public enum PaymentValidationResult {
     fileprivate func asPKPaymentStatus() -> PKPaymentAuthorizationStatus? {
         switch self {
         case .invalidShippingContact:
-            return PKPaymentAuthorizationStatus.invalidShippingContact;
+            return PKPaymentAuthorizationStatus.failure;
         case .invalidBillingPostalAddress:
-            return PKPaymentAuthorizationStatus.invalidBillingPostalAddress;
+            return PKPaymentAuthorizationStatus.failure;
         case .invalidShippingPostalAddress:
-            return PKPaymentAuthorizationStatus.invalidShippingPostalAddress;
+            return PKPaymentAuthorizationStatus.failure;
         default:
             return nil;
         }
@@ -87,7 +87,7 @@ public enum PaymentValidationResult {
 
 }
 
-public protocol PaymentOperationDelegate: class {
+public protocol PaymentOperationDelegate: AnyObject {
     func validate(payment: PKPayment, completion: @escaping(PaymentValidationResult) -> Void)
 
     func send(paymentInformation: BSApplePayInfo, completion: @escaping (BSErrors?) -> Void)

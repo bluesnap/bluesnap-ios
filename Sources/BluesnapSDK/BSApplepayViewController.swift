@@ -35,12 +35,12 @@ extension BSStartViewController : PaymentOperationDelegate {
             
             if sdkRequestBase.shopperConfiguration.withShipping {
 //                pkPaymentRequest.requiredShippingAddressFields = [.phone, .postalAddress, .name]
-                pkPaymentRequest.requiredShippingAddressFields = [.postalAddress, .name]
+                pkPaymentRequest.requiredShippingContactFields = [.postalAddress, .name]
             }
             // even without full billing we need zip code, so we need to ask for postal address...
-            pkPaymentRequest.requiredBillingAddressFields = [.name, .postalAddress]
+            pkPaymentRequest.requiredBillingContactFields = [.name, .postalAddress]
             if sdkRequestBase.shopperConfiguration.withEmail {
-                pkPaymentRequest.requiredBillingAddressFields.insert(.email)
+                pkPaymentRequest.requiredBillingContactFields.insert(.emailAddress)
             }
             
             // todo: populate from merchant settings
