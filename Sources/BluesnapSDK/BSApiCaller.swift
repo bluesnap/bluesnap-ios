@@ -72,9 +72,8 @@ import Foundation
                     resultError = parseHttpError(data: data, httpStatusCode: httpStatusCode)
                 }
             }
-            defer {
-                completion(sdkConfig, resultError)
-            }
+            
+            completion(sdkConfig, resultError)
         }
         task.resume()
     }
@@ -104,9 +103,8 @@ import Foundation
                     resultError = parseHttpError(data: data, httpStatusCode: httpStatusCode)
                 }
             }
-            defer {
-                completion(cardinalToken, resultError)
-            }
+            
+            completion(cardinalToken, resultError)
         }
         task.resume()
     }
@@ -126,9 +124,8 @@ import Foundation
             } else {
                 (authResponse, resultError) =  BS3DSAuthResponse.parseJson(data: data)
             }
-            defer {
-                completion(authResponse, resultError)
-            }
+            
+            completion(authResponse, resultError)
 
         })
 
@@ -163,9 +160,8 @@ import Foundation
                     resultError = parseHttpError(data: data, httpStatusCode: httpStatusCode)
                 }
             }
-            defer {
-                completion(resultData, resultError)
-            }
+            
+            completion(resultData, resultError)
         }
         task.resume()
     }
@@ -259,9 +255,8 @@ import Foundation
                     resultError = parseHttpError(data: data, httpStatusCode: httpStatusCode)
                 }
             }
-            defer {
-                completion(resultToken, resultError)
-            }
+            
+            completion(resultToken, resultError)
         }
         task.resume()
     }
@@ -295,9 +290,8 @@ import Foundation
                     resultError = parseHttpError(data: data, httpStatusCode: httpStatusCode)
                 }
             }
-            defer {
-                completion(supportedPaymentMethods, resultError)
-            }
+            
+            completion(supportedPaymentMethods, resultError)
         }
         task.resume()
     }
@@ -370,9 +364,7 @@ import Foundation
                 NSLog("Error getting response from BS on createHttpRequest")
             }
             
-            defer {
-                completion(resultData, resultError)
-            }
+            completion(resultData, resultError)
         }
         task.resume()
     }
@@ -415,9 +407,8 @@ import Foundation
             } else {
                 NSLog("Error getting response from BS on createHttpRequest")
             }
-            defer {
-                completion(resultData, resultError)
-            }
+            
+            completion(resultData, resultError)
         }
         task.resume()
     }
