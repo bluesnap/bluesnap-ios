@@ -1,0 +1,82 @@
+{
+  "configurations" : [
+    {
+      "id" : "2D136A31-4CB1-482B-8F7D-C496AC37C8D6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "environmentVariableEntries" : [
+      {
+        "key" : "PACKAGE_RESOURCE_BUNDLE_URL",
+        "value" : "$(BUILT_PRODUCTS_DIR)"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+      "identifier" : "599E18F62A08F57A004AAE57",
+      "name" : "BluesnapSDKExample"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CheckoutBaseTester",
+        "CheckoutNewShopperUITests\/testAllowCurrencyChange()",
+        "CheckoutNewShopperUITests\/testFlowFullBillingNoShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testFlowFullBillingNoShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testFlowFullBillingWithShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testFlowFullBillingWithShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testFlowFullBillingWithShippingWithEmailNostate()",
+        "CheckoutNewShopperUITests\/testFlowHideStoreCardSwitch()",
+        "CheckoutNewShopperUITests\/testFlowNoFullBillingNoShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testFlowNoFullBillingNoShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testFlowNoFullBillingWithShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testFlowNoFullBillingWithShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testFlowShippingSameAsBilling()",
+        "CheckoutNewShopperUITests\/testNotAllowCurrencyChange()",
+        "CheckoutNewShopperUITests\/testViewsFullBillingNoShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testViewsFullBillingNoShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testViewsFullBillingWithShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testViewsFullBillingWithShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testViewsNoFullBillingNoShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testViewsNoFullBillingNoShippingWithEmail()",
+        "CheckoutNewShopperUITests\/testViewsNoFullBillingWithShippingNoEmail()",
+        "CheckoutNewShopperUITests\/testViewsNoFullBillingWithShippingWithEmail()",
+        "CheckoutReturningShopperBaseTester",
+        "ReturningShopperFullBillingTests",
+        "ReturningShopperFullBillingWithEmailTests",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperEndToEndFullBillingWithEmailWithShipping_shopperWithFullBillingWithEmailWithShipping()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithFullBilling()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithFullBillingWithEmail()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithFullBillingWithShipping()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithMinimalBilling()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithMinimalBillingWithEmail()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperViewsFullBillingWithEmailWithShipping_shopperWithMinimalBillingWithShipping()",
+        "ReturningShopperFullBillingWithShippingTests",
+        "ReturningShopperMinimalBillingTests",
+        "ReturningShopperMinimalBillingWithEmailTests",
+        "ReturningShopperMinimalBillingWithEmailWithShippingTests",
+        "ReturningShopperMinimalBillingWithShippingTests",
+        "ShopperConfigurationUITests",
+        "SubscriptionChargeNewShopperUITests\/testAllowCurrencyChange_subscriptionWithPriceDetails()",
+        "SubscriptionChargeNewShopperUITests\/testNotAllowCurrencyChange_subscriptionWithPriceDetails()",
+        "SubscriptionChargeNewShopperUITests\/testViewsFullBillingWithShippingWithEmail_subscriptionWithoutPriceDetails()",
+        "SubscriptionChargeNewShopperUITests\/testViewsNoFullBillingNoShippingNoEmail_subscriptionWithPriceDetails()",
+        "SubscriptionChargeNewShopperUITests\/testViewsNoFullBillingNoShippingNoEmail_subscriptionWithoutPriceDetails()",
+        "SubscriptionChargeReturningShopperUITests",
+        "UIBaseTester"
+      ],
+      "target" : {
+        "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+        "identifier" : "599E19322A091BE3004AAE57",
+        "name" : "BluesnapSDKExampleUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

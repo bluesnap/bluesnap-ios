@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Turkish
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "Tamam";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "Bitti";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "Bir hata oluştu. Lütfen tekrar deneyin.";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "Bu kart markası/ türü ";
+"Error_Card_Type_Not_Supported_2" = " şu anda bu işlem için desteklenmiyor. Lütfen farklı bir kart kullanarak tekrar deneyin";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "Bir hata oluştu. Lütfen tekrar deneyin.";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "Bir hata oluştu. Lütfen tekrar deneyin.";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "Bir hata oluştu. Lütfen tekrar deneyin.";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "Geçersiz kart numarası";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "Geçersiz CVV numarası";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "Geçersiz ay";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "Son kullanma tarihi geçmiş";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "Geçersiz tarih";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "Bir ad ve soyad girin";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "Geçersiz e-posta";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "Geçersiz sokak";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "Geçersiz şehir";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "Geçersiz ülke";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "Geçersiz eyalet";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "Geçersiz zip kodu";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "Geçersiz posta kodu";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "Fatura Zip Kodu";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "Teslimat Zip Kodu";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "Posta Kodu";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "Ödeme Türü";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "VEYA";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "Geri";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "PayPal Hatası";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "PayPal bu para birimini desteklemiyor";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "PayPal’e bağlanamıyor";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "Bu cihazda kullanılamıyor";
+"Error_No_cards_set" = "Hiçbir kart belirlenmedi";
+"Error_Setup_error" = "Apple Pay’e bağlanamıyor. Lütfen farklı bir ödeme yöntemi seçin.";
+"Error_General_ApplePay_error" = "Apple Pay’e bağlanamıyor";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "Hop";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "Bir hata oluştu; lütfen tekrar deneyin";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "Ödeme";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "Adı";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "E-posta";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "Adres";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "Şehir";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "Eyalet";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "Alt toplam:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "Vergi:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "Teslimat adresi ve fatura adresi aynı";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "Kartımı güvenle depola";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "%@ %.2f öde";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "Teslimat >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "Abone ol";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "Abone ol %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "Para Birimi";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "İptal";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "Teslimat";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "Telefon";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "Para Birimi Seç";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "Ülke Seç";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "Eyalet Seç";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "Fatura";
+
+/* Shipping title */
+"Label_Shipping" = "Teslimat";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";
