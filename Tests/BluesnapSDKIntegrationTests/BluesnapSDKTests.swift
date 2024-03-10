@@ -26,11 +26,14 @@ class BluesnapSDKTests: XCTestCase {
     // MARK: submitCcDetails
     //------------------------------------------------------
     
-    func testSubmitCCDetailsSuccess() {
+
+    func testValidNumbers() {
+        testSubmitCCDetailsSuccess(ccn: "4111 1111 1111 1111", cvv: "111", exp: "10/2030")
+        testSubmitCCDetailsSuccess(ccn: "5204 2452 5046 0049", cvv: "111", exp: "12/2030")
+    }
+    
+    func testSubmitCCDetailsSuccess(ccn: String!, cvv: String!, exp: String!) {
  
-        let ccn = "4111 1111 1111 1111"
-        let cvv = "111"
-        let exp = "10/2030"
         let tokenizeRequest = BSTokenizeRequest()
         tokenizeRequest.paymentDetails = BSTokenizeNewCCDetails(ccNumber: ccn, cvv: cvv, ccType: nil, expDate: exp)
 
