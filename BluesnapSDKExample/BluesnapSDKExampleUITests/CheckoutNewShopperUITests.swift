@@ -14,7 +14,6 @@ import BluesnapSDK
 #if canImport(KountWrapper)
 import KountWrapper
 #endif
-//@testable import BluesnapSDKIntegrationTests //TODO: make it work
 
 class CheckoutNewShopperUITests: CheckoutBaseTester {
 
@@ -438,20 +437,7 @@ class CheckoutNewShopperUITests: CheckoutBaseTester {
     private func setAndUpdateCurrency(currencyName: String, newCurrencyCode: String, oldCurrencyCode: String){
         paymentHelper.setCurrency(currencyName: currencyName)
         sdkRequest.priceDetails.currency = newCurrencyCode
-        
-//        var purchaseAmount = sdkRequest.priceDetails.amount.doubleValue
-        
-//        let currencies = BlueSnapSDK.getCurrencyRates()
-//
-//        if (!(oldCurrencyCode == "USD")) {
-//            let conversionRateToUSD: Double = (currencies?.getCurrencyRateByCurrencyCode(code: oldCurrencyCode))!
-//            purchaseAmount = purchaseAmount / conversionRateToUSD;
-//        }
-//
-//        let conversionRateFromUSD: Double = (currencies?.getCurrencyRateByCurrencyCode(code: currencyCode))!
-//
-//        purchaseAmount = purchaseAmount * conversionRateFromUSD;
-        
+         
         
     }
     
@@ -465,18 +451,3 @@ class CheckoutNewShopperUITests: CheckoutBaseTester {
     
     
 }
-
-//extension XCTestCase {
-//    
-//    func wait(for duration: TimeInterval) {
-//        let waitExpectation = expectation(description: "Waiting")
-//        
-//        let when = DispatchTime.now() + duration
-//        DispatchQueue.main.asyncAfter(deadline: when) {
-//            waitExpectation.fulfill()
-//        }
-//        
-//        // We use a buffer here to avoid flakiness with Timer on CI
-//        waitForExpectations(timeout: duration + 0.5)
-//    }
-//}
