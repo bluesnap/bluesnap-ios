@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name         = "BluesnapSDK"
-    spec.version      = "2.0.3"
-    # spec.source should match 
+    spec.version      = "2.0.4"
+    spec.source       = { :git => "https://github.com/bluesnap/bluesnap-ios.git", :tag => "v2.0.4" }
     spec.summary      = "An iOS SDK for Bluesnap "
     spec.description  = <<-DESC
     Integrate payment methods into your iOS native apps quickly and easily.
@@ -13,7 +13,6 @@ Pod::Spec.new do |spec|
     spec.platform     = :ios
     spec.ios.deployment_target = '12.0'
     spec.swift_version = '5.0'
-    spec.source       = { :git => "https://github.com/bluesnap/bluesnap-ios.git", :tag => "v2.0.2" }
     spec.pod_target_xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES" }
     spec.source_files = ["Sources/**/*.{h,m,swift}", "KountWrapper/**/*.{h,m,c,swift}", "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KDataCollector.h", "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KountAnalyticsViewController.h"]
     spec.public_header_files = ["Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KDataCollector.h", "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KountAnalyticsViewController.h"]
@@ -25,7 +24,8 @@ Pod::Spec.new do |spec|
             'Sources/**/*.xib',
             'Sources/**/*.storyboard',
             'Sources/**/Media.xcassets',
-            'Sources/**/*.strings'
+            'Sources/**/*.strings',
+            'Sources/PrivacyInfo.xcprivacy'
         ]
     }
 
