@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
             'Sources/**/*.storyboard',
             'Sources/**/Media.xcassets',
             'Sources/**/*.strings',
-            'Sources/PrivacyInfo.xcprivacy'
+            'Sources/**/PrivacyInfo.xcprivacy'
         ]
     }
 
