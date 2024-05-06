@@ -364,9 +364,9 @@ open class BlueSnapSDK: NSObject {
         //// Configure the Data Collector
         //KDataCollector.shared().debug = true
         if (kountMid != nil) {
-            KDataCollector.shared().merchantID = kountMid!.intValue
+            KDataCollector.shared().merchantID = kountMid!.stringValue
         } else {
-            KDataCollector.shared().merchantID = 700000
+            KDataCollector.shared().merchantID = "700000"
         }
         // Optional Set the location collection configuration
         KDataCollector.shared().locationCollectorConfig = KLocationCollectorConfig.passive

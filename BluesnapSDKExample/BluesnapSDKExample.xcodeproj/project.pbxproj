@@ -97,7 +97,7 @@
 /* Begin PBXFileReference section */
 		2DA0E8762BE7C82F008E9F08 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5956C89A2A0BAEF60077B5F3 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../Sources/BluesnapSDK/Resources/credentials.plist; sourceTree = "<group>"; };
-		59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KountDataCollector.xcframework; path = ../Frameworks/XCFrameworks/KountDataCollector.xcframework; sourceTree = "<group>"; };
+		59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:62G3CSFCPV:Equifax Inc"; lastKnownFileType = wrapper.xcframework; name = KountDataCollector.xcframework; path = ../Frameworks/XCFrameworks/KountDataCollector.xcframework; sourceTree = "<group>"; };
 		599E18F72A08F57A004AAE57 /* BluesnapSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluesnapSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		599E18FA2A08F57A004AAE57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		599E18FC2A08F57A004AAE57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
