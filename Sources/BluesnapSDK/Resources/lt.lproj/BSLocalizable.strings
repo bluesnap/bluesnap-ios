@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Lithuanian
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "GERAI";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "Atlikta";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "Įvyko klaida. Prašome bandyti dar kartą.";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "Šios rūšies ";
+"Error_Card_Type_Not_Supported_2" = " kortelės nepalaikomos, jei norite atlikti šį sandorį. Naudokite kitokią kortelę ir bandykite dar kartą";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "Įvyko klaida. Prašome bandyti dar kartą.";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "Įvyko klaida. Prašome bandyti dar kartą.";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "Įvyko klaida. Prašome bandyti dar kartą.";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "Kortelės numeris negalioja";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "Negaliojantis CVV";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "Negaliojantis mėnuo";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "Data atgalinė";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "Negaliojanti data";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "Įveskite vardą ir pavardę";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "Negaliojantis el. pašto adresas";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "Negaliojanti gatvė";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "Negaliojantis miestas";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "Negaliojanti šalis";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "Negaliojanti valstija";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "Negaliojantis pašto indeksas";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "Negaliojantis pašto kodas";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "Sąskaitų siuntimo adresas";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "Pristatymo adresas";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "Pašto kodas";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "Apmokėjimo tipas";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "ARBA";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "Grįžti";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "„PayPal” klaida";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "Šios valiutos nepalaiko „PayPal”";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "Nepavyksta prisijungti prie „PayPal”";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "Nepalaikoma šiame įrenginyje";
+"Error_No_cards_set" = "Nėra kortelių nustatymo";
+"Error_Setup_error" = "Nepavyksta prisijungti prie „Apple Pay”. Prašome pasirinkti kitokį atsiskaitymo būdą.";
+"Error_General_ApplePay_error" = "Nepavyksta prisijungti prie „Apple Pay”";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "Ooi";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "Įvyko klaida; prašome bandyti dar kartą";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "Apmokėjimas";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "Vardas";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "El. pašto adresas";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "Adresas";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "Miestas";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "Valstija";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "Tarpinė suma:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "Mokestis:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "Pristatymo ir sąskaitų siuntimo adresas toks pats";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "Saugiai saugoti mano kortelę";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "Mokėti %@ %.2f";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "Pristatymas >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "Prenumeruoti";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "Prenumeruoti %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "Valiuta";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "Atšaukti";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "Pristatymas";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "Telefonas";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "Pasirinkti valiutą";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "Pasirinkti šalį";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "Pasirinkti valstiją";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "Atsiskaitymas";
+
+/* Shipping title */
+"Label_Shipping" = "Pristatymas";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";
