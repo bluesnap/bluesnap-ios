@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D3574FF2B571FD700449881 /* BluesnapSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2D3574FE2B571FD700449881 /* BluesnapSDK */; };
 		2D3575012B571FD700449881 /* KountWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 2D3575002B571FD700449881 /* KountWrapper */; };
+		2DA0E8772BE7C82F008E9F08 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0E8762BE7C82F008E9F08 /* PrivacyInfo.xcprivacy */; };
+		2DA0E8782BE7C82F008E9F08 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0E8762BE7C82F008E9F08 /* PrivacyInfo.xcprivacy */; };
 		5956C89B2A0BAEF60077B5F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5956C89A2A0BAEF60077B5F3 /* credentials.plist */; };
 		59925CB52A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */; };
 		59925CB62A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */; };
@@ -93,8 +95,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2DA0E8762BE7C82F008E9F08 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5956C89A2A0BAEF60077B5F3 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../Sources/BluesnapSDK/Resources/credentials.plist; sourceTree = "<group>"; };
-		59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KountDataCollector.xcframework; path = ../Frameworks/XCFrameworks/KountDataCollector.xcframework; sourceTree = "<group>"; };
+		59925CB42A1CC57600DC31E6 /* KountDataCollector.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:62G3CSFCPV:Equifax Inc"; lastKnownFileType = wrapper.xcframework; name = KountDataCollector.xcframework; path = ../Frameworks/XCFrameworks/KountDataCollector.xcframework; sourceTree = "<group>"; };
 		599E18F72A08F57A004AAE57 /* BluesnapSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluesnapSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		599E18FA2A08F57A004AAE57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		599E18FC2A08F57A004AAE57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 				599E19222A08F9AA004AAE57 /* DemoAPIHelper.swift */,
 				599E19162A08F905004AAE57 /* Assets.xcassets */,
 				599E19082A08F57B004AAE57 /* Info.plist */,
+				2DA0E8762BE7C82F008E9F08 /* PrivacyInfo.xcprivacy */,
 			);
 			path = BluesnapSDKExample;
 			sourceTree = "<group>";
@@ -364,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA0E8782BE7C82F008E9F08 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +379,7 @@
 				5956C89B2A0BAEF60077B5F3 /* credentials.plist in Resources */,
 				599E19272A08FA33004AAE57 /* Main.storyboard in Resources */,
 				599E19072A08F57B004AAE57 /* LaunchScreen.storyboard in Resources */,
+				2DA0E8772BE7C82F008E9F08 /* PrivacyInfo.xcprivacy in Resources */,
 				599E19172A08F905004AAE57 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,7 +38,8 @@ let package = Package(
                 //.product(name: "KountDataCollectorPackage", package: "kount-ios-swift-package")
             ],
             resources: [
-                .copy("Resources/credentials.plist")
+                .copy("Resources/credentials.plist"),
+                .copy("PrivacyInfo.xcprivacy")
             ]
         ),
         .target(
