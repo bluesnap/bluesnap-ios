@@ -43,7 +43,7 @@ public class BSCardinalManager: NSObject {
             }
             config.uiType = .both
             
-        let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeOOB, CardinalSessionRenderTypeSingleSelect, CardinalSessionRenderTypeMultiSelect]
+        let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeOOB, CardinalSessionRenderTypeSingleSelect, CardinalSessionRenderTypeMultiSelect, CardinalSessionRenderTypeHTML]
             config.renderType = renderType
             config.enableDFSync = true
             config.collectLogs = !isProduction // don't collect logs on production
