@@ -130,8 +130,8 @@ class DemoAPIHelper {
         if let shopperId = shopperId {
             urlStr = urlStr + "?shopperId=\(shopperId)"
         }
-        let url = NSURL(string: urlStr)!
-        var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "text/xml")
+       
+        let request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "text/xml")
 
         // fire request
 
@@ -149,7 +149,7 @@ class DemoAPIHelper {
                 if let httpStatusCode: Int = (httpResponse?.statusCode) {
                     if (httpStatusCode >= 200 && httpStatusCode <= 299) {
                         result = self.extractTokenFromResponse(httpResponse: httpResponse)
-                        if let result = result {
+                        if result != nil {
                             NSLog("createSandboxBSToken result")
                         } else {
                             resultError = .unknown
@@ -203,7 +203,7 @@ class DemoAPIHelper {
         completion: @escaping (_ isSuccess: Bool, _ data: String?, _ shopperId: String?)->Void) {
         
         var responseData: Data!
-        var requestBody = [
+            let requestBody = [
             "amount": "\(purchaseDetails.getAmount()!)",
             "recurringTransaction": "ECOMMERCE",
             "softDescriptor": "MobileSDKtest",
@@ -216,7 +216,7 @@ class DemoAPIHelper {
         
         let urlStr = bsToken.getServerUrl() + "services/2/transactions";
         let url = NSURL(string: urlStr)!
-        var request = NSMutableURLRequest(url: url as URL)
+        let request = NSMutableURLRequest(url: url as URL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(authorization, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
@@ -271,13 +271,11 @@ class DemoAPIHelper {
         
         // create request
         let urlStr = BS_SANDBOX_DOMAIN + BS_SANDBOX_VAULTED_SHOPPER
-        let url = NSURL(string: urlStr)!
-        
         
 
         let requestBody = createVaultedShopperDataObject(fullBilling: fullBilling, withEmail: withEmail, withShipping: withShipping, billingInfo: billingInfo, shippingInfo: shippingInfo, creditCard: creditCard)
     
-        var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
+        let request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
         
         
         // fire request
@@ -406,12 +404,10 @@ class DemoAPIHelper {
         completion: @escaping (_ isSuccess: Bool, _ data: Data?)->Void) {
 
         print("shopperId= \(shopperId)")
-        let authorization = getBasicAuth()
 
         let urlStr = BS_SANDBOX_DOMAIN + BS_SANDBOX_VAULTED_SHOPPER + "/" + shopperId;
-        let url = NSURL(string: urlStr)!
 
-        var request = getURLRequest(urlStr: urlStr, httpMethod: "GET", contentType: "application/json")
+        let request = getURLRequest(urlStr: urlStr, httpMethod: "GET", contentType: "application/json")
 
         var result : (isSuccess:Bool, data: Data?) = (isSuccess:false, data: nil)
 
@@ -434,7 +430,7 @@ class DemoAPIHelper {
                     }
                 }
             }
-            defer {
+            do {
                 completion(result.isSuccess, result.data)
             }
         }
@@ -445,11 +441,10 @@ class DemoAPIHelper {
         
         // create request
         let urlStr = BS_SANDBOX_DOMAIN + BS_SANDBOX_PLAN
-        let url = NSURL(string: urlStr)!
         
         let requestBody = createBasicSubscriptionPlanDataObject(amount: amount, currency: currency, trialPeriodDays: trialPeriodDays)
         
-        var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
+        let request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
         
         // fire request
         
@@ -484,10 +479,10 @@ class DemoAPIHelper {
                     }
                 }
             }
-            defer {
-           DispatchQueue.main.async {
-                    completion(result.isSuccess, result.data, result.planId)
-                }
+            do {
+               DispatchQueue.main.async {
+                        completion(result.isSuccess, result.data, result.planId)
+                    }
             }
         }
         task.resume()
@@ -513,11 +508,10 @@ class DemoAPIHelper {
         
         // create request
         let urlStr = BS_SANDBOX_DOMAIN + BS_SANDBOX_SUBSCRIPTION
-        let url = NSURL(string: urlStr)!
         
         let requestBody = createBasicSubscriptionChargeDataObject(planId: planId, bsToken: bsToken)
         
-        var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
+        let request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
         
         // fire request
         
@@ -552,8 +546,8 @@ class DemoAPIHelper {
                     }
                 }
             }
-            defer {
-           DispatchQueue.main.async {
+            do {
+                DispatchQueue.main.async {
                     completion(result.isSuccess, result.data, result.shopperId)
                 }
             }

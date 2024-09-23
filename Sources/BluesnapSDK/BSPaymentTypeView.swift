@@ -64,7 +64,7 @@ class BSPaymentTypeView: BSBaseBoxWithShadowView {
     
     internal func buildElements() {
         
-        if let iconImage = iconImage {
+        if iconImage != nil {
             setImageButtom()
         }
         self.addSubview(self.imageButton)

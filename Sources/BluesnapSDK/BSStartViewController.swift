@@ -130,7 +130,7 @@ class BSStartViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
 
         animateToPaymentScreen(startY: bottomOfLastIcon, completion: { animate in
-            _ = BSViewsManager.showCCDetailsScreen(existingCcPurchaseDetails: nil, inNavigationController: self.navigationController, animated: animate)
+            BSViewsManager.showCCDetailsScreen(existingCcPurchaseDetails: nil, inNavigationController: self.navigationController, animated: animate)
         })
     }
 
@@ -165,7 +165,7 @@ class BSStartViewController: UIViewController {
                     if let resultToken = resultToken {
                         self.stopActivityIndicator()
                         DispatchQueue.main.async {
-                            BSViewsManager.showBrowserScreen(inNavigationController: (nil != self.navigationController) ? self.navigationController : sender as! UINavigationController, url: resultToken, shouldGoToUrlFunc: self.paypalUrlListener)
+                            BSViewsManager.showBrowserScreen(inNavigationController: (nil != self.navigationController) ? self.navigationController : sender as? UINavigationController, url: resultToken, shouldGoToUrlFunc: self.paypalUrlListener)
                         }
                     } else {
                         let errMsg = resultError == .paypalUnsupportedCurrency ? BSLocalizedString.Error_PayPal_Currency_Not_Supported : BSLocalizedString.Error_General_PayPal_error
@@ -258,7 +258,7 @@ class BSStartViewController: UIViewController {
             animateToPaymentScreen(startY: existingCcUIView.frame.minY, completion: { animate in
 
                 let purchaseDetails = BSExistingCcSdkResult(sdkRequestBase: BlueSnapSDK.sdkRequestBase!, shopper: BSApiManager.shopper, existingCcDetails: cc)
-                _ = BSViewsManager.showExistingCCDetailsScreen(purchaseDetails: purchaseDetails, inNavigationController: self.navigationController, animated: animate)
+                BSViewsManager.showExistingCCDetailsScreen(purchaseDetails: purchaseDetails, inNavigationController: self.navigationController, animated: animate)
             })
         }
 

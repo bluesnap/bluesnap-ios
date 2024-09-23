@@ -114,7 +114,7 @@ class BSExistingCCViewController: UIViewController {
     }
 
     @IBAction func editBilling(_ sender: Any) {
-        _ = BSViewsManager.showCCDetailsScreen(existingCcPurchaseDetails: purchaseDetails, inNavigationController: self.navigationController, animated: true)
+        BSViewsManager.showCCDetailsScreen(existingCcPurchaseDetails: purchaseDetails, inNavigationController: self.navigationController, animated: true)
     }
 
     @IBAction func editShipping(_ sender: Any) {
