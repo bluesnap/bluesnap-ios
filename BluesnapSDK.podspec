@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
     spec.public_header_files = ["Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KDataCollector.h", "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KountAnalyticsViewController.h"]
     spec.ios.vendored_frameworks = ["Frameworks/XCFrameworks/CardinalMobile.xcframework", "Frameworks/XCFrameworks/KountDataCollector.xcframework"]
     #spec.ios.vendored_libraries = ["Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64_x86_64-simulator/libKountDataCollector.a"]
-    spec.exclude_files = ["Tests/**/*.*", "Frameworks/XCFrameworks/CardinalMobile.xcframework/**/Headers/**"]
+    spec.exclude_files = ["Tests/**/*.*", "Frameworks/XCFrameworks/CardinalMobile.SDK runs properly on ios 18 /**/Headers/**"]
     spec.resource_bundles = {
         'BluesnapUI' => [
             'Sources/**/*.xib',

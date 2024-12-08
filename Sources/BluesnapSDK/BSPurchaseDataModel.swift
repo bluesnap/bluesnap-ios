@@ -8,18 +8,16 @@
 
 import Foundation
 
-/**
- Available payment types
- */
+/// Available payment types
 public enum BSPaymentType: String {
     case CreditCard = "CC"
     case ApplePay = "APPLE_PAY"
     case PayPal = "PAYPAL"
+    case ECP = "ECP"
+    case ACH = "ACH"
 }
 
-/**
- Base class for the different payments; for now only BSCreditCardInfo inherits from this.
- */
+/// Base class for the different payments; for now only BSCreditCardInfo inherits from this.
 public class BSPaymentInfo: NSObject {
     let paymentType: BSPaymentType!
 
@@ -28,9 +26,7 @@ public class BSPaymentInfo: NSObject {
     }
 }
 
-/**
- Base class for payment request; this will be the result of the payment flow (one of the inherited classes: BSCcSdkResult/BSApplePaySdkResult/BSPayPalSdkResult)
- */
+/// Base class for payment request; this will be the result of the payment flow (one of the inherited classes: BSCcSdkResult/BSApplePaySdkResult/BSPayPalSdkResult)
 public class BSBaseSdkResult: NSObject {
     private var isSdkRequestIsShopperRequirements: Bool! = nil
     private var isSdkRequestIsSubscriptionCharge: Bool! = nil
@@ -47,14 +43,17 @@ public class BSBaseSdkResult: NSObject {
         super.init()
         self.isSdkRequestIsShopperRequirements = (sdkRequestBase is BSSdkRequestShopperRequirements)
         self.isSdkRequestIsSubscriptionCharge = (sdkRequestBase is BSSdkRequestSubscriptionCharge)
-        self.isSdkRequestSubscriptionHasPriceDetails = isSdkRequestIsSubscriptionCharge ? (sdkRequestBase as! BSSdkRequestSubscriptionCharge).hasPriceDetails() : nil
+        self.isSdkRequestSubscriptionHasPriceDetails =
+            isSdkRequestIsSubscriptionCharge
+            ? (sdkRequestBase as! BSSdkRequestSubscriptionCharge).hasPriceDetails() : nil
         self.storeCard = self.isSdkRequestIsShopperRequirements
-        self.priceDetails = hasPriceDetails() ? sdkRequestBase.priceDetails.copy() as? BSPriceDetails : nil
+        self.priceDetails =
+            hasPriceDetails() ? sdkRequestBase.priceDetails.copy() as? BSPriceDetails : nil
         self.fraudSessionId = BlueSnapSDK.fraudSessionId
     }
 
     public func getFraudSessionId() -> String? {
-        return fraudSessionId;
+        return fraudSessionId
     }
 
     // MARK: getters and setters
@@ -78,30 +77,32 @@ public class BSBaseSdkResult: NSObject {
     public func isShopperRequirements() -> Bool! {
         return isSdkRequestIsShopperRequirements
     }
-    
+
     public func isSubscriptionCharge() -> Bool! {
         return isSdkRequestIsSubscriptionCharge
     }
-    
+
     public func isSubscriptionHasPriceDetails() -> Bool? {
         return isSdkRequestSubscriptionHasPriceDetails
     }
-    
+
     public func hasPriceDetails() -> Bool {
-        return !(isShopperRequirements() || (isSubscriptionCharge() && !isSubscriptionHasPriceDetails()!))
+        return
+            !(isShopperRequirements()
+            || (isSubscriptionCharge() && !isSubscriptionHasPriceDetails()!))
     }
 }
 
-/**
- price details: amount, tax and currency
- */
+/// price details: amount, tax and currency
 public class BSPriceDetails: NSObject, NSCopying {
 
     public var amount: NSNumber! = 0.0
     public var taxAmount: NSNumber! = 0.0
     public var currency: String! = "USD"
 
-    public func setDetailsWithAmount(amount: NSNumber!, taxAmount: NSNumber!, currency: NSString?/*, baseCurrency: NSString?*/) {
+    public func setDetailsWithAmount(
+        amount: NSNumber!, taxAmount: NSNumber!, currency: NSString? /*, baseCurrency: NSString?*/
+    ) {
         self.amount = amount
         self.taxAmount = taxAmount
         self.currency = currency! as String
@@ -115,7 +116,8 @@ public class BSPriceDetails: NSObject, NSCopying {
     }
 
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = BSPriceDetails(amount: amount.doubleValue, taxAmount: taxAmount.doubleValue, currency: currency)
+        let copy = BSPriceDetails(
+            amount: amount.doubleValue, taxAmount: taxAmount.doubleValue, currency: currency)
         return copy
     }
 
@@ -131,41 +133,86 @@ public class BSPriceDetails: NSObject, NSCopying {
     }
 }
 
-
-/**
-  Class holds initial or setup data for the flow:
-    - Flow flavors (withShipping, withBilling, withEmail)
-    - Price details
-    - (optional) Shopper details
-    - (optional) function for updating tax amount based on shipping country/state. Only called when 'withShipping
- */
+/// Class holds initial or setup data for the flow:
+///   - Flow flavors (withShipping, withBilling, withEmail)
+///   - Price details
+///   - (optional) Shopper details
+///   - (optional) function for updating tax amount based on shipping country/state. Only called when 'withShipping
 public class BSSdkRequest: NSObject, BSSdkRequestProtocol {
     public var shopperConfiguration: BSShopperConfiguration!
     public var allowCurrencyChange: Bool = true
     public var hideStoreCardSwitch: Bool = false
     public var activate3DS: Bool = false
-    public var priceDetails: BSPriceDetails! = BSPriceDetails(amount: 0, taxAmount: 0, currency: nil)
+    public var priceDetails: BSPriceDetails! = BSPriceDetails(
+        amount: 0, taxAmount: 0, currency: nil)
     public var applePayCustomizePayLine: String? = nil
 
     public var purchaseFunc: (BSBaseSdkResult?) -> Void
     public var updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
 
     public init(
-            withEmail: Bool,
-            withShipping: Bool,
-            fullBilling: Bool,
-            priceDetails: BSPriceDetails!,
-            billingDetails: BSBillingAddressDetails?,
-            shippingDetails: BSShippingAddressDetails?,
-            purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
-            updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?) {
+        withEmail: Bool,
+        withShipping: Bool,
+        fullBilling: Bool,
+        priceDetails: BSPriceDetails!,
+        billingDetails: BSBillingAddressDetails?,
+        shippingDetails: BSShippingAddressDetails?,
+        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
+        updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
+    ) {
 
-        self.shopperConfiguration = BSShopperConfiguration(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, billingDetails: billingDetails, shippingDetails: shippingDetails)
+        self.shopperConfiguration = BSShopperConfiguration(
+            withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling,
+            billingDetails: billingDetails, shippingDetails: shippingDetails)
         self.priceDetails = priceDetails
         self.purchaseFunc = purchaseFunc
         self.updateTaxFunc = updateTaxFunc
     }
 }
+
+//public class BSSdkEcpAchRequest: NSObject, BSSdkRequestProtocol {
+//    public var shopperConfiguration: BSShopperConfiguration!
+//    public var purchaseFunc: (BSBaseSdkResult?) -> Void
+//
+//    public var activate3DS: Bool {
+//        get {
+//            return false
+//        }
+//        set {
+//        }
+//    }
+//    
+//    public var purchaseFunc: (BSBaseSdkResult?) -> Void
+//    public var updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
+//
+//    var routingNumber: String!
+//    var accountNumber: String!
+//    var accountType: String!
+//    var paymentMethod: String!
+//
+//    public init(
+//        withEmail: Bool,
+//        withShipping: Bool,
+//        fullBilling: Bool,
+//        billingDetails: BSBillingAddressDetails?,
+//        shippingDetails: BSShippingAddressDetails?,
+//        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
+//        routingNumber: String!,
+//        accountNumber: String!,
+//        accountType: String!,
+//        paymentMethod: String!
+//    ) {
+//
+//        self.shopperConfiguration = BSShopperConfiguration(
+//            withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling,
+//            billingDetails: billingDetails, shippingDetails: shippingDetails)
+//        self.purchaseFunc = purchaseFunc
+//        self.routingNumber = routingNumber
+//        self.accountNumber = accountNumber
+//        self.accountType = accountType
+//        self.paymentMethod = paymentMethod
+//    }
+//}
 
 public class BSSdkRequestShopperRequirements: NSObject, BSSdkRequestProtocol {
     public var shopperConfiguration: BSShopperConfiguration!
@@ -178,7 +225,7 @@ public class BSSdkRequestShopperRequirements: NSObject, BSSdkRequestProtocol {
         set {
         }
     }
-    
+
     public var applePayCustomizePayLine: String? {
         get {
             return nil
@@ -186,17 +233,19 @@ public class BSSdkRequestShopperRequirements: NSObject, BSSdkRequestProtocol {
         set {
         }
     }
-    
+
     public init(
-            withEmail: Bool,
-            withShipping: Bool,
-            fullBilling: Bool,
-            billingDetails: BSBillingAddressDetails?,
-            shippingDetails: BSShippingAddressDetails?,
-            purchaseFunc: @escaping (BSBaseSdkResult?) -> Void) {
+        withEmail: Bool,
+        withShipping: Bool,
+        fullBilling: Bool,
+        billingDetails: BSBillingAddressDetails?,
+        shippingDetails: BSShippingAddressDetails?,
+        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void
+    ) {
 
-
-        self.shopperConfiguration = BSShopperConfiguration(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, billingDetails: billingDetails, shippingDetails: shippingDetails)
+        self.shopperConfiguration = BSShopperConfiguration(
+            withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling,
+            billingDetails: billingDetails, shippingDetails: shippingDetails)
         self.purchaseFunc = purchaseFunc
     }
 }
@@ -204,7 +253,7 @@ public class BSSdkRequestShopperRequirements: NSObject, BSSdkRequestProtocol {
 public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
     private var sdkRequestHasPriceDetails: Bool = true
     private var storedAllowCurrencyChange: Bool = true
-    
+
     override public var hideStoreCardSwitch: Bool {
         get {
             return false
@@ -212,7 +261,7 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         set {
         }
     }
-    
+
     override public var allowCurrencyChange: Bool {
         get {
             return hasPriceDetails() ? storedAllowCurrencyChange : false
@@ -221,7 +270,7 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
             storedAllowCurrencyChange = newValue
         }
     }
-    
+
     override public var activate3DS: Bool {
         get {
             return false
@@ -229,21 +278,25 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         set {
         }
     }
-    
+
     convenience public init(
         withEmail: Bool,
         withShipping: Bool,
         fullBilling: Bool,
         billingDetails: BSBillingAddressDetails?,
         shippingDetails: BSShippingAddressDetails?,
-        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void) {
-        
-        self.init(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, priceDetails: nil, billingDetails: billingDetails, shippingDetails: shippingDetails, purchaseFunc: purchaseFunc, updateTaxFunc: nil)
-        
+        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void
+    ) {
+
+        self.init(
+            withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling,
+            priceDetails: nil, billingDetails: billingDetails, shippingDetails: shippingDetails,
+            purchaseFunc: purchaseFunc, updateTaxFunc: nil)
+
         sdkRequestHasPriceDetails = false
         allowCurrencyChange = false
     }
-    
+
     public func hasPriceDetails() -> Bool {
         return sdkRequestHasPriceDetails
     }
@@ -252,8 +305,14 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
 extension BSSdkRequestProtocol {
     public var updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)? { return nil }
     public var priceDetails: BSPriceDetails! { return nil }
-    public var allowCurrencyChange: Bool { get { return false } set { } }
-    public var hideStoreCardSwitch: Bool { get { return false } set { } }
+    public var allowCurrencyChange: Bool {
+        get { return false }
+        set {}
+    }
+    public var hideStoreCardSwitch: Bool {
+        get { return false }
+        set {}
+    }
 
     public mutating func adjustSdkRequest() {
 
@@ -278,11 +337,16 @@ extension BSSdkRequestProtocol {
 }
 
 public protocol BSSdkRequestProtocol {
-    var shopperConfiguration: BSShopperConfiguration! {get set}
+    var shopperConfiguration: BSShopperConfiguration! { get set }
     var purchaseFunc: (BSBaseSdkResult?) -> Void { get set }
 
     var priceDetails: BSPriceDetails! { get }
-    var updateTaxFunc: ((_ shippingCountry: String, _ shippingState: String?, _ priceDetails: BSPriceDetails) -> Void)? { get }
+    var updateTaxFunc:
+        (
+            (_ shippingCountry: String, _ shippingState: String?, _ priceDetails: BSPriceDetails) ->
+                Void
+        )?
+    { get }
 
     var allowCurrencyChange: Bool { get set }
     var hideStoreCardSwitch: Bool { get set }
@@ -300,11 +364,12 @@ public class BSShopperConfiguration {
     public var shippingDetails: BSShippingAddressDetails?
 
     public init(
-            withEmail: Bool,
-            withShipping: Bool,
-            fullBilling: Bool,
-            billingDetails: BSBillingAddressDetails?,
-            shippingDetails: BSShippingAddressDetails?) {
+        withEmail: Bool,
+        withShipping: Bool,
+        fullBilling: Bool,
+        billingDetails: BSBillingAddressDetails?,
+        shippingDetails: BSShippingAddressDetails?
+    ) {
 
         self.withEmail = withEmail
         self.withShipping = withShipping

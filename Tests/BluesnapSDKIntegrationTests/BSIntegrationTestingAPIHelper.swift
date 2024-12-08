@@ -202,6 +202,132 @@ class BSIntegrationTestingAPIHelper {
         task.resume()
     }
     
+    static func printAsCurl(request: URLRequest) {
+        guard let url = request.url else { return }
+        var curlCommand = "curl"
+
+        // Print HTTP method if not GET
+        if let method = request.httpMethod, method != "GET" {
+            curlCommand += " -X \(method)"
+        }
+
+        // Print headers
+        if let headers = request.allHTTPHeaderFields {
+            for (header, value) in headers {
+                // Wrap the header value in quotes in case it contains spaces or special characters
+                curlCommand += " -H \"\(header): \(value)\""
+            }
+        }
+
+        // Print HTTP body if it exists
+        if let httpBody = request.httpBody,
+           let bodyString = String(data: httpBody, encoding: .utf8) {
+            // Escape double quotes in the body
+            let escapedBody = bodyString.replacingOccurrences(of: "\"", with: "\\\"")
+            curlCommand += " --data \"\(escapedBody)\""
+        }
+
+        // Print the URL last
+        curlCommand += " \"\(url.absoluteString)\""
+
+        print("cURL equivalent: \(curlCommand)")
+    }
+
+     
+    static func createTokenizedEcpAchTransaction(
+        purchaseAmount: Double,
+        purchaseCurrency: String,
+        paymentMethod: String,
+        routingNumber: String,
+        accountNumber: String,
+        accountType: String,
+        bsToken: BSToken!,
+        completion: @escaping (_ isSuccess: Bool, _ data: Data?, _ shopperId: String?)->Void) {
+//         let xmlBody = """
+//            <alt-transaction xmlns="http://ws.plimus.com">
+//                <pf-token>\(bsToken.getTokenStr()!)</pf-token>
+//                <soft-descriptor>ABC COMPANY</soft-descriptor>
+//                <amount>100.00</amount>
+//                <currency>USD</currency>
+//                <payer-info>
+//                    <first-name>John</first-name>
+//                    <last-name>Doe</last-name>
+//                    <zip>02453</zip>
+//                    <phone>1234567890</phone>
+//                </payer-info>
+//                <authorized-by-shopper>true</authorized-by-shopper>
+//            </alt-transaction>
+//            """
+        var requestBody = [
+            "amount": "\(purchaseAmount)",
+            "paymentMethod": "\(paymentMethod)",
+            "routingNumber": "\(routingNumber)",
+            "accountNumber": "\(accountNumber)",
+            "accountType": "\(accountType)",
+            "payerInfo":[
+               "firstName": "John",
+                "lastName": "Doe",
+                "zip": "02453",
+                "phone": "1234567890",
+           ],
+            "recurringTransaction": "ECOMMERCE",
+            "softDescriptor": "MobileSDKtest",
+            "currency": "\(purchaseCurrency)",
+            "cardTransactionType": "AUTH_CAPTURE",
+            "pfToken": "\(bsToken.getTokenStr()!)",
+            ] as [String : Any]
+        print("requestBody= \(requestBody)")
+        
+        let authorization = getBasicAuth()
+        
+        let urlStr = bsToken.getServerUrl() + "services/2/alt-transactions";
+        let url = NSURL(string: urlStr)!
+        
+        var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "application/json", requestBody: requestBody)
+        
+        // Convert NSMutableURLRequest to URLRequest
+        let urlRequest = request as URLRequest
+                
+        // Print cURL command
+        printAsCurl(request: urlRequest)
+        // fire request
+        
+        var result : (isSuccess:Bool, data: Data?, shopperId: String?) = (isSuccess:false, data: nil, shopperId: nil)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if let error = error {
+                NSLog("error calling create transaction: \(error.localizedDescription)")
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                if let httpStatusCode:Int = (httpResponse?.statusCode) {
+                    
+                    if let data = data {
+                        result.data = data
+                        NSLog("Response body = \(result.data!)")
+                    }
+                    if (httpStatusCode >= 200 && httpStatusCode <= 299) {
+                        result.isSuccess = true
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: result.data!, options: .allowFragments) as? [String: AnyObject] {
+                                result.shopperId = String(json["vaultedShopperId"] as! Int)
+                            }
+                        } catch let error as NSError {
+                            NSLog("Error parsing BS result on Retrieve vaulted shopper: \(error.localizedDescription)")
+                            result.isSuccess = false
+                        }
+                    } else {
+                        NSLog("Http error Creating BS Transaction; HTTP status = \(httpStatusCode)")
+                    }
+                }
+            }
+            defer {
+                completion(result.isSuccess, result.data, result.shopperId)
+                
+            }
+        }
+        task.resume()
+    }
+
     static func retrieveVaultedShopper(
         vaultedShopperId shopperId: String,
         completion: @escaping (_ isSuccess: Bool, _ data: Data?)->Void) {
@@ -213,7 +339,8 @@ class BSIntegrationTestingAPIHelper {
         let url = NSURL(string: urlStr)!
         
         var request = getURLRequest(urlStr: urlStr, httpMethod: "GET", contentType: "application/json")
-        
+            
+      
         // fire request
         
         var result : (isSuccess:Bool, data: Data?) = (isSuccess:false, data: nil)
@@ -272,27 +399,27 @@ class BSIntegrationTestingAPIHelper {
      - httpMethod: operationt type to request
      - ContentType: content type of the request
      */
-    private static func getURLRequest(urlStr: String, httpMethod: String, contentType: String, requestBody: Any? = nil) -> NSMutableURLRequest {
-        let authorization = getBasicAuth()
-        let url = NSURL(string: urlStr)!
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = httpMethod
-        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
-        request.setValue(authorization, forHTTPHeaderField: "Authorization")
-        //request.setValue("0", forHTTPHeaderField: "Content-Length")
-        request.setValue(BSApiCaller.BLUESNAP_API_VERSION_HEADER_VAL, forHTTPHeaderField: BSApiCaller.BLUESNAP_API_VERSION_HEADER)
-        request.setValue(BSApiCaller.SDK_VERSION_CODE_HEADER_VAL, forHTTPHeaderField: BSApiCaller.SDK_VERSION_CODE_HEADER)
-        request.setValue(BSApiCaller.SDK_VERSION_STRING_HEADER_VAL, forHTTPHeaderField: BSApiCaller.SDK_VERSION_STRING_HEADER)
-        if let requestBody = requestBody {
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
-            } catch let error {
-                NSLog("Error serializing request body: \(error.localizedDescription)")
+        private static func getURLRequest(urlStr: String, httpMethod: String, contentType: String, requestBody: Any? = nil) -> NSMutableURLRequest {
+            let authorization = getBasicAuth()
+            let url = NSURL(string: urlStr)!
+            let request = NSMutableURLRequest(url: url as URL)
+            request.httpMethod = httpMethod
+            request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+            request.setValue(authorization, forHTTPHeaderField: "Authorization")
+            //request.setValue("0", forHTTPHeaderField: "Content-Length")
+            request.setValue(BSApiCaller.BLUESNAP_API_VERSION_HEADER_VAL, forHTTPHeaderField: BSApiCaller.BLUESNAP_API_VERSION_HEADER)
+            request.setValue(BSApiCaller.SDK_VERSION_CODE_HEADER_VAL, forHTTPHeaderField: BSApiCaller.SDK_VERSION_CODE_HEADER)
+            request.setValue(BSApiCaller.SDK_VERSION_STRING_HEADER_VAL, forHTTPHeaderField: BSApiCaller.SDK_VERSION_STRING_HEADER)
+            if let requestBody = requestBody {
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
+                } catch let error {
+                    NSLog("Error serializing request body: \(error.localizedDescription)")
+                }
             }
-        }
-        return request
+            return request
 
-    }
+        }
 
     //------------------------------------------------------
     // MARK: functions API Calls

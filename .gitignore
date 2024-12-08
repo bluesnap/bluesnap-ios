@@ -53,3 +53,4 @@ BluesnapSDKExample/.DS_Store
 *.DS_Store
 */xcuserdata
 
+/.build

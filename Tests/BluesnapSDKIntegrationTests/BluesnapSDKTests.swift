@@ -57,6 +57,7 @@ class BluesnapSDKTests: XCTestCase {
         }
     }
     
+    
     func testSubmitCCDetailsError() {
         
         submitCCDetailsExpectError(ccn: "4111", cvv: "111", exp: "12/2020", expectedError: BSErrors.invalidCcNumber)
@@ -141,5 +142,6 @@ class BluesnapSDKTests: XCTestCase {
            XCTFail("timeout")
         }
     }
+    
     
 }
