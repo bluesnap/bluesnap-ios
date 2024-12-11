@@ -79,6 +79,8 @@ class BSIntegrationTestingAPIHelper {
         }
         let url = NSURL(string: urlStr)!
         var request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "text/xml")
+        printAsCurl(request: request as URLRequest)
+
         
         // fire request
         
@@ -208,7 +210,7 @@ class BSIntegrationTestingAPIHelper {
 
         // Print HTTP method if not GET
         if let method = request.httpMethod, method != "GET" {
-            curlCommand += " -X \(method)"
+            curlCommand += " -v -X \(method)"
         }
 
         // Print headers
@@ -259,22 +261,23 @@ class BSIntegrationTestingAPIHelper {
 //            </alt-transaction>
 //            """
         var requestBody = [
+            "pfToken": "\(bsToken.getTokenStr()!)",
             "amount": "\(purchaseAmount)",
+            "currency": "\(purchaseCurrency)",
             "paymentMethod": "\(paymentMethod)",
-            "routingNumber": "\(routingNumber)",
-            "accountNumber": "\(accountNumber)",
-            "accountType": "\(accountType)",
+//            "routingNumber": "\(routingNumber)",
+//            "accountNumber": "\(accountNumber)",
+//            "accountType": "\(accountType)",
             "payerInfo":[
                "firstName": "John",
                 "lastName": "Doe",
                 "zip": "02453",
                 "phone": "1234567890",
            ],
-            "recurringTransaction": "ECOMMERCE",
-            "softDescriptor": "MobileSDKtest",
-            "currency": "\(purchaseCurrency)",
-            "cardTransactionType": "AUTH_CAPTURE",
-            "pfToken": "\(bsToken.getTokenStr()!)",
+//            "recurringTransaction": "ECOMMERCE",
+            "softDescriptor": "ABC COMPANY",
+"authorizedByShopper" : true,
+            
             ] as [String : Any]
         print("requestBody= \(requestBody)")
         

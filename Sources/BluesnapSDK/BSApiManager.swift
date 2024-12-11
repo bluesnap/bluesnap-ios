@@ -414,9 +414,9 @@ public class BSApiManager: NSObject {
             }
         } else if let ecpAchDetails = tokenizeRequest.paymentDetails as? BSTokenizeEcpAchDetails {
             requestBody["paymentMethod"] = ecpAchDetails.paymentMethod
-            requestBody["routingNumber"] = ecpAchDetails.routingNumber
-            requestBody["accountNumber"] = ecpAchDetails.accountNumber
-            requestBody["accountType"] = ecpAchDetails.accountType
+            requestBody["ecpRoutingNumber"] = ecpAchDetails.routingNumber
+            requestBody["ecpAccountNumber"] = ecpAchDetails.accountNumber
+            requestBody["ecpAccountType"] = ecpAchDetails.accountType
             parseFunction = BSApiCaller.parseEcpAchResponse
         }
         if let fraudSessionId = BlueSnapSDK.fraudSessionId {

@@ -132,7 +132,7 @@ class DemoAPIHelper {
         }
        
         let request = getURLRequest(urlStr: urlStr, httpMethod: "POST", contentType: "text/xml")
-
+        
         // fire request
 
         var result: BSToken?
