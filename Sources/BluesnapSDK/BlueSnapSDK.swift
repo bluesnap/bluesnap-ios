@@ -203,6 +203,14 @@ open class BlueSnapSDK: NSObject {
     open class func submitTokenizedDetails(tokenizeRequest: BSTokenizeRequest, completion: @escaping ([String: String], BSErrors?) -> Void) {
         BSApiManager.submitTokenizedDetails(tokenizeRequest: tokenizeRequest, completion: completion)
     }
+    
+    /**
+    Submit data to BLS server under the current token, to be used later for server-to-server actions
+    */
+    open class func submitEcpAchTokenizedDetails(tokenizeRequest: BSTokenizeRequest, completion: @escaping ([String: String], BSErrors?) -> Void) {
+        BSApiManager.submitEcpAchTokenizedDetails(tokenizeRequest: tokenizeRequest, completion: completion)
+    }
+    
 
     /**
   Update Shopper to BLS server under the current token

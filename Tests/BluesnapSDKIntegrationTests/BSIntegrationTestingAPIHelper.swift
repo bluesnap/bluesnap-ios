@@ -245,21 +245,7 @@ class BSIntegrationTestingAPIHelper {
         accountType: String,
         bsToken: BSToken!,
         completion: @escaping (_ isSuccess: Bool, _ data: Data?, _ shopperId: String?)->Void) {
-//         let xmlBody = """
-//            <alt-transaction xmlns="http://ws.plimus.com">
-//                <pf-token>\(bsToken.getTokenStr()!)</pf-token>
-//                <soft-descriptor>ABC COMPANY</soft-descriptor>
-//                <amount>100.00</amount>
-//                <currency>USD</currency>
-//                <payer-info>
-//                    <first-name>John</first-name>
-//                    <last-name>Doe</last-name>
-//                    <zip>02453</zip>
-//                    <phone>1234567890</phone>
-//                </payer-info>
-//                <authorized-by-shopper>true</authorized-by-shopper>
-//            </alt-transaction>
-//            """
+
         var requestBody = [
             "pfToken": "\(bsToken.getTokenStr()!)",
             "amount": "\(purchaseAmount)",

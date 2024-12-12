@@ -157,7 +157,7 @@ class BluesnapSDKIntegrationTests: XCTestCase {
 
                         XCTAssertNil(errors, "Got errors from initBluesnap")
 
-                        BlueSnapSDK.submitTokenizedDetails(
+                        BlueSnapSDK.submitEcpAchTokenizedDetails(
                             tokenizeRequest: tokenizeRequest,
                             completion: { (result, error) in
                                 XCTAssertNil(error, "error: \(String(describing: error))")

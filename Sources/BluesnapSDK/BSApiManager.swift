@@ -375,6 +375,109 @@ public class BSApiManager: NSObject {
     /**
      Submit data to be submitted to BLS server under the current token, to be used later for server-to-server actions
      */
+    open class func submitEcpAchTokenizedDetails(
+        tokenizeRequest: BSTokenizeRequest,
+        completion: @escaping ([String: String], BSErrors?) -> Void
+    ) {
+
+        var requestBody: [String: String] = [:]
+        var parseFunction: (Int, Data?) -> ([String: String], BSErrors?) = BSApiCaller
+            .parseGenericResponse
+
+        if let ecpAchDetails = tokenizeRequest.paymentDetails as? BSTokenizeEcpAchDetails {
+            requestBody["paymentMethod"] = ecpAchDetails.paymentMethod
+            requestBody["ecpRoutingNumber"] = ecpAchDetails.routingNumber
+            requestBody["ecpAccountNumber"] = ecpAchDetails.accountNumber
+            requestBody["ecpAccountType"] = ecpAchDetails.accountType
+            parseFunction = BSApiCaller.parseEcpAchResponse
+        }
+        
+        if let fraudSessionId = BlueSnapSDK.fraudSessionId {
+            requestBody["fraudSessionId"] = fraudSessionId
+        }
+
+        if let billingDetails = tokenizeRequest.billingDetails {
+            if let splitName = billingDetails.getSplitName() {
+                requestBody["billingFirstName"] = splitName.firstName
+                requestBody["billingLastName"] = splitName.lastName
+            }
+            if let country = billingDetails.country {
+                requestBody["billingCountry"] = country
+            }
+            if let state = billingDetails.state {
+                requestBody["billingState"] = state
+            }
+            if let city = billingDetails.city {
+                requestBody["billingCity"] = city
+            }
+            if let address = billingDetails.address {
+                requestBody["billingAddress"] = address
+            }
+            if let zip = billingDetails.zip {
+                requestBody["billingZip"] = zip
+            }
+            if let email = billingDetails.email {
+                requestBody["email"] = email
+            }
+        }
+
+        if let shippingDetails = tokenizeRequest.shippingDetails {
+            if let splitName = shippingDetails.getSplitName() {
+                requestBody["shippingFirstName"] = splitName.firstName
+                requestBody["shippingLastName"] = splitName.lastName
+            }
+            if let country = shippingDetails.country {
+                requestBody["shippingCountry"] = country
+            }
+            if let state = shippingDetails.state {
+                requestBody["shippingState"] = state
+            }
+            if let city = shippingDetails.city {
+                requestBody["shippingCity"] = city
+            }
+            if let address = shippingDetails.address {
+                requestBody["shippingAddress"] = address
+            }
+            if let zip = shippingDetails.zip {
+                requestBody["shippingZip"] = zip
+            }
+            //            if let phone = shippingDetails.phone {
+            //                requestBody["phone"] = phone
+            //            }
+        }
+
+        let checkErrorAndComplete: ([String: String], BSErrors?) -> Void = { resultData, error in
+            if let error = error {
+                completion(resultData, error)
+                return
+            }
+            completion(resultData, nil)
+        }
+
+        BSApiCaller.submitPaymentDetails(
+            bsToken: getBsToken(), requestBody: requestBody, parseFunction: parseFunction,
+            completion: { resultData, error in
+                NSLog("BlueSnap; submitEcpAchDetails completion")
+                if error == BSErrors.expiredToken || error == BSErrors.tokenNotFound
+                    || error == BSErrors.tokenAlreadyUsed
+                {
+                    // regenerate Token and try again
+                    NSLog("BlueSnap; submitEcpAchDetails retry")
+                    regenerateToken(executeAfter: {
+                        BSApiCaller.submitPaymentDetails(
+                            bsToken: getBsToken(), requestBody: requestBody,
+                            parseFunction: BSApiCaller.parseCCResponse,
+                            completion: checkErrorAndComplete)
+                    })
+                } else {
+                    checkErrorAndComplete(resultData, error)
+                }
+            })
+    }
+    
+    /**
+     Submit data to be submitted to BLS server under the current token, to be used later for server-to-server actions
+     */
     open class func submitTokenizedDetails(
         tokenizeRequest: BSTokenizeRequest,
         completion: @escaping ([String: String], BSErrors?) -> Void
