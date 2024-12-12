@@ -161,17 +161,6 @@ class BluesnapSDKIntegrationTests: XCTestCase {
                             tokenizeRequest: tokenizeRequest,
                             completion: { (result, error) in
                                 XCTAssertNil(error, "error: \(String(describing: error))")
-
-//                                // verify the received details from the server call
-//                                XCTAssertEqual(
-//                                    result[BSTokenizeEcpAchDetails.PAYMENT_METHOD_KEY], "ECP")
-//                                XCTAssertEqual(
-//                                    result[BSTokenizeEcpAchDetails.ACCOUNT_NUMBER_KEY], "4099999992")
-//                                XCTAssertEqual(
-//                                    result[BSTokenizeEcpAchDetails.ROUTING_NUMBER_KEY], "998877665")
-//                                
-//                                XCTAssertEqual(
-//                                    result[BSTokenizeEcpAchDetails.ACCOUNT_TYPE_KEY], "CONSUMER_CHECKING")
                                
                                 BSIntegrationTestingAPIHelper.createTokenizedEcpAchTransaction(
                                     purchaseAmount: 22.0,
@@ -205,5 +194,4 @@ class BluesnapSDKIntegrationTests: XCTestCase {
         semaphore.wait()
 
     }
-
 }
