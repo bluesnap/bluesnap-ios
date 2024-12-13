@@ -251,18 +251,14 @@ class BSIntegrationTestingAPIHelper {
             "amount": "\(purchaseAmount)",
             "currency": "\(purchaseCurrency)",
             "paymentMethod": "\(paymentMethod)",
-//            "routingNumber": "\(routingNumber)",
-//            "accountNumber": "\(accountNumber)",
-//            "accountType": "\(accountType)",
             "payerInfo":[
                "firstName": "John",
                 "lastName": "Doe",
                 "zip": "02453",
                 "phone": "1234567890",
            ],
-//            "recurringTransaction": "ECOMMERCE",
             "softDescriptor": "ABC COMPANY",
-"authorizedByShopper" : true,
+            "authorizedByShopper" : true,
             
             ] as [String : Any]
         print("requestBody= \(requestBody)")
