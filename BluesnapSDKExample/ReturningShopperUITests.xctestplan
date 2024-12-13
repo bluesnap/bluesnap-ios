@@ -25,7 +25,6 @@
     {
       "skippedTests" : [
         "CheckoutBaseTester",
-        "CheckoutNewShopperUITests",
         "ReturningShopperFullBillingWithEmailTests\/testReturningShopperViewsFullBillingWithEmail_shopperWithFullBillingWithEmail()",
         "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperEndToEndFullBillingWithEmailWithShipping_shopperWithFullBillingWithEmailWithShipping()",
         "ReturningShopperMinimalBillingWithEmailTests\/testReturningShopperViewsMinimalBillingWithEmail_shopperWithMinimalBillingWithEmail()",

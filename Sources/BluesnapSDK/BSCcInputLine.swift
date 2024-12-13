@@ -399,7 +399,7 @@ public class BSCcInputLine: BSBaseTextInput {
                 }
             }
 
-            defer {
+            do {
                 if (purchaseDetails!.isShopperRequirements()) { // shopper configuration
                     BSApiManager.shopper?.chosenPaymentMethod = BSChosenPaymentMethod(chosenPaymentMethodType: BSPaymentType.CreditCard.rawValue)
                     BSApiManager.shopper?.chosenPaymentMethod?.creditCard = creditCard
@@ -430,7 +430,7 @@ public class BSCcInputLine: BSBaseTextInput {
                         }
                     })
                 } else { // regular cc checkout
-                    if let purchaseDetailsR = purchaseDetails {
+                    if purchaseDetails != nil {
                         if (BlueSnapSDK.sdkRequestBase?.activate3DS ?? false){
                             cardinalCompletion(ccn, creditCard, error)
                             

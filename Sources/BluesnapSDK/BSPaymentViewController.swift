@@ -426,7 +426,7 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
                                                         self.showAlert(BSLocalizedStrings.getString(BSLocalizedString.Three_DS_Authentication_Required_Error))
                                                         
                                                     } else if (cardinalResult == ThreeDSManagerResponse.THREE_DS_ERROR.rawValue) { // server or cardinal internal error
-                                                        NSLog("Unexpected BS server error in 3DS authentication; error: \(error2)")
+                                                        NSLog("Unexpected BS server error in 3DS authentication; error: \(String(describing: error2))")
                                                         let message = BSLocalizedStrings.getString(BSLocalizedString.Error_Three_DS_Authentication_Error) + "\n" + (error2?.description() ?? "")
                                                         self.stopActivityIndicator()
                                                         self.showAlert(message)

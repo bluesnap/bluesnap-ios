@@ -135,7 +135,7 @@ import Foundation
         let request = createRequest(urlStr, bsToken: bsToken)
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: processResultRequest.toJson(), options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: processResultRequest.toJson() , options: .prettyPrinted)
         } catch let error {
             NSLog("Error process cardinal result: \(error.localizedDescription)")
         }
@@ -325,7 +325,7 @@ import Foundation
         
         let domain: String! = bsToken!.serverUrl
         let urlStr = (TOKENIZED_SERVICE == urlStringWithoutDomain) ? domain + urlStringWithoutDomain + bsToken!.getTokenStr() : domain + urlStringWithoutDomain
-        var request = createRequest(urlStr, bsToken: bsToken)
+        let request = createRequest(urlStr, bsToken: bsToken)
         request.httpMethod = httpMethod
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
@@ -379,7 +379,7 @@ import Foundation
 
         let domain: String! = bsToken!.serverUrl
         let urlStr = (TOKENIZED_SERVICE == urlStringWithoutDomain) ? domain + urlStringWithoutDomain + bsToken!.getTokenStr() : domain + urlStringWithoutDomain
-        var request = createRequest(urlStr, bsToken: bsToken)
+        let request = createRequest(urlStr, bsToken: bsToken)
         request.httpMethod = httpMethod
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
@@ -484,6 +484,33 @@ import Foundation
         }
         return (resultData, resultError)
     }
+      
+    internal static func parseEcpAchResponse(httpStatusCode: Int, data: Data?) -> ([String:String], BSErrors?) {
+          var resultData: [String:String] = [:]
+        var resultError: BSErrors? = nil
+        if let data = data {
+            if !data.isEmpty {
+                do {
+                    // Parse the result JSOn object
+                    if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject] {
+                        
+                        resultData[BSTokenizeEcpAchDetails.PAYMENT_METHOD_KEY] = json[BSTokenizeEcpAchDetails.PAYMENT_METHOD_KEY] as? String
+                        resultData[BSTokenizeEcpAchDetails.ACCOUNT_NUMBER_KEY] = json[BSTokenizeEcpAchDetails.ACCOUNT_NUMBER_KEY] as? String
+                        resultData[BSTokenizeEcpAchDetails.ROUTING_NUMBER_KEY] = (json[BSTokenizeEcpAchDetails.ROUTING_NUMBER_KEY] as? String ?? "")
+                        resultData[BSTokenizeEcpAchDetails.ACCOUNT_TYPE_KEY] = json[BSTokenizeEcpAchDetails.ACCOUNT_TYPE_KEY] as? String
+                        
+                    } else {
+                        NSLog("Error parsing BS result on ECP/ACH details submit")
+                        resultError = .unknown
+                    }
+                } catch let error as NSError {
+                    NSLog("Error parsing BS result on CC details submit: \(error.localizedDescription)")
+                    resultError = .unknown
+                }
+            }
+        }
+        return (resultData, resultError)
+    }
 
     
     /**
@@ -496,7 +523,7 @@ import Foundation
             
             // create request
             let urlStr = bsToken.serverUrl + TOKENIZED_SERVICE + bsToken.getTokenStr()
-            var request = createRequest(urlStr, bsToken: bsToken)
+            let request = createRequest(urlStr, bsToken: bsToken)
             request.httpMethod = "PUT"
             do {
                 let requestBody = ["dummy":"check:"]
@@ -509,7 +536,7 @@ import Foundation
             
             var result: Bool = false
             let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-                var resultData: [String:String] = [:]
+//                var resultData: [String:String] = [:]
                 if let error = error {
                     let errorType = type(of: error)
                     NSLog("error submitting to check if token is expired - \(errorType). Error: \(error.localizedDescription)")
@@ -524,7 +551,7 @@ import Foundation
                 } else {
                     NSLog("Error getting response from BS on check if token is expired")
                 }
-                defer {
+                do {
                     completion(result)
                 }
             }

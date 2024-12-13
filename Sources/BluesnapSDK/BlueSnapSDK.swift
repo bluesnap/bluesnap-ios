@@ -88,7 +88,7 @@ open class BlueSnapSDK: NSObject {
                 
                 BSCardinalManager.instance.setCardinalJWT(cardinalToken: sdkData.cardinalToken)
                 if (!bsToken.isProduction ) {
-                    NSLog("Cadinal token is  \(sdkData.cardinalToken)");
+                    NSLog("Cadinal token is  \(String(describing: sdkData.cardinalToken))");
                 }
                 if (initCardinal){
                     DispatchQueue.main.async {
@@ -198,11 +198,19 @@ open class BlueSnapSDK: NSObject {
     }
 
     /**
-    Submit data to BLS server under the current token, to be used later for server-to-server actions
+    Submit CCN  to BLS server under the current token, to be used later for server-to-server actions
     */
     open class func submitTokenizedDetails(tokenizeRequest: BSTokenizeRequest, completion: @escaping ([String: String], BSErrors?) -> Void) {
         BSApiManager.submitTokenizedDetails(tokenizeRequest: tokenizeRequest, completion: completion)
     }
+    
+    /**
+    Submit ECP/ACH to BLS server under the current token, to be used later for server-to-server actions
+    */
+    open class func submitEcpAchTokenizedDetails(tokenizeRequest: BSTokenizeRequest, completion: @escaping ([String: String], BSErrors?) -> Void) {
+        BSApiManager.submitEcpAchTokenizedDetails(tokenizeRequest: tokenizeRequest, completion: completion)
+    }
+    
 
     /**
   Update Shopper to BLS server under the current token

@@ -744,6 +744,15 @@ Your `completion` callback should do the following:
 3. Update your server with the transaction details. From your server, you'll [Send the payment for processing](#sending-the-payment-for-processing) using your token. 
 4. After receiving BlueSnap's response, you'll update the client and display an appropriate message to the user. 
 
+### submitEcpACHTokenizedDetails
+This function is similar to the `submitTokenizedDetails` function but submit ECP/ACH payment details to the server for tokenizaion.
+The ECP Fields required are :
+` "ecpRoutingNumber"`
+` "ecpAccountNumber"`
+` "ecpAccountType"`
+` "paymentMethod"`
+
+
 ### authenticationWith3DS
 This function is relevant if you're integrating 3D Secure Authentication using your own UI. 
 `authenticationWith3DS` handles all data-transmission to BlueSnap and Cardinal servers.
