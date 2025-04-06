@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		YxPN6DaJJGNxrDmm1v7lejsdPFA=
-		</data>
 		<key>ios-arm64/Headers/KDataCollector.h</key>
 		<data>
 		OfpDdVTSt/6hIEnkewceFtZ7xJQ=
@@ -16,13 +12,21 @@
 		<data>
 		uOL22l070iPkF5GUjsWTkKJ8Et0=
 		</data>
+		<key>ios-arm64/Headers/KountUmbrella.h</key>
+		<data>
+		DjPC4yDZXDsRddJt9EcOhUe2TuQ=
+		</data>
+		<key>ios-arm64/Headers/module.modulemap</key>
+		<data>
+		Z+PT9uSyd6bIOhnCGwOoEndUfWE=
+		</data>
 		<key>ios-arm64/PrivacyInfo.xcprivacy</key>
 		<data>
-		S0RCMhpAvAgfQ9zm67B/EGTAdLA=
+		pGPCOm1V6JXOPl+fHvXI5LUqDwk=
 		</data>
 		<key>ios-arm64/libKountDataCollector.a</key>
 		<data>
-		3sFdTmG9UiN3HHdsQZSxQgmNWlo=
+		wZkNW1bhQSedaPrysG4QhNC9+4w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/KDataCollector.h</key>
 		<data>
@@ -32,13 +36,21 @@
 		<data>
 		uOL22l070iPkF5GUjsWTkKJ8Et0=
 		</data>
+		<key>ios-arm64_x86_64-simulator/Headers/KountUmbrella.h</key>
+		<data>
+		DjPC4yDZXDsRddJt9EcOhUe2TuQ=
+		</data>
+		<key>ios-arm64_x86_64-simulator/Headers/module.modulemap</key>
+		<data>
+		Z+PT9uSyd6bIOhnCGwOoEndUfWE=
+		</data>
 		<key>ios-arm64_x86_64-simulator/PrivacyInfo.xcprivacy</key>
 		<data>
-		S0RCMhpAvAgfQ9zm67B/EGTAdLA=
+		pGPCOm1V6JXOPl+fHvXI5LUqDwk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/libKountDataCollector.a</key>
 		<data>
-		MvHZ5KWlUlhc69r2O0WHu2NTJyY=
+		B1YHNfl7NEq2z2cRDQnsHty+cRI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -65,26 +77,48 @@
 			14+cMH+H34ZcQbAzGtXHw8X19I2oJNQrtAYluWEbesc=
 			</data>
 		</dict>
+		<key>ios-arm64/Headers/KountUmbrella.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DjPC4yDZXDsRddJt9EcOhUe2TuQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			VO0POxzoHyNtWfBHIi4X1Np6EpYo9wex2KSL0xKx8qE=
+			</data>
+		</dict>
+		<key>ios-arm64/Headers/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Z+PT9uSyd6bIOhnCGwOoEndUfWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			pb54iC5oQf4QGOP9jZSjrRRlV2y4Qj6+J+yFNzx9Wv0=
+			</data>
+		</dict>
 		<key>ios-arm64/PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S0RCMhpAvAgfQ9zm67B/EGTAdLA=
+			pGPCOm1V6JXOPl+fHvXI5LUqDwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			FXu+nqqNrU9PCB9owm3uqk2eYy+eup6O4iO2AMbVtUk=
+			ZnXhKxJ+0m719fl5VqR3mMKcBHAnDhPyKnbBAOUJ+o0=
 			</data>
 		</dict>
 		<key>ios-arm64/libKountDataCollector.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3sFdTmG9UiN3HHdsQZSxQgmNWlo=
+			wZkNW1bhQSedaPrysG4QhNC9+4w=
 			</data>
 			<key>hash2</key>
 			<data>
-			WtQ2VI5ySnxv6YJlsq0Ln6qpihp2x0o8O1AwQBVQ+SY=
+			2vzMzPWt9l63K5NknI2z3UyAKhdl/IcEG3theUBsCcw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/KDataCollector.h</key>
@@ -109,26 +143,48 @@
 			14+cMH+H34ZcQbAzGtXHw8X19I2oJNQrtAYluWEbesc=
 			</data>
 		</dict>
+		<key>ios-arm64_x86_64-simulator/Headers/KountUmbrella.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DjPC4yDZXDsRddJt9EcOhUe2TuQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			VO0POxzoHyNtWfBHIi4X1Np6EpYo9wex2KSL0xKx8qE=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/Headers/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Z+PT9uSyd6bIOhnCGwOoEndUfWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			pb54iC5oQf4QGOP9jZSjrRRlV2y4Qj6+J+yFNzx9Wv0=
+			</data>
+		</dict>
 		<key>ios-arm64_x86_64-simulator/PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S0RCMhpAvAgfQ9zm67B/EGTAdLA=
+			pGPCOm1V6JXOPl+fHvXI5LUqDwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			FXu+nqqNrU9PCB9owm3uqk2eYy+eup6O4iO2AMbVtUk=
+			ZnXhKxJ+0m719fl5VqR3mMKcBHAnDhPyKnbBAOUJ+o0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/libKountDataCollector.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MvHZ5KWlUlhc69r2O0WHu2NTJyY=
+			B1YHNfl7NEq2z2cRDQnsHty+cRI=
 			</data>
 			<key>hash2</key>
 			<data>
-			MV6DdYGIjuSngWcaQ0Ls8z1RxThmgcfhnUyd5LbnLYs=
+			oMZRkE/8BH9r1QAcqBdVr7OOu6mLqGDYNCg2ggmjQCk=
 			</data>
 		</dict>
 	</dict>

@@ -36,6 +36,17 @@ typedef NS_ENUM(NSUInteger, CardinalSessionUIType) {
 };
 
 /*!
+ * @typedef CCADatabase
+ * @brief List of CCADatabase
+ * @constant CARDINAL CCAUrls
+ * @constant CGK CGKUrls
+ */
+typedef enum CCADatabase {
+    Cardinal,
+    Cgk
+} CCADatabase;
+
+/*!
  * @typedef CardinalSessionRenderType
  * @brief NSString that represents different RenderTypes
  */
@@ -197,6 +208,9 @@ extern NSUInteger const CardinalSessionTimeoutDEFAULT;
  * Default value is true.
  */
 @property (nonatomic) BOOL collectLogs;
+
+@property (nonatomic, assign) CCADatabase ccaDatabase;
+
 @end
 
 NS_ASSUME_NONNULL_END
