@@ -26,8 +26,6 @@
 		599E19212A08F982004AAE57 /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E19202A08F982004AAE57 /* ThankYouViewController.swift */; };
 		599E19232A08F9AA004AAE57 /* DemoAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E19222A08F9AA004AAE57 /* DemoAPIHelper.swift */; };
 		599E19272A08FA33004AAE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 599E19292A08FA33004AAE57 /* Main.storyboard */; };
-		599E192C2A090038004AAE57 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 599E19132A08F790004AAE57 /* CardinalMobile.xcframework */; };
-		599E192D2A090038004AAE57 /* CardinalMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 599E19132A08F790004AAE57 /* CardinalMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		599E19582A091C92004AAE57 /* ReturningShopperFullBillingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E19402A091C92004AAE57 /* ReturningShopperFullBillingTests.swift */; };
 		599E19592A091C92004AAE57 /* ReturningShopperFullBillingWithShippingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E19412A091C92004AAE57 /* ReturningShopperFullBillingWithShippingTests.swift */; };
 		599E195A2A091C92004AAE57 /* ReturningShopperMinimalBillingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E19422A091C92004AAE57 /* ReturningShopperMinimalBillingTests.swift */; };
@@ -76,7 +74,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				599E19122A08F77E004AAE57 /* BluesnapSDK in Embed Frameworks */,
-				599E192D2A090038004AAE57 /* CardinalMobile.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +101,7 @@
 		599E18FE2A08F57A004AAE57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		599E19062A08F57B004AAE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		599E19082A08F57B004AAE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		599E19132A08F790004AAE57 /* CardinalMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CardinalMobile.xcframework; path = ../Frameworks/XCFrameworks/CardinalMobile.xcframework; sourceTree = "<group>"; };
+		599E19132A08F790004AAE57 /* CardinalMobile.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:H7M4G5NDNU:CardinalCommerce Corp"; lastKnownFileType = wrapper.xcframework; name = CardinalMobile.xcframework; path = ../Frameworks/XCFrameworks/CardinalMobile.xcframework; sourceTree = "<group>"; };
 		599E19162A08F905004AAE57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		599E191C2A08F976004AAE57 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		599E191E2A08F97E004AAE57 /* BSTestingAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTestingAPIService.swift; sourceTree = "<group>"; };
@@ -148,7 +145,6 @@
 				599E19772A092087004AAE57 /* KountWrapper in Frameworks */,
 				2D3574FF2B571FD700449881 /* BluesnapSDK in Frameworks */,
 				599E19102A08F77E004AAE57 /* BluesnapSDK in Frameworks */,
-				599E192C2A090038004AAE57 /* CardinalMobile.xcframework in Frameworks */,
 				59925CB52A1CC57600DC31E6 /* KountDataCollector.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
