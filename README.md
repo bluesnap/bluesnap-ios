@@ -47,11 +47,7 @@ Some of the capabilities include:
 * Easy infrastructure for 3D secure authentication.
 * Reguler payments, shopper configuration and subscription charges.
 
-# Installation
-> The SDK is written in Swift 5, using Xcode 14.3.1.
-
 ## Requirements
-* Xcode 10+
 * [BlueSnap API credentials](https://support.bluesnap.com/docs/api-credentials)
 
 BluesnapSDK expects a .plist file that contains the BlueSnap API credentials in your product bundles. Please note that it's fine to have just one physical instance of the file and have the rest of the instances be Xcode references.
