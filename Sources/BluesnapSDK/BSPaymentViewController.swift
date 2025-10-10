@@ -10,6 +10,18 @@ import UIKit
 
 class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputLineDelegate {
 
+    // MARK: Subscription cancellation message configuration
+    /// Controls whether the subscription cancellation message is displayed above the store card switch.
+    /// Defaults to true for subscription charges and false otherwise.
+    public var showSubscriptionCancellationMessage: Bool = false
+
+    /// The text to display for the subscription cancellation message.
+    /// Defaults to "You can cancel subscriptions at any time".
+    public var subscriptionCancellationMessageText: String = "You can cancel subscriptions at any time"
+
+    /// Internal label used to show the cancellation message above the store card switch.
+    private var cancellationMessageLabel: UILabel?
+
 
     // MARK: private properties
 
@@ -77,6 +89,27 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
         } else {
             self.purchaseDetails = purchaseDetails
         }
+
+        // Default behavior: show cancellation message for subscriptions
+        if self.purchaseDetails.isSubscriptionCharge() {
+            self.showSubscriptionCancellationMessage = true
+        } else {
+            self.showSubscriptionCancellationMessage = false
+        }
+    }
+
+    // MARK: Public configuration setters
+
+    /// Update whether the cancellation message should be shown. Call before presenting the screen or anytime prior to layout.
+    public func setShowSubscriptionCancellationMessage(_ show: Bool) {
+        self.showSubscriptionCancellationMessage = show
+        updateSubscriptionCancellationMessageVisibility()
+    }
+
+    /// Update the cancellation message text. Call before presenting the screen or anytime prior to layout.
+    public func setSubscriptionCancellationMessageText(_ text: String) {
+        self.subscriptionCancellationMessageText = text
+        updateSubscriptionCancellationMessageVisibility()
     }
 
     // MARK: Keyboard functions
@@ -238,6 +271,9 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
             object: nil
         )*/
         registerTapToHideKeyboard()
+
+        // Prepare subscription cancellation message (will be shown/hidden as needed)
+        updateSubscriptionCancellationMessageVisibility()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -338,6 +374,9 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
             // check if is allowed to show currency if not do not give option to change if yes do change
             topMenuButton.isEnabled = BlueSnapSDK.sdkRequestBase?.allowCurrencyChange ?? true
             storeCardView.isHidden = self.hideStoreCardSwitch
+            
+            // Update subscription cancellation message visibility when store card view visibility may change
+            updateSubscriptionCancellationMessageVisibility()
         }
         
         nameInputLine.isHidden = false
@@ -353,6 +392,9 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
         shippingSameAsBillingView.isHidden = !newCardMode || !self.withShipping || !self.fullBilling || self.purchaseDetails.getShippingDetails()?.name ?? "" != ""
         subtotalAndTaxDetailsView.isHidden = !newCardMode || self.purchaseDetails.getTaxAmount() == 0 || purchaseDetails.isShopperRequirements() || (purchaseDetails.isSubscriptionCharge() && !purchaseDetails.isSubscriptionHasPriceDetails()!)
         updateZipFieldLocation()
+        
+        // Ensure the cancellation message visibility reflects latest layout/flags
+        updateSubscriptionCancellationMessageVisibility()
     }
 
     /*func deviceDidRotate() {
@@ -524,6 +566,41 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
             } else {
                 zipTopConstraint.constant = -2 * emailInputLine.frame.height
             }
+        }
+    }
+
+    /// Creates or updates the subscription cancellation message label above the store card switch.
+    private func updateSubscriptionCancellationMessageVisibility() {
+        // The message is only relevant when the storeCardView is visible.
+        let shouldShow = showSubscriptionCancellationMessage && (purchaseDetails?.isSubscriptionCharge() ?? false) && !storeCardView.isHidden
+
+        if shouldShow {
+            // Create the label if needed
+            if cancellationMessageLabel == nil {
+                let label = UILabel()
+                label.translatesAutoresizingMaskIntoConstraints = false
+                label.numberOfLines = 0
+                label.font = UIFont.preferredFont(forTextStyle: .footnote)
+                label.textColor = BSColorCompat.secondaryLabel
+                // Accessibility
+                label.adjustsFontForContentSizeCategory = true
+
+                self.view.addSubview(label)
+                self.cancellationMessageLabel = label
+
+                // Constrain above the storeCardView, aligned to its leading/trailing
+                NSLayoutConstraint.activate([
+                    label.leadingAnchor.constraint(equalTo: storeCardView.leadingAnchor),
+                    label.trailingAnchor.constraint(equalTo: storeCardView.trailingAnchor),
+                    label.bottomAnchor.constraint(equalTo: storeCardView.topAnchor, constant: -8)
+                ])
+            }
+            // Update text every time in case it changed
+            cancellationMessageLabel?.text = subscriptionCancellationMessageText
+            cancellationMessageLabel?.isHidden = false
+        } else {
+            // Hide if exists
+            cancellationMessageLabel?.isHidden = true
         }
     }
 
@@ -809,3 +886,4 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
     }
 
 }
+

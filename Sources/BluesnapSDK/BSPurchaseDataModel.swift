@@ -147,6 +147,12 @@ public class BSSdkRequest: NSObject, BSSdkRequestProtocol {
         amount: 0, taxAmount: 0, currency: nil)
     public var applePayCustomizePayLine: String? = nil
 
+    /// Optional subscription cancellation message to display above the store card switch (used by UI if provided).
+    public var subscriptionCancellationMessage: String? = nil
+
+    /// Controls whether the subscription cancellation message is shown. Defaults to false for regular flows.
+    public var showSubscriptionCancellationMessage: Bool = false
+
     public var purchaseFunc: (BSBaseSdkResult?) -> Void
     public var updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
 
@@ -279,6 +285,33 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         }
     }
 
+    public override init(
+        withEmail: Bool,
+        withShipping: Bool,
+        fullBilling: Bool,
+        priceDetails: BSPriceDetails!,
+        billingDetails: BSBillingAddressDetails?,
+        shippingDetails: BSShippingAddressDetails?,
+        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
+        updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
+    ) {
+        super.init(
+            withEmail: withEmail,
+            withShipping: withShipping,
+            fullBilling: fullBilling,
+            priceDetails: priceDetails,
+            billingDetails: billingDetails,
+            shippingDetails: shippingDetails,
+            purchaseFunc: purchaseFunc,
+            updateTaxFunc: updateTaxFunc
+        )
+        // Default cancellation message behavior for subscription flows with price details
+        self.showSubscriptionCancellationMessage = true
+        if self.subscriptionCancellationMessage == nil || self.subscriptionCancellationMessage?.isEmpty == true {
+            self.subscriptionCancellationMessage = "You can cancel subscriptions at any time"
+        }
+    }
+
     convenience public init(
         withEmail: Bool,
         withShipping: Bool,
@@ -295,6 +328,12 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
 
         sdkRequestHasPriceDetails = false
         allowCurrencyChange = false
+
+        // Default cancellation message behavior for subscription flows without price details
+        self.showSubscriptionCancellationMessage = true
+        if self.subscriptionCancellationMessage == nil || self.subscriptionCancellationMessage?.isEmpty == true {
+            self.subscriptionCancellationMessage = "You can cancel subscriptions at any time"
+        }
     }
 
     public func hasPriceDetails() -> Bool {
@@ -310,6 +349,15 @@ extension BSSdkRequestProtocol {
         set {}
     }
     public var hideStoreCardSwitch: Bool {
+        get { return false }
+        set {}
+    }
+
+    public var subscriptionCancellationMessage: String? {
+        get { return nil }
+        set {}
+    }
+    public var showSubscriptionCancellationMessage: Bool {
         get { return false }
         set {}
     }
@@ -353,6 +401,11 @@ public protocol BSSdkRequestProtocol {
     var activate3DS: Bool { get set }
     var applePayCustomizePayLine: String? { get set }
 
+    /// Optional subscription cancellation message to display above the store card switch (subscription flows only).
+    var subscriptionCancellationMessage: String? { get set }
+
+    /// Controls whether the subscription cancellation message is shown.
+    var showSubscriptionCancellationMessage: Bool { get set }
 }
 
 public class BSShopperConfiguration {
@@ -378,3 +431,4 @@ public class BSShopperConfiguration {
         self.shippingDetails = shippingDetails
     }
 }
+
