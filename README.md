@@ -720,7 +720,35 @@ Parameters:
 This is an Extention to the BSSdkRequest that enables subscription support, use This Object in case of a subscription flow.
 The constructor for this object allows you to instantiate a Sdk Request without Price Details which is suitable for this flow.
 
- 
+### Subscription cancellation message (Subscriptions UI)
+For subscription charges, the SDK displays an informational cancellation message above the "Securely store my card" switch to help you communicate your subscription cancellation policy.
+
+Default behavior:
+- When the flow is a subscription (i.e. you use `BSSdkRequestSubscriptionCharge`), the message is shown by default.
+- The default text is: "You can cancel subscriptions at any time".
+
+Customization:
+- You can control the visibility and customize the text at runtime using the payment screen controller API.
+- If you need to override the defaults, obtain a reference to the presented `BSPaymentViewController` after calling `showCheckoutScreen` and use the setters shown below.
+
+Example (after presenting the checkout screen):
+```swift
+do {
+    try BlueSnapSDK.showCheckoutScreen(
+        inNavigationController: self.navigationController,
+        animated: true,
+        sdkRequest: sdkRequest
+    )
+    // If you want to customize the subscription cancellation message:
+    if let paymentVC = self.navigationController?.topViewController as? BSPaymentViewController {
+        // Hide or show the message (default is true for subscriptions)
+        paymentVC.setShowSubscriptionCancellationMessage(true)
+        // Provide your own localized or customized message text
+        paymentVC.setSubscriptionCancellationMessageText("Cancel anytime from your account settings.")
+    }
+} catch {
+    // handle error
+}
 
 ### submitTokenizedDetails
 This function is relevant if you're collecting the user's data using your own input fields. 
