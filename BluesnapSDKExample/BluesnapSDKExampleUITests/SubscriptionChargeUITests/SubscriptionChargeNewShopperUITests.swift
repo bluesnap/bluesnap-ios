@@ -8,7 +8,6 @@
 
 import Foundation
 import XCTest
-import Foundation
 import PassKit
 import BluesnapSDK
 
@@ -99,8 +98,34 @@ class SubscriptionChargeNewShopperUITests: CheckoutBaseTester {
     }
     
     func testViewsFullBillingWithShippingWithEmail_subscriptionWithPriceDetails() {
-        subscriptionNewShopperViewsCommomTester(checkoutFullBilling: true, checkoutWithEmail: true, checkoutWithShipping: true)
-    }
+            setUpForCheckoutSdk(fullBilling: true, withShipping: true, withEmail: true, isSubscription: true)
+
+            // Ensure tax scenario: US/MA with shipping same as billing ON so tax is included on the payment screen
+            paymentHelper.setCountry(countryCode: "US")
+            paymentHelper.setState(countryCode: "US", stateCode: "MA")
+            if !isShippingSameAsBillingOn {
+                setShippingSameAsBillingSwitch(shouldBeOn: true)
+            }
+
+            // Store card is mandatory for subscriptions; make sure it is ON
+            setStoreCardSwitch(shouldBeOn: true)
+
+            // Compute expected total including MA tax (5%) from the base amount
+            guard let amountNumber = sdkRequest.priceDetails.amount else {
+                XCTFail("Price details amount is missing")
+                return
+            }
+            let baseAmount: Double = amountNumber.doubleValue
+            let taxRate: Double = 0.05
+            let totalWithTax = baseAmount * (1.0 + taxRate)
+            let formattedTotal = String(format: "%.2f", totalWithTax)
+            let expectedLabel = "Subscribe $ \(formattedTotal)"
+
+            // Assert the payment screen button shows the full, tax-inclusive label
+            let payButton = app.buttons["PayButton"]
+            waitForElementToExist(element: payButton, waitTime: 60)
+            XCTAssertEqual(payButton.label, expectedLabel, "Subscribe button text should include tax and correct amount.")
+        }
     
     /* -------------------------------- Subscription end-to-end flow tests ---------------------------------------- */
     
