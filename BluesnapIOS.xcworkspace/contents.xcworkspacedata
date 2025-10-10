@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:BluesnapSDKExample/BluesnapSDKExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:">
+   </FileRef>
+   <FileRef
+      location = "group:BluesnapSDKExample/SanityUITests.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:BluesnapSDKExample/NewShopperUITests.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/BluesnapSDKIntegration.xctestplan">
+   </FileRef>
+</Workspace>

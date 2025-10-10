@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Korean
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "오케이";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "완료";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "오류가 발생했습니다. 나중에 다시 시도해 주세요.";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "이 회사/ ";
+"Error_Card_Type_Not_Supported_2" = " 는 현재 이 거래를 지원하지 않습니다. 다른 카드로 다시 시도하여 주십시오";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = " 오류가 발생했습니다. 다시 시도해 주세요.";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = " 오류가 발생했습니다. 다시 시도해 주세요.";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = " 오류가 발생했습니다. 다시 시도해 주세요.";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "무효한 카드 번호입니다";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "무효한 CVV입니다";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "무효한 월입니다";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "지나간 날짜입니다";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "무효한 날짜입니다";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "이름과 성을 입력하세요";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "무효한 이메일입니다";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "무효한 거리입니다";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "무효한 도시입니다";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = " 무효한 나라입니다 ";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = " 무효한 주입니다 ";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = " 무효한 우편 번호입니다 ";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = " 무효한 우편 코드입니다 ";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "청구할 주소";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "배송지 주소";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "우편 코드";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "지불 수단 유형";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "또는";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "뒤로";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "PayPal 오류";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "이 통화는 PayPal이 지원하지 않습니다";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "PayPal에 연결할 수 없습니다";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "이 기기에서는 불가능합니다";
+"Error_No_cards_set" = "카드 설정이 없습니다";
+"Error_Setup_error" = "Apple Pay에 연결할 수 없습니다. 다른 지불 수단을 선택해 주세요.";
+"Error_General_ApplePay_error" = " Apple Pay에 연결할 수 없습니다";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "웁스";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = " 오류가 발생했습니다. 다시 시도해 주세요 ";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "지불";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "이름";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "이메일";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "주소";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "도시";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "주";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "세부 총계:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "세금:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "청구서 주소와 같은 배송지";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "나의 카드 안전 보관 ";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "지불 %@ %.2f";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "배송>";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "구독 신청";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "구독 신청 %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "통화";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "취소";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "배송";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "전화";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "통화 선택";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "나라 선택";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "주 선택";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "결제";
+
+/* Shipping title */
+"Label_Shipping" = "배송";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";

@@ -1,0 +1,179 @@
+/*
+ Localizable.strings - Portuguese
+ BluesnapSDK
+ 
+ Created by Shevie Chen on 13/08/2017.
+ Copyright Â© 2017 Bluesnap. All rights reserved.
+ */
+
+/* ------- General ------- */
+
+/* When shopwing error alert, a single button lets you close it, and this is the text in that button */
+"Alert_OK_Button_Text" = "OK";
+/* On numeric keyboards we add a "done" button to close them */
+"Keyboard_Done_Button_Text" = "Concluído";
+
+/* ------- BSCcInputLine ------- */
+
+/* General error while submitting CC to validate credit card */
+"Error_General_CC_Validation_Error" = "Ocorreu um erro. Tente novamente.";
+/* CardType not supported by merchant while submitting CC details to BlueSnap server */
+"Error_Card_Type_Not_Supported_1" = "Este tipo de cartão ";
+"Error_Card_Type_Not_Supported_2" = " não é atualmente aceite para esta transação. Por favor tente novamente utilizando outro cartão";
+/* Token expired error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_expired" = "Ocorreu um erro. Tente novamente.";
+/* Token not found error while submitting CC details to BlueSnap server */
+"Error_Cc_Submit_Token_not_found" = "Ocorreu um erro. Tente novamente.";
+/* General error while submitting CC details to BlueSnap server */
+"Error_General_CC_Submit_Error" = "Ocorreu um erro. Tente novamente.";
+
+/* ------- Validation errors ------- */
+
+/* Invalid credit card number - shown in the CC component below the field */
+"Error_Invalid_CCN" = "Número inválido de cartão";
+/* Invalid CVV - shown in the CC component below the field */
+"Error_Invalid_CVV" = "Código de verificação inválido";
+/* Invalid expiration month - if the month is not 01-12 - shown in the CC component below the field */
+"Error_Invalid_ExpMonth" = "Mês inválido";
+/* Invalid expiration is in the past - if the expiration date has passed already - shown in the CC component below the field */
+"Error_Invalid_ExpIsInThePast" = "A data está no passado";
+/* Invalid expiration date - for general invalid expiration date - shown in the CC component below the field */
+"Error_Invalid_EXP" = "Data inválida";
+/* Invalid Name - should contain first and last name - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Name" = "Digite um nome e um sobrenome";
+/* Invalid Email - shown in the Payment screen below the field */
+"Error_Invalid_Email" = "E-mail inválido";
+/* Invalid Address - shown in the Payment/shipping screen below the field */
+"Error_Invalid_Address" = "Rua inválida";
+/* Invalid City - shown in the Payment/shipping screen below the field */
+"Error_Invalid_City" = "Cidade inválida";
+/* Invalid Country - not sure this is in use */
+"Error_Invalid_Country" = "País inválido";
+/* Invalid State - when state is missing for a country that has states - shown in the Payment/shipping screen below the field */
+"Error_Invalid_State" = "Estado inválido";
+/* Invalid Zip code - used in US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_ZipCode" = "CEP inválido";
+/* Invalid Postal code - used outside US - shown in the Payment/shipping screen below the field */
+"Error_Invalid_PostalCode" = "Código postal inválido";
+
+/* ------- Zip/Postal code labels ------- */
+
+/* How to call billing zip code in the US */
+"Placeholder_Billing_Zip" = "CEP de cobrança";
+/* How to call shipping zip code in the US */
+"Placeholder_Shipping_Zip" = "CEP de entrega";
+/* How to call billing/shipping zip code outside the US */
+"Placeholder_Postal_Code" = "Código postal";
+
+/* ------- Payment Type screen ------- */
+
+/* Title of Payment Type screen (where you choose ApplePay/CC/PayPal) */
+"Title_Payment_Type" = "Tipo de pagamento";
+/* OR label between payment types in the payment screen */
+"Label_Or" = "OU";
+/* When continuing to shopping screen, we set the navigation item for going back to this*/
+"Navigate_Back_to_payment_type_screen" = "Voltar";
+
+
+/* ------- Pay Pal functionality ------- */
+
+/* Title of alert popup when showing one of the errors below */
+"Error_Title_PayPal" = "Erro no PayPal";
+/* Error in alert pop-up when we get this error from PayPal while trying to start the flow*/
+"Error_PayPal_Currency_Not_Supported" = "Esta moeda não é aceita pelo PayPal";
+/* Error in alert pop-up when we get an unknown error from PayPal while trying to start the flow*/
+"Error_General_PayPal_error" = "Não é possível conectar ao PayPal";
+
+/* ------- Apple Pay functionality ------- */
+
+/* Title of error popup for Apple Pay errors */
+"Error_Title_Apple_Pay" = "Apple Pay";
+/* Various Apple Pay errors */
+"Error_Not_available_on_this_device" = "Indisponível neste dispositivo";
+"Error_No_cards_set" = "Nenhum cartão definido";
+"Error_Setup_error" = "Não é possível conectar à Apple Pay. Selecione outra forma de pagamento.";
+"Error_General_ApplePay_error" = "Não é possível conectar à Apple Pay";
+
+
+/* ------- (CC) Payment screen ------- */
+
+/* Title of alert popup when showing an error */
+"Error_Title_Payment" = "Ops";
+/* Error in alert pop-up when we get an unknown error in the Payment screen */
+"Error_General_Payment_error" = "Ocorreu um erro. Por favor, tente novamente";
+
+/* Title of Payment screen (where you fill billing details) */
+"Title_Payment_Screen" = "Pagamento";
+
+/* Placeholder for the Name field in the payment and shipping screens */
+"Placeholder_Name" = "Nome";
+/* Placeholder for the Email field in the payment screen */
+"Placeholder_Email" = "E-mail";
+/* Placeholder for the Address field in the payment and shipping screens */
+"Placeholder_Address" = "Endereço";
+/* Placeholder for the City field in the payment and shipping screens */
+"Placeholder_City" = "Cidade";
+/* Placeholder for the State field in the payment and shipping screens */
+"Placeholder_State" = "Estado";
+
+
+/* Label for subtotal amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Subtotal_Amount" = "Subtotal:";
+/* Label for tax amount (bottom right above the pay button) in Billing/Shipping screen */
+"Label_Tax_Amount" = "Imposto:";
+/* Label for the "Shipping same as billing" switch in the payment screens */
+"Label_Shipping_Same_As_Billing" = "Endereço de entrega igual ao de cobrança";
+/* Label for the "Store Card" switch in the payment screens */
+"Label_Store_Card" = "Guardar o meu cartão com segurança";
+
+
+/* The format of the Pay button text: the word Pay and then the currency and then the amount with a 2 digit precision */
+"Payment_Pay_Button_Format" = "Pagar %@ %.2f";
+/* The format of the Subtotal/Tax amount label: the currency and then the amount with a 2 digit precision */
+"Payment_subtotal_and_tax_format" = "%@%.2f";
+/* The text of the Pay button in the Payment screen in case we have shipping */
+"Payment_Shipping_Button" = "Entrega >";
+
+/* The text of the Pay button in subscription mode without price details */
+"Subscription_Pay_Button_Format" = "Se inscrever";
+/* The format of the Pay button text in subscription mode: the word Subscribe and then the currency and then the amount with a 2 digit precision */
+"Subscription_with_price_details_Pay_Button_Format" = "Se inscrever %@ %.2f";
+
+
+/* ------- Menu in Payment screen ------- */
+
+/* This menu item leads to the currency selection screen */
+"Menu_Item_Currency" = "Moeda";
+/* This menu item closes the menu */
+"Menu_Item_Cancel" = "Cancelar";
+
+
+/* ------- Labels for shipping screens ------- */
+
+/* Title of Shipping screen (where you fill shipping details) */
+"Title_Shipping_Screen" = "Entrega";
+
+/* Label for the phone in the shipping screen */
+"Label_Phone" = "Telefone";
+
+/* ------- List screens ------- */
+
+/* Title of currency list screen */
+"Title_Currency_Screen" = "Selecione a moeda";
+
+/* Title of currency list screen */
+"Title_Country_Screen" = "Selecione o país";
+
+/* Title of currency list screen */
+"Title_State_Screen" = "Selecione o estado";
+
+/* ------- Existing CC screen labels ------- */
+
+/* Billing title */
+"Label_Billing" = "Faturamento";
+
+/* Shipping title */
+"Label_Shipping" = "Entrega";
+
+/* Edit button */
+"Edit_Button_Title" = "Edit";
