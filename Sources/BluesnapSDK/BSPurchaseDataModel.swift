@@ -285,7 +285,7 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         }
     }
 
-    public override init(
+    public  init(
         withEmail: Bool,
         withShipping: Bool,
         fullBilling: Bool,
@@ -293,7 +293,9 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         billingDetails: BSBillingAddressDetails?,
         shippingDetails: BSShippingAddressDetails?,
         purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
-        updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?
+        updateTaxFunc: ((String, String?, BSPriceDetails) -> Void)?,
+        subscriptionCancellationMessage: String? = nil,
+        showSubscriptionCancellationMessage: Bool? = nil
     ) {
         super.init(
             withEmail: withEmail,
@@ -310,6 +312,13 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         if self.subscriptionCancellationMessage == nil || self.subscriptionCancellationMessage?.isEmpty == true {
             self.subscriptionCancellationMessage = "You can cancel subscriptions at any time"
         }
+        // Apply explicit customization if provided
+        if let providedShow = showSubscriptionCancellationMessage {
+            self.showSubscriptionCancellationMessage = providedShow
+        }
+        if let providedMessage = subscriptionCancellationMessage {
+            self.subscriptionCancellationMessage = providedMessage
+        }
     }
 
     convenience public init(
@@ -318,22 +327,26 @@ public class BSSdkRequestSubscriptionCharge: BSSdkRequest {
         fullBilling: Bool,
         billingDetails: BSBillingAddressDetails?,
         shippingDetails: BSShippingAddressDetails?,
-        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void
+        purchaseFunc: @escaping (BSBaseSdkResult?) -> Void,
+        subscriptionCancellationMessage: String? = nil,
+        showSubscriptionCancellationMessage: Bool? = nil
     ) {
 
         self.init(
             withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling,
             priceDetails: nil, billingDetails: billingDetails, shippingDetails: shippingDetails,
-            purchaseFunc: purchaseFunc, updateTaxFunc: nil)
+            purchaseFunc: purchaseFunc, updateTaxFunc: nil,
+            subscriptionCancellationMessage: subscriptionCancellationMessage,
+            showSubscriptionCancellationMessage: showSubscriptionCancellationMessage)
 
         sdkRequestHasPriceDetails = false
         allowCurrencyChange = false
 
         // Default cancellation message behavior for subscription flows without price details
-        self.showSubscriptionCancellationMessage = true
         if self.subscriptionCancellationMessage == nil || self.subscriptionCancellationMessage?.isEmpty == true {
             self.subscriptionCancellationMessage = "You can cancel subscriptions at any time"
         }
+        self.showSubscriptionCancellationMessage = showSubscriptionCancellationMessage ?? true
     }
 
     public func hasPriceDetails() -> Bool {
