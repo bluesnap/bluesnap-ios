@@ -90,11 +90,22 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
             self.purchaseDetails = purchaseDetails
         }
 
-        // Default behavior: show cancellation message for subscriptions
-        if self.purchaseDetails.isSubscriptionCharge() {
+        // Apply subscription cancellation configuration from the public SDK request API
+        if let sdkRequest = BlueSnapSDK.sdkRequestBase {
+            if self.purchaseDetails.isSubscriptionCharge() {
+                // Respect explicit configuration from the merchant app
+                self.showSubscriptionCancellationMessage = sdkRequest.showSubscriptionCancellationMessage
+                if let customText = sdkRequest.subscriptionCancellationMessage, !customText.isEmpty {
+                    self.subscriptionCancellationMessageText = customText
+                }
+            } else {
+                self.showSubscriptionCancellationMessage = false
+            }
+        }
+
+        // Default behavior show for subscriptions
+        if self.purchaseDetails.isSubscriptionCharge() && BlueSnapSDK.sdkRequestBase?.subscriptionCancellationMessage == nil {
             self.showSubscriptionCancellationMessage = true
-        } else {
-            self.showSubscriptionCancellationMessage = false
         }
     }
 

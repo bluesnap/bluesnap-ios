@@ -285,10 +285,13 @@ class ViewController: UIViewController {
             sdkRequestBase = BSSdkRequest(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, priceDetails: priceDetails, billingDetails: nil, shippingDetails: nil, purchaseFunc: self.completePurchase, updateTaxFunc: self.updateTax)
 
         } else if (isSubscriptionCharge) {
+            // Inside your fillSdkRequest(...) when isSubscriptionCharge == true
+            let customSubscriptionMessage = "You can cancel this subscription(custom)"
+                
             if ((trialPeriodDays ?? 0) > 0){ // initialize sdk for subscription flow without price details
-                sdkRequestBase = BSSdkRequestSubscriptionCharge(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, billingDetails: nil, shippingDetails: nil, purchaseFunc: self.completePurchase)
-            } else { // initialize sdk for subscription flow with price details
-                sdkRequestBase = BSSdkRequestSubscriptionCharge(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, priceDetails: priceDetails, billingDetails: nil, shippingDetails: nil, purchaseFunc: self.completePurchase, updateTaxFunc: self.updateTax)
+                sdkRequestBase = BSSdkRequestSubscriptionCharge(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, billingDetails: nil, shippingDetails: nil, purchaseFunc: self.completePurchase, subscriptionCancellationMessage: customSubscriptionMessage, showSubscriptionCancellationMessage: true)
+            } else {                // initialize sdk for subscription flow with price details
+                sdkRequestBase = BSSdkRequestSubscriptionCharge(withEmail: withEmail, withShipping: withShipping, fullBilling: fullBilling, priceDetails: priceDetails, billingDetails: nil, shippingDetails: nil, purchaseFunc: self.completePurchase, updateTaxFunc: self.updateTax, subscriptionCancellationMessage: customSubscriptionMessage, showSubscriptionCancellationMessage: true)
             }
     
         } else {
@@ -364,7 +367,7 @@ class ViewController: UIViewController {
             NSLog("Shopper Configuration completed Successfully!")
             NSLog("ChosenPaymentMethodType: \(purchaseDetails.getChosenPaymentMethodType().rawValue)")
             if purchaseDetails is BSCcSdkResult, let ccPurchaseDetails = purchaseDetails as? BSCcSdkResult{
-                let creditCard = ccPurchaseDetails.creditCard
+                _ = ccPurchaseDetails.creditCard
             
             }
             showThankYouScreen(errorText: nil)
@@ -388,7 +391,7 @@ class ViewController: UIViewController {
             NSLog("Apple Pay details accepted")
             
         } else if let ccPurchaseDetails = purchaseDetails as? BSCcSdkResult {
-            let creditCard = ccPurchaseDetails.creditCard
+            _ = ccPurchaseDetails.creditCard
             isSubscription = purchaseDetails.isSubscriptionCharge()
         }
 

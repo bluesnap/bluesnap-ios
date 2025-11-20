@@ -729,22 +729,26 @@ Customization:
 
 Example (after presenting the checkout screen):
 ```swift
-do {
-    try BlueSnapSDK.showCheckoutScreen(
-        inNavigationController: self.navigationController,
-        animated: true,
-        sdkRequest: sdkRequest
-    )
-    // If you want to customize the subscription cancellation message:
-    if let paymentVC = self.navigationController?.topViewController as? BSPaymentViewController {
-        // Hide or show the message (default is true for subscriptions)
-        paymentVC.setShowSubscriptionCancellationMessage(true)
-        // Provide your own localized or customized message text
-        paymentVC.setSubscriptionCancellationMessageText("Cancel anytime from your account settings.")
-    }
-} catch {
-    // handle error
+
+let sdkRequest = BSSdkRequestSubscriptionCharge(
+    withEmail: true,
+    withShipping: false,
+    fullBilling: false,
+    billingDetails: nil,
+    shippingDetails: nil,
+    purchaseFunc: { result in
+        // Handle completion (success/fail)
+    },
+    subscriptionCancellationMessage: "Cancel anytime during the trial from your account settings.",
+    showSubscriptionCancellationMessage: true
+)
+
+try BlueSnapSDK.showCheckoutScreen(
+    inNavigationController: navigationController,
+    animated: true,
+    sdkRequest: sdkRequest)
 }
+```
 
 ### submitTokenizedDetails
 This function is relevant if you're collecting the user's data using your own input fields. 
