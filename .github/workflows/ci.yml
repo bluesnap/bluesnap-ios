@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Restore SPM cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: Run unit tests
+        run: |
+          xcodebuild test \
+            -workspace BluesnapIOS.xcworkspace \
+            -scheme BluesnapSDK \
+            -testPlan BluesnapSDK \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -resultBundlePath TestResults/UnitTests.xcresult
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Restore SPM cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: Inject credentials
+        env:
+          BS_API_USER: ${{ secrets.BS_API_USER }}
+          BS_API_PASSWORD: ${{ secrets.BS_API_PASSWORD }}
+        run: |
+          mkdir -p Sources/BluesnapSDK/Resources
+          /usr/libexec/PlistBuddy \
+            -c "Add :BsAPIUser string $BS_API_USER" \
+            -c "Add :BsAPIPassword string $BS_API_PASSWORD" \
+            -x Sources/BluesnapSDK/Resources/credentials.plist
+
+          /usr/libexec/PlistBuddy \
+            -c "Set :BsAPIUser $BS_API_USER" \
+            -c "Set :BsAPIPassword $BS_API_PASSWORD" \
+            Tests/BluesnapSDKIntegrationTests/Resources/credentials.plist
+
+      - name: Run integration tests
+        run: |
+          xcodebuild test \
+            -workspace BluesnapIOS.xcworkspace \
+            -scheme BluesnapSDK \
+            -testPlan BluesnapSDKIntegration \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -resultBundlePath TestResults/IntegrationTests.xcresult
+
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: integration-test-results
+          path: TestResults/IntegrationTests.xcresult
+
+  ui-tests:
+    name: UI Tests
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Restore SPM cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: Inject credentials
+        env:
+          BS_API_USER: ${{ secrets.BS_API_USER }}
+          BS_API_PASSWORD: ${{ secrets.BS_API_PASSWORD }}
+        run: |
+          mkdir -p Sources/BluesnapSDK/Resources
+          /usr/libexec/PlistBuddy \
+            -c "Add :BsAPIUser string $BS_API_USER" \
+            -c "Add :BsAPIPassword string $BS_API_PASSWORD" \
+            -x Sources/BluesnapSDK/Resources/credentials.plist
+
+          /usr/libexec/PlistBuddy \
+            -c "Set :BsAPIUser $BS_API_USER" \
+            -c "Set :BsAPIPassword $BS_API_PASSWORD" \
+            Tests/BluesnapSDKIntegrationTests/Resources/credentials.plist
+
+      - name: Run UI tests
+        run: |
+          xcodebuild test \
+            -workspace BluesnapIOS.xcworkspace \
+            -scheme BluesnapSDKExample \
+            -testPlan SanityUITests \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -resultBundlePath TestResults/UITests.xcresult
+
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ui-test-results
+          path: TestResults/UITests.xcresult

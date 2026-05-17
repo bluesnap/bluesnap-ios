@@ -1,0 +1,48 @@
+{
+  "configurations" : [
+    {
+      "id" : "0352E27C-03BE-4136-ADA9-7FFDD2904C67",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "PACKAGE_RESOURCE_BUNDLE_URL",
+        "value" : "$(BUILT_PRODUCTS_DIR)"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+      "identifier" : "599E18F62A08F57A004AAE57",
+      "name" : "BluesnapSDKExample"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CheckoutBaseTester",
+        "ReturningShopperFullBillingWithEmailTests\/testReturningShopperViewsFullBillingWithEmail_shopperWithFullBillingWithEmail()",
+        "ReturningShopperFullBillingWithEmailWithShippingTests\/testReturningShopperEndToEndFullBillingWithEmailWithShipping_shopperWithFullBillingWithEmailWithShipping()",
+        "ReturningShopperMinimalBillingWithEmailTests\/testReturningShopperViewsMinimalBillingWithEmail_shopperWithMinimalBillingWithEmail()",
+        "ReturningShopperMinimalBillingWithEmailWithShippingTests\/testReturningShopperViewsMinimalBillingWithEmailWithShipping_shopperWithMinimalBillingWithEmailWithShipping()",
+        "ShopperConfigurationUITests",
+        "SubscriptionChargeNewShopperUITests",
+        "SubscriptionChargeReturningShopperUITests\/testAllowCurrencyChange_subscriptionWithoutPriceDetails()",
+        "SubscriptionChargeReturningShopperUITests\/testNotAllowCurrencyChange_subscriptionWithoutPriceDetails()",
+        "SubscriptionChargeReturningShopperUITests\/testViewsFullBillingWithShippingWithEmail_shopperWithFullBillingWithEmailWithShipping_subscriptionWithoutPriceDetails()",
+        "SubscriptionChargeReturningShopperUITests\/testViewsNoFullBillingNoShippingNoEmail_shopperWithFullBillingWithEmailWithShipping_subscriptionWithoutPriceDetails()",
+        "UIBaseTester"
+      ],
+      "target" : {
+        "containerPath" : "container:BluesnapSDKExample.xcodeproj",
+        "identifier" : "599E19322A091BE3004AAE57",
+        "name" : "BluesnapSDKExampleUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
