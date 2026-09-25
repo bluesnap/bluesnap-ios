@@ -17,10 +17,10 @@ import Foundation
     internal static let TOKENIZED_SERVICE = "services/2/payment-fields-tokens/"
     internal static let UPDATE_SHOPPER = "services/2/tokenized-services/shopper"
     internal static let BLUESNAP_API_VERSION_HEADER = "BLUESNAP_VERSION_HEADER"
-    internal static let BLUESNAP_API_VERSION_HEADER_VAL = "2.1.6" // Inject from Git Tag/Pod
+    internal static let BLUESNAP_API_VERSION_HEADER_VAL = "2.2.0" // Inject from Git Tag/Pod
     internal static let SDK_VERSION_CODE_HEADER = "BLUESNAP_ORIGIN_HEADER"
     //internal static let SDK_VERSION_CODE_HEADER_VAL = "IOS SDK " + (BSViewsManager.getBundle().object(forInfoDictionaryKey: "CFBundleVersion") as! String)
-    internal static let SDK_VERSION_CODE_HEADER_VAL = "IOS SDK 2160"
+    internal static let SDK_VERSION_CODE_HEADER_VAL = "IOS SDK 2200"
     internal static let SDK_VERSION_STRING_HEADER = "BLUESNAP_ORIGIN_VERSION_HEADER"
     //internal static let SDK_VERSION_STRING_HEADER_VAL = (BSViewsManager.getBundle().object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
     internal static let SDK_VERSION_STRING_HEADER_VAL = BLUESNAP_API_VERSION_HEADER_VAL
