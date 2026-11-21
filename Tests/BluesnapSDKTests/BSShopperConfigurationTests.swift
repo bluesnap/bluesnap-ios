@@ -126,12 +126,19 @@ class BSShopperConfigurationTests: XCTestCase {
         return billlingDetails
     }
 
+    /// An expiration date "MM/YYYY" in the given month, `yearsAhead` years from now,
+    /// so the test cards stay valid whenever the tests run.
+    private func futureExp(month: String, yearsAhead: Int) -> String {
+        let year = Calendar(identifier: .gregorian).component(.year, from: Date()) + yearsAhead
+        return "\(month)/\(year)"
+    }
+
     private func getVisa() -> [String: String] {
-        return ["ccn": "4111111111111111", "exp": "10/2020", "cvv": "111", "ccType": "VISA", "last4Digits": "1111", "issuingCountry": "US"]
+        return ["ccn": "4111111111111111", "exp": futureExp(month: "10", yearsAhead: 1), "cvv": "111", "ccType": "VISA", "last4Digits": "1111", "issuingCountry": "US"]
     }
 
     private func getMasterCard() -> [String: String] {
-        return ["ccn": "5555555555555557", "exp": "11/2021", "cvv": "123", "ccType": "MASTERCARD", "last4Digits": "5557", "issuingCountry": "BR"]
+        return ["ccn": "5555555555555557", "exp": futureExp(month: "11", yearsAhead: 2), "cvv": "123", "ccType": "MASTERCARD", "last4Digits": "5557", "issuingCountry": "BR"]
     }
 
     private func getBSCreditCardVisa() -> BSCreditCard {

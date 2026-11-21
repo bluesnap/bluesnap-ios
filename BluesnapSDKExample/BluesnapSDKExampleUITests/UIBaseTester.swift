@@ -255,41 +255,32 @@ class UIBaseTester: XCTestCase{
         assert(labelText == expectedSuccessText)
     }
 
-    internal func waitForElementToExist(element: XCUIElement, waitTime: TimeInterval) {
+    /// Polls `condition` until it holds or `timeout` passes. These waits check the element directly:
+    /// a predicate expectation on an XCUIElement (`exists == 1`) never became true on Xcode 27 / iOS 27
+    /// for elements that `waitForExistence` finds at once, which failed the shipping and success waits.
+    private func pollUntil(_ timeout: TimeInterval, _ condition: () -> Bool) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        repeat {
+            if condition() { return true }
+            RunLoop.current.run(until: Date().addingTimeInterval(0.25))
+        } while Date() < deadline
+        return condition()
+    }
 
-        let exists = NSPredicate(format: "exists == 1")
-        let ex: XCTestExpectation = expectation(for: exists, evaluatedWith: element)
-        wait(for: [ex], timeout: waitTime)
-        //        waitForExpectations(timeout: waitTime, handler: { error in
-        //            NSLog("Finished waiting")
-        //        })
+    internal func waitForElementToExist(element: XCUIElement, waitTime: TimeInterval) {
+        XCTAssertTrue(element.waitForExistence(timeout: waitTime), "\(element) did not appear within \(waitTime) s")
     }
 
     internal func waitForElementToBeEnabled(element: XCUIElement, waitTime: TimeInterval) {
-
-        let exists = NSPredicate(format: "isEnabled == 1")
-        let ex: XCTestExpectation = expectation(for: exists, evaluatedWith: element)
-        wait(for: [ex], timeout: waitTime)
-        //        waitForExpectations(timeout: waitTime, handler: { error in
-        //            NSLog("Finished waiting")
-        //
+        XCTAssertTrue(pollUntil(waitTime) { element.exists && element.isEnabled }, "\(element) was not enabled within \(waitTime) s")
     }
 
     internal func waitForElementToBeHittable(element: XCUIElement, waitTime: TimeInterval) {
-
-        let exists = NSPredicate(format: "isHittable == 1")
-        let ex: XCTestExpectation = expectation(for: exists, evaluatedWith: element)
-        wait(for: [ex], timeout: waitTime)
-        //        waitForExpectations(timeout: waitTime, handler: { error in
-        //            NSLog("Finished waiting")
-        //
+        XCTAssertTrue(pollUntil(waitTime) { element.exists && element.isHittable }, "\(element) was not hittable within \(waitTime) s")
     }
 
     internal func waitForEllementToDisappear(element: XCUIElement, waitTime: TimeInterval) {
-
-        let exists = NSPredicate(format: "exists == 0")
-        let ex: XCTestExpectation = expectation(for: exists, evaluatedWith: element)
-        wait(for: [ex], timeout: waitTime)
+        XCTAssertTrue(pollUntil(waitTime) { !element.exists }, "\(element) was still there after \(waitTime) s")
     }
 
     internal func waitForPaymentScreen() {

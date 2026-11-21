@@ -316,16 +316,23 @@ class BSUITestUtils {
         return "1111"
     }
     
+    // The test card expires in December of next year, so it is valid whenever the tests run
+    // (fixed dates stop working once they arrive: the SDK rejects an expired card).
     static func getValidExpDate()->String {
-        return "1126"
+        return getValidExpMonth() + String(getValidExpYear().suffix(2))
     }
-    
+
     static func getValidExpYear()->String {
-        return "2026"
+        return String(Calendar(identifier: .gregorian).component(.year, from: Date()) + 1)
     }
-    
+
     static func getValidExpMonth()->String {
-        return "11"
+        return "12"
+    }
+
+    /// The expiration as the card input line shows it: MM/YY
+    static func getValidExpDisplay()->String {
+        return getValidExpMonth() + "/" + String(getValidExpYear().suffix(2))
     }
     
     static func getValidCvvNumber()->String {
@@ -358,8 +365,31 @@ class BSUITestUtils {
 }
 
 extension XCUIElement {
+    /// True when the element has keyboard focus. Falls back to "the keyboard is showing"
+    /// where XCTest does not expose the focus attribute.
+    private var isReadyForTyping: Bool {
+        if responds(to: NSSelectorFromString("hasKeyboardFocus")),
+           let focused = value(forKey: "hasKeyboardFocus") as? Bool {
+            return focused
+        }
+        return XCUIApplication().keyboards.firstMatch.exists
+    }
+
+    /// A tap can return before the field has keyboard focus, and typeText then fails with
+    /// "Neither element nor any descendant has keyboard focus". Wait for the focus and tap again if needed.
+    private func tapAndWaitForKeyboardFocus() {
+        for _ in 0..<3 {
+            tap()
+            let deadline = Date().addingTimeInterval(3)
+            while Date() < deadline {
+                if isReadyForTyping { return }
+                RunLoop.current.run(until: Date().addingTimeInterval(0.25))
+            }
+        }
+    }
+
     func clearText() {
-        tap()
+        tapAndWaitForKeyboardFocus()
         guard let stringValue = self.value as? String else {
             return
         }

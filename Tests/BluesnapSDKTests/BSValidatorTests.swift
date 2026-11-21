@@ -278,6 +278,30 @@ class BSValidatorTests: XCTestCase {
         XCTAssertEqual(result, true)
     }
 
+    /// A card is valid through the last day of its expiration month.
+    func testCcExpirationIsValidThroughTheEndOfTheMonth() {
+        let calendar = Calendar(identifier: .gregorian)
+        func date(_ year: Int, _ month: Int, _ day: Int, _ hour: Int = 0, _ minute: Int = 0) -> Date {
+            return calendar.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minute))!
+        }
+
+        // the card's own month: valid on its first day, in the middle and on its last minute
+        XCTAssertTrue(BSValidator.isCcValidExpiration(mm: "11", yy: "26", now: date(2026, 11, 1, 0, 1)).0, "first day")
+        XCTAssertTrue(BSValidator.isCcValidExpiration(mm: "11", yy: "26", now: date(2026, 11, 9, 12)).0, "mid month")
+        XCTAssertTrue(BSValidator.isCcValidExpiration(mm: "11", yy: "26", now: date(2026, 11, 30, 23, 59)).0, "last minute")
+        XCTAssertTrue(BSValidator.isCcValidExpiration(mm: "11", yy: "2026", now: date(2026, 11, 9)).0, "four digit year")
+
+        // the month after: expired
+        let expired = BSValidator.isCcValidExpiration(mm: "11", yy: "26", now: date(2026, 12, 1))
+        XCTAssertFalse(expired.0, "first day of the next month")
+        XCTAssertEqual(expired.1, BSValidator.expPastInvalidMessage)
+        XCTAssertFalse(BSValidator.isCcValidExpiration(mm: "10", yy: "26", now: date(2026, 11, 9)).0, "previous month")
+
+        // December rolls over to January of the next year
+        XCTAssertTrue(BSValidator.isCcValidExpiration(mm: "12", yy: "26", now: date(2026, 12, 31, 23, 59)).0, "December")
+        XCTAssertFalse(BSValidator.isCcValidExpiration(mm: "12", yy: "26", now: date(2027, 1, 1)).0, "January")
+    }
+
     func testValidateExp() {
 
         let input = BSCcInputLine()
@@ -295,7 +319,9 @@ class BSValidatorTests: XCTestCase {
         XCTAssertEqual(input.expErrorLabel?.isHidden, false, "3 isHidden")
         XCTAssertEqual(input.expErrorLabel?.text, BSValidator.expInvalidMessage, "3 message")
 
-        input.expTextField.text = "12/26"
+        // December of next year: valid whenever this test runs
+        let nextYear = Calendar(identifier: .gregorian).component(.year, from: Date()) + 1
+        input.expTextField.text = "12/" + String(format: "%02d", nextYear % 100)
         XCTAssertEqual(BSValidator.validateExp(input: input), true, "4 validateExp")
         XCTAssertEqual(input.expErrorLabel?.isHidden, true, "4 isHidden")
 

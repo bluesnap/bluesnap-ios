@@ -214,11 +214,13 @@ class BSIntegrationTestingAPIHelper {
             curlCommand += " -v -X \(method)"
         }
 
-        // Print headers
+        // Print headers. The Authorization header carries the API credentials
+        // (Basic auth is only base64), and test logs end up in CI logs.
         if let headers = request.allHTTPHeaderFields {
             for (header, value) in headers {
+                let shown = header.caseInsensitiveCompare("Authorization") == .orderedSame ? "<redacted>" : value
                 // Wrap the header value in quotes in case it contains spaces or special characters
-                curlCommand += " -H \"\(header): \(value)\""
+                curlCommand += " -H \"\(header): \(shown)\""
             }
         }
 
@@ -423,7 +425,7 @@ class BSIntegrationTestingAPIHelper {
                 return
             }
             bsToken = BluesnapSDKIntegrationTestsHelper.initBSToken(tokenStr: tokenStr)
-            NSLog("token: \(bsToken.tokenStr)")
+            NSLog("createVaultedShopper: token created")
             submitCCDetails(ccDetails: creditCard, billingDetails: BluesnapSDKIntegrationTestsHelper.getBillingDetails(add2: set2),
                     shippingDetails: BluesnapSDKIntegrationTestsHelper.getShippingDetails(add2: set2), storeCard: storeCard, completion: { error in
                 semaphore.signal()

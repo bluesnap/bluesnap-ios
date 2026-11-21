@@ -355,12 +355,17 @@ public class BSValidator: NSObject {
     }
     
     open class func isCcValidExpiration(mm: String, yy: String) -> (Bool, String) {
+        return isCcValidExpiration(mm: mm, yy: yy, now: Date())
+    }
+
+    // `now` is a parameter so that tests can fix the clock.
+    class func isCcValidExpiration(mm: String, yy: String, now: Date) -> (Bool, String) {
         var ok = false
         var msg = expInvalidMessage
         if let month = Int(mm), let year = Int(yy) {
             let calendar = Calendar(identifier: .gregorian)
             var dateComponents = DateComponents()
-            let currYear : Int! = getCurrentYear()
+            let currYear : Int! = calendar.component(.year, from: now)
             if yy.count < 4 {
                 dateComponents.year = year + (currYear / 100)*100
             } else {
@@ -368,10 +373,13 @@ public class BSValidator: NSObject {
             }
             dateComponents.month = month
             dateComponents.day = 1
-            let expDate = calendar.date(from: dateComponents)!
+            let expMonthStart = calendar.date(from: dateComponents)!
+            // A card is valid through the last day of its expiration month, so it expires
+            // when the next month begins (not when its own month begins).
+            let expDate = calendar.date(byAdding: .month, value: 1, to: expMonthStart)!
             if dateComponents.year! > currYear + 10 {
                 ok = false
-            } else if expDate < Date() {
+            } else if expDate <= now {
                 ok = false
                 msg = expPastInvalidMessage
             } else {

@@ -87,7 +87,7 @@ class CheckoutBaseTester: UIBaseTester{
             isSuccess, data in
             XCTAssert(isSuccess, "error: \(String(describing: "Retrieve Vaulted Shopper failed"))")
             
-            let error = BSUITestUtils.checkRetrieveVaultedShopperResponse(responseBody: data!, sdkRequest: self.sdkRequest, cardStored: storeCard, expectedCreditCardInfo: [("1111", "VISA", "11","2026")], shippingSameAsBilling: shippingSameAsBilling, isSubscription: isSubscription)
+            let error = BSUITestUtils.checkRetrieveVaultedShopperResponse(responseBody: data!, sdkRequest: self.sdkRequest, cardStored: storeCard, expectedCreditCardInfo: [("1111", "VISA", BSUITestUtils.getValidExpMonth(), BSUITestUtils.getValidExpYear())], shippingSameAsBilling: shippingSameAsBilling, isSubscription: isSubscription)
             
             XCTAssertNil(error, "error: \(String(describing: "Retrieve Vaulted Shopper failed"))")
             
@@ -137,7 +137,7 @@ class CheckoutBaseTester: UIBaseTester{
             isSuccess, data in
             XCTAssert(isSuccess, "error: \(String(describing: "Retrieve Vaulted Shopper failed"))")
             
-            let error = BSUITestUtils.checkRetrieveVaultedShopperResponse(responseBody: data!, sdkRequest: self.sdkRequest, cardStored: true, expectedCreditCardInfo: [("1111", "VISA", "11","2026")])
+            let error = BSUITestUtils.checkRetrieveVaultedShopperResponse(responseBody: data!, sdkRequest: self.sdkRequest, cardStored: true, expectedCreditCardInfo: [("1111", "VISA", BSUITestUtils.getValidExpMonth(), BSUITestUtils.getValidExpYear())])
             
             XCTAssertNil(error, "error: \(String(describing: "Retrieve Vaulted Shopper failed"))")
             

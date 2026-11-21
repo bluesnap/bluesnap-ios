@@ -1,0 +1,7 @@
+version: 1
+builder:
+  configs:
+    # The SDK is UIKit-only: build and document it for iOS.
+    - platform: ios
+      scheme: BluesnapSDK
+      documentation_targets: [BluesnapSDK]

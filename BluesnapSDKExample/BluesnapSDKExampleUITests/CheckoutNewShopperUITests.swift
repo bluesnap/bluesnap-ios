@@ -183,7 +183,7 @@ class CheckoutNewShopperUITests: CheckoutBaseTester {
         BSUITestUtils.pressBackButton(app: app)
 
         // verify that the billing info has been saved in payment screen (including error messages)
-        paymentHelper.checkCcnComponentState(ccnShouldBeOpen: false, ccn: BSUITestUtils.getValidVisaCreditCardNumber(), last4digits: "1111", exp: "11/26", cvv: "333")
+        paymentHelper.checkCcnComponentState(ccnShouldBeOpen: false, ccn: BSUITestUtils.getValidVisaCreditCardNumber(), last4digits: "1111", exp: BSUITestUtils.getValidExpDisplay(), cvv: "333")
         paymentHelper.checkInputsVisibility(sdkRequest: sdkRequest, shopperDetails: sdkRequest.shopperConfiguration.billingDetails, zipLabel: "Billing Zip")
         
         setShippingSameAsBillingSwitch(shouldBeOn: true)
